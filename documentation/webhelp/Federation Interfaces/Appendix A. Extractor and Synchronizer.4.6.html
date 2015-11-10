@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Extraction Rules</title>
+    <link rel="StyleSheet" href="css/Appendix%20A.%20Extractor%20and%20Synchronizer.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.1.html#1046515">A	Extractor and Synchronizer</a> &gt; A.5  Extraction Rules</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">A.5  <a name="1046515">Extraction Rules</a></div>
+      <div class="BodyAfterHead"><a name="1046516">The </a><span class="Variable">QualNet</span> scenario created by Extractor or Synchronizer has sufficient detail to simulate mobility and communication between entities within the federation. For each entity in the federation<span style="font-weight: bold"> </span>that has communication capabilities, Extractor and Synchronizer create a node in the <span class="Variable">QualNet</span> scenario. <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20A.%20Extractor%20and%20Synchronizer.4.6.html#1052589', '');" title="Extraction Rules">Section&nbsp;A.5.1</a></span> describes how the properties of nodes in the <span class="Variable">QualNet</span> scenario are configured, and describes the rules for defining the topology in the <span class="Variable">QualNet</span> scenario.</div>
+      <div class="Heading2Numbered">A.5.1  <a name="1052589">Configuring Nodes</a></div>
+      <div class="BodyAfterHead"><a name="1052593">An entity and its associated radio in a federation are mapped to a single </a><span class="Variable">QualNet</span> node. If an entity has multiple associated radios, then it gets mapped to as many <span class="Variable">QualNet</span> nodes as the number of associated radios. Extractor and Synchronizer ignore entity objects that do not have radios and radio objects that do not have entities. Each radio has a type, which is defined using the six-field DIS/HLA Radio Entity Type Record. This type is used as an index to determine the network parameters <span class="Variable">QualNet</span> will use to model the radio.</div>
+      <div class="Body"><a name="1046523">In a router model, the </a><span style="font-family: &quot;Courier New&quot;">VRLINK-RADIO-SYTEM-TYPE</span> parameter is used to determine which radio types map to that router model. A value of -1 for the Radio Entity Type Record field acts as a wild card and matches any value.</div>
+      <div class="Body"><a name="1046524">For example, the HIGH-POWER-802.11b router model uses the default radio type for VR-Forces, 7.1.225.2.1.20, to assign PHY 802.11b parameters to that radio type.</a></div>
+      <div class="Declaration"><a name="1046525">&nbsp;</a></div>
+      <div class="Declaration"><a name="1046526">ROUTER-MODEL                  HIGH-POWER-802.11b</a></div>
+      <div class="Declaration"><a name="1046527">VRLINK-RADIO-SYSTEM-TYPE      7.1.225.2.1.20</a></div>
+      <div class="Declaration"><a name="1046528">PHY-MODEL                     PHY802.11b</a></div>
+      <div class="Declaration"><a name="1046529">PHY-RX-MODEL                  PHY802.11b</a></div>
+      <div class="Declaration"><a name="1046530">PHY802.11-AUTO-RATE-FALLBACK  NO</a></div>
+      <div class="Heading2Numbered">A.5.2  <a name="1046532">Defining Topology</a></div>
+      <div class="BodyAfterHead"><a name="1046533">Extractor and Synchronizer try to create a reasonable network topology and assigns nodes to subnets based on the following rules:</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046534">Entities with different Force IDs are placed in different subnets.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046535">Entities with incompatible MAC or network protocols are placed in different subnets.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046536">Aggregate Entities are mapped to </a><span class="Variable">QualNet</span> hierarchies. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046537">Entities in different hierarchies are placed in different subnets. </a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046538">Entities that are not explicitly members of an Aggregate Entity are placed in the root hierarchy.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

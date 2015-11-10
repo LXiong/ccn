@@ -1,0 +1,125 @@
+WIRELESS_OPTIONS = -DWIRELESS_LIB -DSATELLITE_LIB -DKERNEL_LITE
+
+WIRELESS_DIR     = ../libraries/wireless/src
+
+WIRELESS_INCLUDES = \
+-I$(WIRELESS_DIR) \
+-I$(WIRELESS_DIR)/olsrv2 \
+-I$(WIRELESS_DIR)/shapelib \
+-I$(WIRELESS_DIR)/shptoxml
+
+#
+# common sources
+#
+WIRELESS_SRCS = \
+$(WIRELESS_DIR)/antenna.cpp \
+$(WIRELESS_DIR)/antenna_global.cpp \
+$(WIRELESS_DIR)/antenna_patterned.cpp \
+$(WIRELESS_DIR)/antenna_steerable.cpp \
+$(WIRELESS_DIR)/antenna_switched.cpp \
+$(WIRELESS_DIR)/cellular_layer3.cpp \
+$(WIRELESS_DIR)/mac_aloha.cpp \
+$(WIRELESS_DIR)/mac_cellular.cpp \
+$(WIRELESS_DIR)/mac_csma.cpp \
+$(WIRELESS_DIR)/mac_dot11-ap.cpp \
+$(WIRELESS_DIR)/mac_dot11.cpp \
+$(WIRELESS_DIR)/mac_dot11-mgmt.cpp \
+$(WIRELESS_DIR)/mac_dot11-mib.cpp \
+$(WIRELESS_DIR)/mac_dot11-pc.cpp \
+$(WIRELESS_DIR)/mac_dot11-sta.cpp \
+$(WIRELESS_DIR)/mac_dot11-hcca.cpp \
+$(WIRELESS_DIR)/mac_dot11s.cpp \
+$(WIRELESS_DIR)/mac_dot11s-frames.cpp \
+$(WIRELESS_DIR)/mac_dot11s-hwmp.cpp \
+$(WIRELESS_DIR)/mac_dot11n.cpp \
+$(WIRELESS_DIR)/mac_generic.cpp \
+$(WIRELESS_DIR)/mac_link_microwave.cpp \
+$(WIRELESS_DIR)/mac_link_satellite.cpp \
+$(WIRELESS_DIR)/mac_maca.cpp \
+$(WIRELESS_DIR)/mac_tdma.cpp \
+$(WIRELESS_DIR)/mobility_group.cpp \
+$(WIRELESS_DIR)/mobility_waypoint.cpp \
+$(WIRELESS_DIR)/multicast_odmrp.cpp \
+$(WIRELESS_DIR)/network_ipv4_ndp.cpp \
+$(WIRELESS_DIR)/network_neighbor_prot.cpp \
+$(WIRELESS_DIR)/energy_model.cpp \
+$(WIRELESS_DIR)/phy.cpp \
+$(WIRELESS_DIR)/battery_model.cpp \
+$(WIRELESS_DIR)/phy_802_11.cpp \
+$(WIRELESS_DIR)/phy_802_11n.cpp \
+$(WIRELESS_DIR)/phy_abstract.cpp \
+$(WIRELESS_DIR)/phy_cellular.cpp \
+$(WIRELESS_DIR)/propagation.cpp \
+$(WIRELESS_DIR)/prop_itm.cpp \
+$(WIRELESS_DIR)/prop_plmatrix.cpp \
+$(WIRELESS_DIR)/routing_aodv.cpp \
+$(WIRELESS_DIR)/manet_packet.cpp \
+$(WIRELESS_DIR)/routing_brp.cpp \
+$(WIRELESS_DIR)/routing_dsr.cpp \
+$(WIRELESS_DIR)/routing_dymo.cpp \
+$(WIRELESS_DIR)/routing_fisheye.cpp \
+$(WIRELESS_DIR)/routing_fsrl.cpp \
+$(WIRELESS_DIR)/routing_iarp.cpp \
+$(WIRELESS_DIR)/routing_ierp.cpp \
+$(WIRELESS_DIR)/routing_lar1.cpp \
+$(WIRELESS_DIR)/routing_olsr-inria.cpp \
+$(WIRELESS_DIR)/routing_olsrv2_niigata.cpp \
+$(WIRELESS_DIR)/routing_star.cpp \
+$(WIRELESS_DIR)/routing_zrp.cpp \
+$(WIRELESS_DIR)/terrain_cartesian.cpp \
+$(WIRELESS_DIR)/terrain_dem.cpp \
+$(WIRELESS_DIR)/terrain_dted.cpp \
+$(WIRELESS_DIR)/terrain_qualnet_urban.cpp \
+$(WIRELESS_DIR)/terrain_qualnet_urban_parser.cpp \
+$(WIRELESS_DIR)/terrain_esri_shp.cpp \
+$(WIRELESS_DIR)/terrain_esri_shp_main.cpp \
+$(WIRELESS_DIR)/terrain_esri_shp_shared.cpp \
+\
+$(WIRELESS_DIR)/olsrv2/proc_rcv_msg_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_proc_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_forward_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_relay_set.cpp \
+$(WIRELESS_DIR)/olsrv2/pktbuf.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_link_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_2neigh_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_mpr_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_mpr_selector_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_adv_neigh_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_topology_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_routing_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_attach_network_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_assn_history_set.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_symmetric_neighbor_set.cpp \
+$(WIRELESS_DIR)/olsrv2/address_compress.cpp \
+$(WIRELESS_DIR)/olsrv2/tlv_compress.cpp \
+$(WIRELESS_DIR)/olsrv2/parse_address.cpp \
+$(WIRELESS_DIR)/olsrv2/parse_tlv.cpp \
+$(WIRELESS_DIR)/olsrv2/generate_msg.cpp \
+$(WIRELESS_DIR)/olsrv2/parse_msg.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_recv_packet.cpp \
+$(WIRELESS_DIR)/olsrv2/packet.cpp \
+$(WIRELESS_DIR)/olsrv2/mantissa.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr_list.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr_hash_list.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr_util.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr_debug.cpp \
+$(WIRELESS_DIR)/olsrv2/olsr_conf.cpp \
+$(WIRELESS_DIR)/olsrv2/proc_neighbor_address_association_set.cpp \
+$(WIRELESS_DIR)/shptoxml/shptoxml_main.cpp \
+$(WIRELESS_DIR)/shptoxml/shptoxml_shared.cpp \
+$(WIRELESS_DIR)/shapelib/dbfopen.c \
+$(WIRELESS_DIR)/shapelib/shpopen.c \
+$(WIRELESS_DIR)/mac_satellite_bentpipe.cpp \
+$(WIRELESS_DIR)/phy_satellite_rsv.cpp \
+$(WIRELESS_DIR)/nameserver.cpp 
+
+
+RADIO_RANGE_SRC = $(WIRELESS_DIR)/prop_range.cpp
+
+SHPTOXML_SRCS= \
+$(WIRELESS_DIR)/shptoxml/shptoxml.cpp \
+$(WIRELESS_DIR)/shptoxml/shptoxml_main.cpp \
+$(WIRELESS_DIR)/shptoxml/shptoxml_shared.cpp \
+$(WIRELESS_DIR)/shapelib/dbfopen.c \
+$(WIRELESS_DIR)/shapelib/shpopen.c

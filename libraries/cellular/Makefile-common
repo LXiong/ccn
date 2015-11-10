@@ -1,0 +1,19 @@
+CELLULAR_OPTIONS = -DCELLULAR_LIB
+
+CELLULAR_DIR = ../libraries/cellular/src
+
+#
+# common sources
+#
+CELLULAR_SRCS = \
+$(CELLULAR_DIR)/app_cellular_abstract.cpp \
+$(CELLULAR_DIR)/cellular_abstract_layer3.cpp \
+$(CELLULAR_DIR)/layer3_gsm.cpp \
+$(CELLULAR_DIR)/mac_cellular_abstract.cpp \
+$(CELLULAR_DIR)/mac_gsm.cpp \
+$(CELLULAR_DIR)/phy_gsm.cpp \
+$(CELLULAR_DIR)/user_profile_parser.cpp \
+$(CELLULAR_DIR)/user_trafficpattern_parser.cpp
+
+CELLULAR_INCLUDES = \
+-I$(CELLULAR_DIR)

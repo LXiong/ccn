@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Creating testfed Command File</title>
+    <link rel="StyleSheet" href="css/Appendix%20B.%20testfed.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20B.%20testfed.5.1.html#1044223">B	testfed</a> &gt; B.5  Creating testfed Command File</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">B.5  <a name="1044223">Creating testfed Command File</a></div>
+      <div class="BodyAfterHead"><a name="1044230">testfed interacts with the </a><span class="Variable">QualNet</span> simulation by means of commands. These commands are entered (one per line) in a testfed command file. The name of the testfed command file should be the same as the <span class="Variable">QualNet</span> scenario configuration (.config) file used in the exercise but should have the extension “.testfed”, for example, if the <span class="Variable">QualNet</span> scenario configuration file is called multicast-scenario.config, then the testfed command file should be named multicast-scenario.testfed. The testfed command file should be placed in the same directory as the <span class="Variable">QualNet</span> scenario configuration file.</div>
+      <div class="BodyAfterHead"><a name="1044272">This commands that can be entered in testfed command (.testfed) file to interact with the </a><span class="Variable">QualNet</span> simulation are described below.</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044278">Register Objects Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044279">The following command registers all objects:</a></div>
+      <div class="Declaration"><a name="1044280">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044281">Register &lt;time&gt;</a></div>
+      <div class="Where"><a name="1044517">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044502">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045223">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045203">Example: </a><span style="font-family: &quot;Courier New&quot;">Register 0S</span></div>
+      <div class="Anchor"><a name="1045364">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044283">Move Entity Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044284">The following command moves the entity that hosts the radio:</a></div>
+      <div class="Declaration"><a name="1044285">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044286">Move &lt;time&gt; &lt;node-ID&gt; &lt;lat&gt; &lt;lon&gt; &lt;alt&gt;</a></div>
+      <div class="Where"><a name="1044305">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044538">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045241">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044290">&lt;node-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044292">Node ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044294">&lt;lat&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044296">Latitude (in degrees) of the new position.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044298">&lt;lon&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044300">Longitude (in degrees) of the new position.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044302">&lt;alt&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="BodyAfterHead"><a name="1044304">Altitude (in meters) of the new position.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045375">Example: </a><span style="font-family: &quot;Courier New&quot;">Move 3S 5 0.01 0.01 20</span></div>
+      <div class="Anchor"><a name="1045376">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044306">Change Entity Orientation Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044307">The following command changes the orientation of all radios hosted by the entity:</a></div>
+      <div class="Command_Input"><a name="1044308">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044309">Orientation &lt;time&gt; &lt;node-ID&gt; &lt;psi&gt; &lt;theta&gt; &lt;phi&gt;</a></div>
+      <div class="Where"><a name="1044320">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 126pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044554">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 306pt">
+            <div class="Body"><a name="1044556">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044313">&lt;node-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044315">Node ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044317">&lt;psi&gt;</a></span><span style="font-family: Arial">, </span>&lt;theta&gt;<span style="font-family: Arial">,</span> &lt;phi&gt;</div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044319">Euler angles (in degrees) of the new orientation in the world coordinate system.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045394">Example: </a><span style="font-family: &quot;Courier New&quot;">Orientation 3.5S 5 1.1 1.1 1.0</span></div>
+      <div class="Anchor"><a name="1045395">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044321">Change Entity Velocity Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044322">The following command changes the velocity of the entity that hosts the radio:</a></div>
+      <div class="Declaration"><a name="1044323">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044324">Velocity &lt;time&gt; &lt;node-ID&gt; &lt;x-velocity&gt; &lt;y-velocity&gt; &lt;z-velocity&gt;</a></div>
+      <div class="Where"><a name="1044343">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044558">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045261">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044328">&lt;node-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044330">Node ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044332">&lt;x-velocity&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044334">New velocity (in meters/sec) along the X-axis of the world coordinate system. </a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044336">&lt;y-velocity&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044338">New velocity (in meters/sec) along the Y-axis of the world coordinate system.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044340">&lt;z-velocity&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044342">New velocity (in meters/sec) along the Z-axis of the world coordinate system.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045415">Example: </a><span style="font-family: &quot;Courier New&quot;">Velocity 2.5S 3 1.0 1.5 2.0 </span></div>
+      <div class="Anchor"><a name="1045416">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044693">Change Entity Damage State Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044694">   The following command changes the damage state of the entity:</a></div>
+      <div class="Declaration"><a name="1044695">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044696">Damage &lt;time&gt; &lt;node-ID&gt; &lt;damage-state&gt;</a></div>
+      <div class="Where"><a name="1044715">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044700">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045288">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044704">&lt;node-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044706">Node ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044708">&lt;damage-state&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044710">Damage state (</a><span style="font-family: &quot;Courier New&quot;">0</span>, <span style="font-family: &quot;Courier New&quot;">1</span>, <span style="font-family: &quot;Courier New&quot;">2</span>, or <span style="font-family: &quot;Courier New&quot;">3</span>). </div>
+            <div class="BodyAfterHead" style="margin-bottom: 3.0pt; margin-left: 36pt"><a name="1044711">	</a><span style="font-family: &quot;Courier New&quot;">0</span>	Not damaged</div>
+            <div class="BodyAfterHead" style="margin-bottom: 3.0pt; margin-left: 36pt"><a name="1044712">	</a><span style="font-family: &quot;Courier New&quot;">1</span>	Slightly damaged: A 25% chance of up to 75% reduction in transmission power</div>
+            <div class="BodyAfterHead" style="margin-bottom: 3.0pt; margin-left: 36pt"><a name="1044713">	</a><span style="font-family: &quot;Courier New&quot;">2</span>	Severely damaged: A 75% chance of up to 75% reduction in transmission power</div>
+            <div class="BodyAfterHead" style="margin-bottom: 3.0pt; margin-left: 36pt"><a name="1044714">	</a><span style="font-family: &quot;Courier New&quot;">3</span>	Destroyed</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045451">Example: </a><span style="font-family: &quot;Courier New&quot;">Damage 50S 3 2</span></div>
+      <div class="Anchor"><a name="1045452">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044344">Send Communication Effects Request Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044348">The following command sends a communication effects request to </a><span class="Variable">QualNet</span>:</div>
+      <div class="Declaration"><a name="1044349">&nbsp;</a></div>
+      <div class="Declaration" style="margin-left: 129.75048pt"><a name="1044350">SendCommRequest &lt;time&gt; &lt;source-ID&gt; [[V]&lt;message-size&gt;]<br />[&lt;timeout-delay&gt;] [&lt;destination-ID&gt;]</a></div>
+      <div class="Where"><a name="1044388">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044562">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045308">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044354">&lt;source-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044356">Node ID of the source node.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044358">&lt;message-size&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044360">Message size (in bytes).</a></div>
+            <div class="BodyAfterHead"><a name="1044361">This parameter is optional. If it is not specified, the default message size is 100 bytes.</a></div>
+            <div class="BodyAfterHead"><a name="1044362">If the message size is preceded by the flag </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">V</span>, it indicates voice traffic.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044364">&lt;timeout-delay&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044366">Timeout delay (in seconds).</a></div>
+            <div class="BodyAfterHead"><a name="1044370">The timeout delay is the maximum time </a><span class="Variable">QualNet</span> will use to determine if the message was successfully delivered.</div>
+            <div class="BodyAfterHead"><a name="1044374">If the communication is successful, </a><span class="Variable">QualNet</span> sends a Process Message interaction indicating that the message was delivered to the destination. If there are multiple recipients, each successful delivery will generate a Process Message interaction.</div>
+            <div class="BodyAfterHead"><a name="1044378">Whether or not the communication is successful, </a><span class="Variable">QualNet</span> sends a Timeout interaction summarizing the delivery status. This occurs when the processing of a message is complete: either after the timeout value or after all potential recipients have processed the signal, whichever occurs first</div>
+            <div class="BodyAfterHead"><a name="1044379">This parameter is optional. If it is not specified, the default timeout delay is 10 seconds.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044381">&lt;destination-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044383">Node ID of the destination node.</a></div>
+            <div class="BodyAfterHead"><a name="1044384">This parameter is optional. If it is not specified, the packet is sent to the default address for the network, as defined in the Networks file (see </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%202.%20VR-Link.2.3.html#980793', '');" title="High Level Architecture (HLA) Protocol">Section&nbsp;2.2.2.1.3</a></span>). </div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045536">Example: </a><span style="font-family: &quot;Courier New&quot;">SendCommRequest 3.5S 1 24 10 2</span></div>
+      <div class="Anchor"><a name="1045537">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044407">Change Radio Transmitter Status Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044408">   The following command changes the transmitter status of the radio:</a></div>
+      <div class="Declaration"><a name="1044409">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044410">TxState &lt;time&gt; &lt;node-ID&gt; &lt;transmitter-state&gt;</a></div>
+      <div class="Where"><a name="1044423">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 126pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044577">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 306pt">
+            <div class="Body"><a name="1045328">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044413">&lt;node-ID&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044415">Node ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044417">&lt;transmitter-state&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1044419">Transmitter state (</a><span style="font-family: &quot;Courier New&quot;">0</span>, <span style="font-family: &quot;Courier New&quot;">1</span>, or <span style="font-family: &quot;Courier New&quot;">2</span>). </div>
+            <div class="BodyAfterHead"><a name="1044420">	</a><span style="font-family: &quot;Courier New&quot;">0</span>	Off</div>
+            <div class="BodyAfterHead"><a name="1044421">	</a><span style="font-family: &quot;Courier New&quot;">1</span>	On but not transmitting</div>
+            <div class="BodyAfterHead"><a name="1044422">	</a><span style="font-family: &quot;Courier New&quot;">2</span>	On and transmitting</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045484">Example: </a><span style="font-family: &quot;Courier New&quot;">TxState 3.5S 4 2</span></div>
+      <div class="Anchor"><a name="1045485">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044424">Quit Command</a></span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1044425">   The following command ends the testfed session:</a></div>
+      <div class="Declaration"><a name="1044426">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044583">Quit &lt;time&gt;</a></div>
+      <div class="Where"><a name="1044590">where </a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 108pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044587">&lt;time&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 324pt">
+            <div class="Body"><a name="1045562">Time (measured from the instant when testfed is started) when the command is sent to </a><span class="Variable">QualNet</span>, specified in <span class="Variable">QualNet</span> time format.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Where"><a name="1045512">Example: </a><span style="font-family: &quot;Courier New&quot;">Quit 30S</span></div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

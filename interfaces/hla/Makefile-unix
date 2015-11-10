@@ -1,0 +1,43 @@
+include ../interfaces/hla/Makefile-common
+
+ifndef RTI_HOME
+$(error You must set the environment variable RTI_HOME to the RTI installation directory.)
+endif
+
+ifndef RTI_INCLUDE_DIR
+RTI_INCLUDE_DIR = $(RTI_HOME)/include
+endif
+
+ifndef RTI_LIB_DIR
+RTI_LIB_DIR = $(RTI_HOME)/lib
+endif
+
+ifndef RTI_LIBRARY
+RTI_LIBRARY = -lRTI-NG -lfedtime
+endif
+
+ifndef RTI_DEFINES
+RTI_DEFINES = -DRTI_USES_STD_FSTREAM
+endif
+
+HLA_INTERFACE_OPTIONS += $(RTI_DEFINES)
+HLA_INTERFACE_INCLUDES = -I$(HLA_INTERFACE_SRC_DIR) "-I$(RTI_INCLUDE_DIR)"
+HLA_INTERFACE_LIBRARIES = "-L$(RTI_LIB_DIR)" $(RTI_LIBRARY) $(RTI_ADDITIONAL_LIBRARIES)
+
+ADDON_OPTIONS   += $(HLA_INTERFACE_OPTIONS)
+ADDON_HDRS      += $(HLA_INTERFACE_HDRS)
+ADDON_SRCS      += $(HLA_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(HLA_INTERFACE_INCLUDES)
+ADDON_LIBRARIES += $(HLA_INTERFACE_LIBRARIES)
+
+HLA_INTERFACE_OBJS_PRE = $(HLA_INTERFACE_SRCS:.cpp=.o)
+HLA_INTERFACE_OBJS = $(HLA_INTERFACE_OBJS_PRE:.c=.o)
+
+clean-hla:
+	-rm -f $(HLA_INTERFACE_OBJS)
+
+clean-hla-all: clean-hla
+	-rm -f ../main/external.o
+	-rm -f ../main/gui.o
+	-rm -f ../libraries/military/src/mac_link11.o
+	-rm -f ../libraries/military/src/mac_link16.o

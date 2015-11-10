@@ -1,0 +1,53 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+
+PURPOSE:-
+--------
+
+StatsDB execution in parallel mode.
+
+
+
+HOW TO:-
+-------
+
+Currently parallel mode execution of StatsDB is supported with MySQL only.
+
+To execute any StatsDB scenario in parallel mode, following points are a 
+MUST to ensure that the configuration parameter "EXPERIMENT-NAME" should
+not be set with value "default", as 'default' is a reserved keyword for
+MySQL. 
+
+For MySQL configuration, the following parameters are required to be set
+in the .config file as given below:
+
+
+STATS-DB-ENGINE MYSQL
+STATS-DB-USERNAME <username>
+STATS-DB-PASSWORD <password>
+STATS-DB-SERVER  <servername/server IP Address>  # address where the MySQL server is running
+
+
+Sample configuration:
+
+STATS-DB-ENGINE MYSQL
+STATS-DB-USERNAME root
+STATS-DB-PASSWORD root123
+STATS-DB-SERVER 192.168.2.131  
+
+For more details on StatsDB configuration, please refer StatsDB UsersGuide.

@@ -1,0 +1,65 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+PURPOSE:-
+--------
+To test StatsDB in Ipv6-tunnel between a  pair of dual-ip enabled nodes
+in wireless medium.
+
+
+SCENARIO:-
+---------
+
+
+            IPv6-Tunnel  (3--4--5)
+            =======================
+      1    "                       "    8
+           " wireless    wireless  "
+           "   link       link     "
+wireless   3  -  -  -  4  -  -  -  5   wireless
+subnet     AP                      AP   subnet
+
+       2                                9
+
+
+
+
+Node 3  and Node 5 are two Dual-IP nodes with an IPv4-tunnel between them.
+There are two wireless subnets across the tunnel as shown in above scenario.
+
+Node 1 is sending CBR data to Node 7 and
+Node 6 initiates GEN/FTP session with Node 2.
+
+
+
+RUN:-
+----
+Run "<QUALNET_HOME>/bin/qualnet  Wireless.config".
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. Wireless.app -  QualNet configuration file for application input.
+2. Wireless.config - QualNet configuration input file.
+3. Wireless.expected.stat - QualNet statistics collection.
+4. Wireless.expected.db - QualNet DB collection.
+5. Wireless.tunnel - QualNet Dual-IP tunnel configuration file.
+6. Wireless.nodes - QualNet configuration file for node position.
+7. Wireless.routes-static - QualNet configuration file for static-route.
+8. README - This file.
+
+

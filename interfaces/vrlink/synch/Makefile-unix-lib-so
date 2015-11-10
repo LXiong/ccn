@@ -1,0 +1,41 @@
+SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME = synch_vrlink_interface-dis.so
+SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME = synch_vrlink_interface-hla13.so
+SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME = synch_vrlink_interface-hla1516.so
+
+
+# Do we use 64 or 32 bit libraries?
+ifeq ($(findstring 64,$(ARCH)),64)
+LINUX_LIB_TYPE_FOR_VRLINK = linux-common-x64
+else
+LINUX_LIB_TYPE_FOR_VRLINK = linux-common
+endif
+
+../../bin/$(SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME) ../bin/$(SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME)
+
+../../bin/$(SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME) ../bin/$(SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME)
+
+../../bin/$(SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME) ../bin/$(SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME)
+
+
+#
+# Targets
+#
+SYNCH_VRLINK_INTERFACE_SHARED_OBJECTS = \
+    ../../bin/$(SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME) \
+    ../../bin/$(SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME) \
+    ../../bin/$(SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME) 
+
+
+ADDON_DEPS      += $(SYNCH_VRLINK_INTERFACE_SHARED_OBJECTS)
+
+
+clean-vrlink-synch-all:
+	rm -f $(SYNCH_VRLINK_INTERFACE_SHARED_OBJECTS)
+
+
+ADDONS_CLEAN += clean-vrlink-synch-all
+
+force :

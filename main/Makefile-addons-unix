@@ -1,0 +1,48 @@
+# To activate an addon, uncomment the Makefile for the addon here.
+#
+# Then, make clean and make.
+#
+# Addons are divided into four classes:
+#  Libraries are the protocol libraries sold with QualNet
+#  Interfaces are external interfaces requiring third party s/w.
+#  Addons are usually temporary code or custom code not for sale
+#  Contributed models are given to us by customers for distribution.
+
+# INSERT LIBRARIES HERE
+include ../libraries/developer/Makefile-unix
+include ../libraries/multimedia_enterprise/Makefile-unix
+include ../libraries/wireless/Makefile-unix
+include ../libraries/advanced_wireless/Makefile-unix
+#include ../libraries/ale_asaps/Makefile-unix   # only supported on 32 bit Windows and Linux
+include ../libraries/cellular/Makefile-unix
+include ../libraries/umts/Makefile-unix
+#include ../libraries/military/Makefile-unix
+#include ../libraries/tirem/Makefile-unix      # limited to platforms tirem supports
+include ../libraries/urban/Makefile-unix
+include ../libraries/sensor_networks/Makefile-unix
+include ../libraries/lte/Makefile-unix
+#include ../libraries/muos/Makefile-unix
+
+# INSERT INTERFACES HERE
+#include ../interfaces/dis/Makefile-unix
+#include ../interfaces/hla/Makefile-unix
+include ../interfaces/vrlink/Makefile-unix-chain
+#include ../interfaces/interfacetutorial/Makefile-unix
+#include ../interfaces/qsh/Makefile-unix
+include ../interfaces/ocula/Makefile-unix
+#include ../interfaces/openSSL/Makefile-unix
+include ../interfaces/socket-interface/Makefile-unix
+
+# INSERT ADDONS HERE
+#include ../addons/ctdb7/Makefile-unix  # requires OTB, only supports linux
+#include ../addons/ctdb8/Makefile-unix  # requires JSAF, only supports linux
+#include ../addons/oos/Makefile-unix    # requires OneSAF, only supports linux
+#include ../addons/ebe/Makefile-unix    # requires SPAWAR permission, no Windows support
+#include ../addons/link16/Makefile-unix # requires SPAWAR permission
+#include ../addons/opar/Makefile-unix   # not for distribution
+#include ../addons/rfps/Makefile-unix   # requires SPAWAR permission and EMPIRE s/w
+#include ../addons/stats_manager/Makefile-unix
+#include ../addons/boeingfcs/main/Makefile-unix
+#include ../addons/db/Makefile-unix
+# INSERT Contributed Models HERE
+#include ../contributed/maodv/Makefile-unix

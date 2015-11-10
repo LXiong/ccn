@@ -1,0 +1,13 @@
+<trace_file>
+
+<head>
+<version>12.10</version>
+<scenario>qualnet</scenario>
+<comments>NONE</comments>
+</head>
+
+<body>
+
+<protocol_map>3 IPv4</protocol_map>
+<protocol_map>30 ICMP</protocol_map>
+<protocol_map>7 BELLMANFORD</protocol_map>

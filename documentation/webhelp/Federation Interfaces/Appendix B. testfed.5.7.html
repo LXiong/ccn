@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Running testfed</title>
+    <link rel="StyleSheet" href="css/Appendix%20B.%20testfed.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20B.%20testfed.5.1.html#1036019">B	testfed</a> &gt; B.6  Running testfed</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">B.6  <a name="1036019">Running testfed</a></div>
+      <div class="BodyAfterHead"><a name="1045004">This section describes how to run testfed with </a><span class="Variable">QualNet</span> using HLA (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.7.html#1043394', '');" title="Running testfed">Section&nbsp;B.6.1</a></span>) and using DIS (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.7.html#1044070', '');" title="Running testfed">Section&nbsp;B.6.2</a></span>).</div>
+      <div class="Heading2Numbered">B.6.1  <a name="1043394">Running testfed Using HLA</a></div>
+      <div class="BodyAfterHead"><a name="1036023">To run testfed with </a><span class="Variable">QualNet</span> using HLA, perform the following steps:</div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1036024">Create the testfed scenario (see </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.5.html#1036003', '');" title="Creating Scenarios for testfed">Section&nbsp;B.4</a></span>) and the testfed command file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.6.html#1044223', '');" title="Creating testfed Command File">Section&nbsp;B.5</a></span>).</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1044781">Start the RTI, if needed. Some light-weight RTIs do not need to be started explicitly. Refer to the RTI documentation for details.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1044750">Open a command window and change the directory to the location where the scenario is located.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1036025">Type the following command to run testfed (all parameters should be entered on one line):</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Command_Input"><a name="1036026">&nbsp;</a></div>
+      <div class="Command_Input" style="margin-left: 79.75008pt"><a name="1036027">testfed -P &lt;federation-protocol&gt; -F &lt;FED-or-FDD-file&gt;<br />[-r &lt;FOM-version&gt;] [-f &lt;federation-name] [-t &lt;vrlink-tick&gt;]<br />[-d] &lt;input-file&gt;</a></div>
+      <div class="Command_Input"><a name="1036028">&nbsp;</a></div>
+      <div class="NumberedCont"><a name="1036032">These parameters are described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.7.html#1036036', '');" title="Running testfed">Table&nbsp;B-1</a></span>.</div>
+      <div class="Anchor"><a name="1043587">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1043598">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1043600">To list the testfed parameters, type </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">testfed ?</span> or <span style="font-family: &quot;Courier New&quot;; font-weight: bold">testfed h</span>.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1036071"> </a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE B-1.&nbsp;&nbsp;<a name="1036036">testfed Parameters for HLA&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading"><a name="1036040">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 306pt">
+            <div class="CellHeading"><a name="1036042">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1043617">-P &lt;federation-protocol&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1043618">Required</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1043620">To use HLA, set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;federation-protocol&gt;</span> to <span class="command" style="font-family: &quot;Courier New&quot;">HLA13</span> or <span class="command" style="font-family: &quot;Courier New&quot;">HLA1516</span>, depending on the HLA standard.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1043649">-F &lt;FED-or-FDD-file&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1043650">Required</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1043652">If you are using HLA 1.3, set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;FED-or-FDD-file&gt;</span> to the name of the FED (.fed) file.</div>
+            <div class="CellBody"><a name="1044110">If you are using HLA 1516, set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;FED-or-FDD-file&gt;</span> to the name of the FDD (.xml) file.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044129">-r &lt;FOM-version&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044130">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044132">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;FOM-version&gt;</span> to the RPR FOM version (<span class="command" style="font-family: &quot;Courier New&quot;">1.0</span> or <span class="command" style="font-family: &quot;Courier New&quot;">2.0017</span>).</div>
+            <div class="CellBody"><a name="1044133">If this parameter is not specified, RPR FOM 1.0 is used by default.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044153">-f &lt;federation-name&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044154">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044156">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;federation-name&gt;</span> to the name of the federation to join.</div>
+            <div class="CellBody"><a name="1044157">If this parameter is not specified, the default federation name is </a><span class="command" style="font-family: &quot;Courier New&quot;">RPR-FOM</span>.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044161">-t &lt;vrlink-tick&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044162">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044164">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;vrlink-tick&gt;</span> to the interval between successive publication of events by the MAK VR-Link engine to the federation.</div>
+            <div class="CellBody"><a name="1045058">The interval should be specified in </a><span class="Variable">QualNet</span> time format, e.g., <span class="command" style="font-family: &quot;Courier New&quot;">1MS</span>, <span class="command" style="font-family: &quot;Courier New&quot;">2.5S</span>.</div>
+            <div class="CellBody"><a name="1044165">If this parameter is not specified, the default interval is 50 milliseconds.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044972">-d</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044973">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044975">Include this flag to turn on debugging mode.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1036067">&lt;input-file&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1036068">Required</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1036070">Name of the scenario configuration file (without the extension </a><span class="command" style="font-family: &quot;Courier New&quot;">.config</span>).</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">5.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1036075">Start the simulation in </a><span class="Variable">QualNet</span> either from the command line or using the GUI. Use the same scenario files as for testfed. Refer to <span class="Variable" style="font-style: italic">QualNet User’s Guide</span> for details of running simulations.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="NumberedCont"><a name="1036087">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1036081">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1036086">If the </a><span class="Variable">QualNet</span> simulation is run from the command line, then it must be run from a command window different from the one in which testfed is run.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">B.6.2  <a name="1044070">Running testfed Using DIS</a></div>
+      <div class="BodyAfterHead"><a name="1043462">To run testfed with </a><span class="Variable">QualNet</span> using DIS perform the following steps:</div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1044818">Create the testfed scenario (see </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.5.html#1036003', '');" title="Creating Scenarios for testfed">Section&nbsp;B.4</a></span>) and the testfed command file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.6.html#1044223', '');" title="Creating testfed Command File">Section&nbsp;B.5</a></span>).</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1044823">Open a command window and change the directory to the location where the scenario is located.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1043464">Type the following command to run testfed (all parameters should be entered on one line):</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Command_Input"><a name="1043465">&nbsp;</a></div>
+      <div class="Command_Input" style="margin-left: 79.75008pt"><a name="1046849">testfed -P &lt;federation-protocol&gt; [-t &lt;vrlink-tick&gt;] [-O &lt;port-number&gt;]</a></div>
+      <div class="Command_Input" style="margin-left: 79.75008pt; text-indent: 0.6249600000000015pt"><a name="1046850">[-A &lt;IP-address&gt;] [-I &lt;network-address&gt;] [-M &lt;subnet-mask&gt;]</a></div>
+      <div class="Command_Input" style="margin-left: 79.75008pt; text-indent: 0.6249600000000015pt"><a name="1046851">[-d] &lt;input-file&gt;</a></div>
+      <div class="Command_Input"><a name="1043467">&nbsp;</a></div>
+      <div class="NumberedCont"><a name="1043471">These parameters are described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20B.%20testfed.5.7.html#1043475', '');" title="Running testfed">Table&nbsp;B-2</a></span>.</div>
+      <div class="NumberedCont"><a name="1044051">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1044048">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1044050">To list the testfed parameters, type </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">testfed?</span> or <span style="font-family: &quot;Courier New&quot;; font-weight: bold">testfed h</span>.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Command_Input"><a name="1043510"> </a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE B-2.&nbsp;&nbsp;<a name="1043475">testfed Parameters for DIS</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading"><a name="1043479">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 306pt">
+            <div class="CellHeading"><a name="1043481">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1044840">-P &lt;federation-protocol&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044841">Required</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044843">To use DIS, set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;federation-protocol&gt;</span> to <span class="command" style="font-family: &quot;Courier New&quot;">DIS</span>.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044868">-t &lt;vrlink-tick&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044869">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044871">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;vrlink-tick&gt;</span> to the interval between successive publication of events by the MAK VR-Link engine to the federation.</div>
+            <div class="CellBody"><a name="1045082">The interval should be specified in </a><span class="Variable">QualNet</span> time format, e.g., <span class="command" style="font-family: &quot;Courier New&quot;">1MS</span>, <span class="command" style="font-family: &quot;Courier New&quot;">2.5S</span>.</div>
+            <div class="CellBody"><a name="1044872">If this parameter is not specified, the default interval is 50milliseconds.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044897">-O &lt;port-number&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044898">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044900">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;port-number&gt;</span> to the port number for the DIS socket.</div>
+            <div class="CellBody"><a name="1044901">If this parameter is not specified, the default port number is 3000.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044913">-A &lt;IP-address&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044914">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044916">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;IP-address&gt;</span> to the IP address used by testfed to send and receive DIS PDUs.</div>
+            <div class="CellBody"><a name="1044928">If this parameter is not specified, the default IP address is 127.255.255.255.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044942">-I &lt;network-address&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044943">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044945">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;network-address&gt;</span> to network interface address that the socket is created on.</div>
+            <div class="CellBody"><a name="1044959">If this parameter is not specified, the default network interface address is 127.0.0.1.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1046855">-M &lt;subnet-mask&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1046856">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046858">Set </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;subnet-mask&gt;</span> to the subnet mask for the DIS socket used for listening and sending.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044892">-d</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044893">Optional</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044895">Include this flag to turn on debugging mode.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command"><a name="1044874">&lt;input-file&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1044875">Required</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1044877">Name of the scenario configuration file (without the extension </a><span class="command" style="font-family: &quot;Courier New&quot;">.config</span>).</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1043514">Start the simulation in </a><span class="Variable">QualNet</span> either from the command line or using the GUI. Use the same scenario files as for testfed. Refer to <span class="Variable" style="font-style: italic">QualNet User’s Guide</span> for details of running simulations.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="NumberedCont"><a name="1043526">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1043520">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1043525">If the </a><span class="Variable">QualNet</span> simulation is run from the command line, then it must be run from a command window different from the one in which testfed is run.</div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

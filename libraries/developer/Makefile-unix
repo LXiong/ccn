@@ -1,0 +1,9 @@
+#
+# Define Developer Library models.
+#
+
+include ../libraries/developer/Makefile-common
+
+ADDON_OPTIONS   += $(DEVELOPER_OPTIONS)
+ADDON_SRCS      += $(DEVELOPER_SRCS)
+ADDON_INCLUDES  += $(DEVELOPER_INCLUDES)

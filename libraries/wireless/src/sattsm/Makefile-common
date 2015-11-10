@@ -1,0 +1,48 @@
+SATTSM_OPTIONS = -DADDON_SATTSM
+
+#
+# For the files below, there is a file with the same filename in
+# ../addons/par/.  The only difference is that the ../addons/seq/ file
+# has only sequential code.
+#
+# SNT users:  Do not check these files directly into the source tree.
+# Please send changes to these files to kernel@scalable-networks.com.
+#
+
+SATTSM_HDRS = \
+	../libraries/wireless/src/sattsm/analog.h \
+    ../libraries/wireless/src/sattsm/afe-base.h \
+    ../libraries/wireless/src/sattsm/afe-header.h \
+	../libraries/wireless/src/sattsm/antenna_parabolic.h \
+	../libraries/wireless/src/sattsm/digital.h \
+	../libraries/wireless/src/sattsm/lna.h \
+	../libraries/wireless/src/sattsm/mixer.h \
+    ../libraries/wireless/src/sattsm/phy_sattsm.h \
+	../libraries/wireless/src/sattsm/sattsm.h \
+	../libraries/wireless/src/sattsm/sspa.h \
+	../libraries/wireless/src/sattsm/twta.h \
+	../libraries/wireless/src/sattsm/viewpoint.h 
+
+SATTSM_SRCS = \
+	../libraries/wireless/src/sattsm/analog.cpp \
+    ../libraries/wireless/src/sattsm/phy_sattsm.cpp
+
+SATTSM_INCLUDES = \
+	-I../libraries/wireless/src/sattsm
+
+SATTSM_OBJS = \
+	../libraries/wireless/src/sattsm/analog.o \
+	../libraries/wireless/src/sattsm/antenna_parabolic.o \
+	../libraries/wireless/src/sattsm/channel.o \
+	../libraries/wireless/src/sattsm/configuration.o \
+	../libraries/wireless/src/sattsm/digital.o \
+	../libraries/wireless/src/sattsm/lna.o \
+	../libraries/wireless/src/sattsm/mac_interface.o \
+	../libraries/wireless/src/sattsm/mixer.o \
+	../libraries/wireless/src/sattsm/mmgr.o \
+	../libraries/wireless/src/sattsm/sspa.o \
+	../libraries/wireless/src/sattsm/test_mac.o \
+	../libraries/wireless/src/sattsm/topology.o \
+	../libraries/wireless/src/sattsm/twta.o \
+	../libraries/wireless/src/sattsm/viewpoint.o  
+#

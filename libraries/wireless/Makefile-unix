@@ -1,0 +1,24 @@
+#
+# Define Wireless Library models.
+#
+
+include ../libraries/wireless/Makefile-common
+
+ADDON_OPTIONS   += $(WIRELESS_OPTIONS)
+ADDON_SRCS      += $(WIRELESS_SRCS)
+ADDON_INCLUDES  += $(WIRELESS_INCLUDES)
+ifeq ($(shell uname),Darwin)
+ADDON_LIBRARIES += -lexpat
+else
+# Linux
+ADDON_LIBRARIES += -Wl,-Bstatic -lexpat -Wl,-Bdynamic
+#ADDON_LIBRARIES += -lexpat
+endif
+
+SHPTOXML_OBJS_PRE = $(SHPTOXML_SRCS:.cpp=.o)
+SHPTOXML_OBJS     = $(SHPTOXML_OBJS_PRE:.c=.o)
+
+ALL_TARGETS += $(RADIO_RANGE_EXEC) $(SHPTOXML_EXEC)
+
+include ../libraries/wireless/src/sattsm/Makefile-unix
+include ../libraries/wireless/src/ane/Makefile-unix

@@ -1,0 +1,21 @@
+ADVANCED_WIRELESS_OPTIONS = -DADVANCED_WIRELESS_LIB
+
+ADVANCED_WIRELESS_DIR = ../libraries/advanced_wireless/src
+
+#
+# common sources
+#
+ADVANCED_WIRELESS_SRCS = \
+$(ADVANCED_WIRELESS_DIR)/dot16_backbone.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_bs.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_cs.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_phy.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_qos.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_sch.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_ss.cpp \
+$(ADVANCED_WIRELESS_DIR)/mac_dot16_tc.cpp \
+$(ADVANCED_WIRELESS_DIR)/phy_dot16.cpp
+
+ADVANCED_WIRELESS_INCLUDES = \
+-I$(ADVANCED_WIRELESS_DIR)

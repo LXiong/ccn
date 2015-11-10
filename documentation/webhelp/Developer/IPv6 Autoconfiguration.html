@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>IPv6 Autoconfiguration Model</title>
+    <link rel="StyleSheet" href="css/IPv6%20Autoconfiguration.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Ch3%20-%20Network%20Layer%20Models.html#998293">3	Network Layer Models</a> &gt; 3.8  IPv6 Autoconfiguration Model</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">3.8  <a name="998293">IPv6 Autoconfiguration Model</a></div>
+      <div class="Heading2Numbered">3.8.1  <a name="1001989">Description</a></div>
+      <div class="Normal" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 9.0pt; margin-top: 0.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1021828">The IPv6 hosts</a></span> can configure the IPv6 (global) addresses automatically using Stateless Address Autoconfiguration. The stateless autoconfiguration does not require any special servers and requires only minimal router configuration. The stateless mechanism allows a host to generate its own addresses using a combination of locally available information and information advertised by routers. Routers advertise prefixes that identify the subnet(s) associated with a link, while hosts generate an interface identifier that uniquely identifies an interface on a subnet. An address is formed by combining the two.</div>
+      <div class="Heading2Numbered">3.8.2  <a name="1024269">Features and Assumptions</a></div>
+      <div class="BodyAfterHead"><a name="1018959">This section describes the implemented features, omitted features, assumptions, and limitations of the IPv6 Autoconfiguration model.</a></div>
+      <div class="Heading3Numbered">3.8.2.1  <a name="1019010">Implemented Features</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024587">Autoconfiguration procedure at node and interface levels.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024588">Creation of Link Local Addresses.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024589">Duplicate Address Detection (DAD) for link local addresses.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024590">Address delegation at node and interface level.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024591">Creation of global address and site-local addresses.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024662">Address categorization into Preferred and Deprecated Address.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading3Numbered">3.8.2.2  <a name="1024663">Omitted Features</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1025188">Loopback Suppression.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1027632">Duplicate address detection for global addresses.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1025189">Duplicate address detection failure.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading3Numbered">3.8.2.3  <a name="1025190">Assumptions and Limitations</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024743">An interface will maintain only one preferred and one deprecated address at a time.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024744">The node will change its address only when it stops receiving the router advertisements from its current default router and receives a certain number of router advertisements from another router.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024745">A router will advertise only the prefix configured on the interface. If no prefix is configured on an interface, then it will advertise its on-link prefix.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024746">Ingress filtering of source addresses of unicast packets has been relaxed on gateway routers such that a packet is accepted even if the subnet part of the source address in the packet does not match the subnet of the network. This is done to support an ongoing session in case the source address becomes invalid and the node sets the new router as its default router.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024747">The lifetime of the prefixes should be set to infinite (a very large value) since router renumbering is not supported.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1024762">To facilitate DAD in multi-hop subnets, Neighbor Solicitation and Advertisement messages for DAD are forwarded</a><span style="font-weight: bold"> </span>by the receiving router to all next hops.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading2Numbered">3.8.3  <a name="1001977">Command Line Configuration</a></div>
+      <div class="NoteText"><a name="1026014">Several configuration parameters for the IPv6 Autoconfiguration model are specified using instances. For IPv6 Autoconfiguration parameters, the instances correspond to interfaces. </a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1026015">Interfaces of a node are numbered in the order in which they are created by </a><span style="font-family: &quot;Courier New&quot;">LINK</span> and <span style="font-family: &quot;Courier New&quot;">SUBNET</span> statements in the scenario configuration (.config) file.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1026016">To configure a parameter for an interface of a node, the node ID must be used as a qualifier and the interface number must be used as the instance. </a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1026017">If a parameter is specified with a node ID as the qualifier but without an instance, then it applies to all interfaces of that node.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1026018">If a parameter is specified without a qualifier and without an instance, then it applies globally to all nodes.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1026019">An instance cannot be specified without using a node ID as the qualifier.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Body"><a name="1026020">To enable the IPv6 Autoconfiguration model, include the following parameter in the scenario configuration (.config) file:</a></div>
+      <div class="Declaration"><a name="1026021">[&lt;Qualifier&gt;] IPV6-AUTOCONFIG-ENABLE[&lt;interface&gt;]    YES</a></div>
+      <div class="Body"><a name="1026022">The scope of this parameter declaration can be Global or Node and </a><span style="font-family: &quot;Courier New&quot;">&lt;interface&gt;</span> is the interface number to which the parameter declaration applies. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'Ch1%20-%20Overview.01.2.html#1061390', '');" title="Conventions Used">Section&nbsp;1.2.1.1</a></span> for a description of <span style="font-family: &quot;Courier New&quot;">&lt;Qualifier&gt;</span> for each scope.</div>
+      <div class="Anchor"><a name="1026031">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1026028">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1026030">The default value of the parameter </a><span style="font-family: &quot;Courier New&quot;">IPV6-AUTOCONFIG-ENABLE</span> is <span style="font-family: &quot;Courier New&quot;">NO</span>. </div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1007197"> </a></div>
+      <div class="Heading4"><a name="1007229">IPv6 Autoconfiguration Parameters</a></div>
+      <div class="BodyAfterHead"><a name="1026277">The IPv6 Autoconfiguration parameters are described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1026117', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-45</a></span>. Additional parameters for an IPv6 autoconfigurable host and IPv6 autoconfiguration router are described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#998305', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-46</a></span> and <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1025319', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-47</a></span>, respectively. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'Ch1%20-%20Overview.01.2.html#1061462', '');" title="Conventions Used">Section&nbsp;1.2.1.3</a></span> for a description of the format used for the parameter tables.</div>
+      <div class="Anchor"><a name="1026171">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-45.&nbsp;&nbsp;<a name="1026117">IPv6 Autoconfiguration Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading"><a name="1026123">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 90pt">
+            <div class="CellHeading"><a name="1026125">Value</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1026127">Description </a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1026129">IPV6-AUTOCONFIG-DEVICE-TYPE</a></div>
+            <div class="Designation"><a name="1026130">Required</a></div>
+            <div class="CellRun-In_Plain"><span class="Emphasis"><a name="1026131">Scope</a></span></div>
+            <div class="CellBody"><a name="1026132">Global, Node</a></div>
+            <div class="CellRun-In_Plain"><a name="1026133">Instances:</a></div>
+            <div class="CellBody_Indented"><a name="1026134">interface-number</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026136">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1026137">IPV6-AUTOCONFIG-HOST</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1026138">IPV6-AUTOCONFIG-ROUTER</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026141">Configures the node as an IPv6 autoconfigurable host or an IPv6 autoconfiguration router.</a></div>
+            <div class="CellBody"><a name="1026142">If a node is configured as an IPv6 autoconfigurable host, then configure the parameters described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#998305', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-46</a></span>.</div>
+            <div class="CellBody"><a name="1026146">If a node is configured as an IPv6 autoconfiguration router, then configure the parameters described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1025319', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-47</a></span>.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1001983">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-46.&nbsp;&nbsp;<a name="998305">IPv6 Autoconfiguration Host Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading"><a name="998309">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 90pt">
+            <div class="CellHeading"><a name="1000396">Value</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="998311">Description </a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1016374">IPV6-AUTOCONFIG-ENABLE-DAD</a></div>
+            <div class="Designation"><a name="1016375">Optional</a></div>
+            <div class="CellRun-In_Plain"><span class="Emphasis"><a name="1023959">Scope</a></span></div>
+            <div class="CellBody"><a name="1023960">Global, Node</a></div>
+            <div class="CellRun-In_Plain"><a name="1023961">Instances:</a></div>
+            <div class="CellBody"><a name="1016377">interface-number</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1018762">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1018763">YES</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1018764">NO</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><span class="Emphasis"><a name="1018765">Default</a></span>:</div>
+            <div class="CellBody_Courier"><a name="1018766">NO</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1020549">Enables duplicate address detection.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1025378">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-47.&nbsp;&nbsp;<a name="1025319">IPv6 Autoconfiguration Router Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading"><a name="1025325">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 90pt">
+            <div class="CellHeading"><a name="1025327">Value</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1025329">Description </a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1025331">IPV6-AUTOCONFIG-NETWORK-PREFIX</a></div>
+            <div class="Designation"><a name="1025332">Optional</a></div>
+            <div class="CellRun-In_Plain"><span class="Emphasis"><a name="1025333">Scope</a></span></div>
+            <div class="CellBody"><a name="1025334">Global, Node</a></div>
+            <div class="CellRun-In_Plain"><a name="1025335">Instances:</a></div>
+            <div class="CellBody_Indented"><a name="1025336">interface-number</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025409">IPv6 Address</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025344">Network prefix for delegation.</a></div>
+            <div class="CellBody"><a name="1025425">This prefix is used by nodes that can perform IPv6 autoconfiguration.</a></div>
+            <div class="CellBody"><a name="1025822">If no network prefix is specified, then the prefix of the subnet to which the interface belongs is advertised. </a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1025499">IPV6-AUTOCONFIG-PREFIX-PREFERRED-LIFETIME</a></div>
+            <div class="Designation"><a name="1025500">Optional</a></div>
+            <div class="CellRun-In_Plain"><span class="Emphasis"><a name="1025501">Scope</a></span></div>
+            <div class="CellBody"><a name="1025502">Global, Node</a></div>
+            <div class="CellRun-In_Plain"><a name="1025503">Instances:</a></div>
+            <div class="CellBody"><a name="1025504">interface-number</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025506">Time</a></div>
+            <div class="CellRun-In_Courier"><a name="1025507">Range</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1025511">≥ 0S</a></div>
+            <div class="CellRun-In_Courier"><a name="1025512">Default</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1025513">0S</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025515">Preferred lifetime of the delegated prefix.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><span style="font-family: &quot;Courier New&quot;"><a name="1026492">0S</a></span> indicates infinite lifetime.</div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1025346">IPV6-AUTOCONFIG-PREFIX-VALID-LIFETIME</a></div>
+            <div class="Designation"><a name="1025347">Optional</a></div>
+            <div class="CellRun-In_Plain"><span class="Emphasis"><a name="1025348">Scope</a></span></div>
+            <div class="CellBody"><a name="1025349">Global, Node</a></div>
+            <div class="CellRun-In_Plain"><a name="1025350">Instances:</a></div>
+            <div class="CellBody"><a name="1025351">interface-number</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025353">Time</a></div>
+            <div class="CellRun-In_Courier"><a name="1025455">Range</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1025465">≥ 0S</a></div>
+            <div class="CellRun-In_Courier"><a name="1025475">Default</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1025490">0S</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025355">Valid lifetime of the delegated prefix.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><span style="font-family: &quot;Courier New&quot;"><a name="1026547">0S</a></span> indicates infinite lifetime.</div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">3.8.4  <a name="1006249">GUI Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1006278">This section describes how to configure the IPv6 Autoconfiguration model in the GUI.</a></div>
+      <div class="Anchor"><a name="1017346">&nbsp;</a></div>
+      <div class="Heading4"><a name="1006281">Configuring IPv6 Autoconfiguration Parameters</a></div>
+      <div class="BodyAfterHead"><a name="1026566">To configure the IPv6 Autoconfiguration parameters, perform the following steps:</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1026567">Go to one of the following locations:</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1026571">To set properties for a specific node, go to </a><span class="Menu_Item">Default Device Properties Editor</span> <span class="Bold">&gt;</span> <span class="Menu_Item">Node Configuration</span> <span class="Bold">&gt;</span><span style="font-style: italic"> </span><span class="Menu_Item">Network Layer</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1026575">To set properties for a specific interface of node, go to one of the following locations:</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Sub1_outer" style="margin-left: 28.8pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_Sub1_inner" style="width: 14.400000000000002pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none">
+                <span class="BulletSymbol">-	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_Sub1_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none"><span class="Menu_Item"><a name="1026579">Default Device Properties Editor </a></span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interfaces &gt; Interface # &gt; Network Layer</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Sub1_outer" style="margin-left: 28.8pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_Sub1_inner" style="width: 14.400000000000002pt; white-space: nowrap;">
+                <span class="BulletSymbol">-	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_Sub1_inner"><span class="Menu_Item"><a name="1026583">Interface Properties Editor </a></span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interfaces &gt; Interface # &gt; Network Layer</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1026584">&nbsp;</a></div>
+      <div class="NumberedCont"><a name="1026585">In this section, we show how to configure IPv6 Autoconfiguration parameters for a specific interface of a node using the Default Device Properties Editor. Parameters can be set in the other properties editors in a similar way.</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1026904">Set </a><span class="Field">Network Protocol</span> to <span class="Value">IPv6</span> or <span class="Value">Dual-IP</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1026908">Set </a><span class="Field">Enable IPv6 Autoconfiguration</span> to <span class="Value">Yes</span> and set the dependent parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1013442', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-48</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1026912"><img class="Default" src="images/IPv6Auto-EnableAutoconfig.gif" width="567" height="296" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 3-19.&nbsp;&nbsp;<a name="1013435">Enabling IPv6 Autoconfiguration</a></div>
+      <div class="Anchor"><a name="1013495">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-48.&nbsp;&nbsp;<a name="1013442">Command Line Equivalent of IPv6 Autoconfiguration Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1013448">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1013450">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1013452">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1018088">IPv6 Autoconfiguration Device Type</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1018090">Node, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1018092">IPV6-AUTOCONFIG-DEVICE-TYPE</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1013496">&nbsp;</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1016428">If </a><span class="Field">IPv6 Autoconfiguration Device Type</span> is set to <span class="Value">Host</span>, then set the parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1016438', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-49</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1016433"><img class="Default" src="images/IPv6Auto-HostParameters.gif" width="567" height="296" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 3-20.&nbsp;&nbsp;<a name="1016434">Setting IPv6 Autoconfiguration Host Parameters</a></div>
+      <div class="Anchor"><a name="1016461">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-49.&nbsp;&nbsp;<a name="1016438">Command Line Equivalent of IPv6 Autoconfiguration Host Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1016444">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1016446">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1016448">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1016450">Enable Duplicate Address Detection</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1016452">Node, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1016454">IPV6-AUTOCONFIG-ENABLE-DAD</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">5.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1026766">If </a><span class="Field">IPv6 Autoconfiguration Device Type</span> is set to <span class="Value">Router</span>, then set the parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1026775', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-50</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1026770"><img class="Default" src="images/IPv6Auto-RouterParameters.gif" width="567" height="339" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 3-21.&nbsp;&nbsp;<a name="1026771">Setting IPv6 Autoconfiguration Router Parameters</a></div>
+      <div class="Anchor"><a name="1026792">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-50.&nbsp;&nbsp;<a name="1026775">Command Line Equivalent of IPv6 Autoconfiguration Router Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1026781">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1026783">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1026785">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026831">Network Prefix</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026833">Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1026835">IPV6-AUTOCONFIG-NETWORK-PREFIX</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026837">Preferred Lifetime</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026839">Node, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1026841">IPV6-AUTOCONFIG-PREFERRED-LIFETIME</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026787">Valid Lifetime</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026789">Node, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1026791">IPV6-AUTOCONFIG-VALID-LIFETIME</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">3.8.5  <a name="998378">Statistics</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1005801', '');" title="IPv6 Autoconfiguration Model" name="998411">Table&nbsp;3-51</a></span> lists the IPv6 Autoconfiguration statistics that are output to the statistics (.stat) file at the end of simulation.</div>
+      <div class="Anchor"><a name="1026919">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Notes_003a">
+              <span class="Bold">Notes:</span><a name="1026926">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="Note_Numbered__0028first_0029_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="Note_Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                      <span class="StepNumber">1.	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="Note_Numbered__0028first_0029_inner"><a name="1026928">IPv6 Autoconfiguration statistics are printed with the other IPv6 statistics in the statistics (.stat) file and are grouped under Network Layer &gt; IPv6 in Analyzer.</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="Note_Numbered_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="Note_Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                      <span class="StepNumber">2.	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="Note_Numbered_inner"><a name="1027018">If prefix delegation is enabled at a router, the network prefix is included in ICMPv6 router advertisements. The following ICMPv6 statistics indicate the number of router advertisements sent and received:</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                      <span class="BulletSymbol">•	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="Bulleted_Indented_inner"><a name="1026980">Number of Router Advertisement Messages Sent</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                      <span class="BulletSymbol">•	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="Bulleted_Indented_inner"><a name="1027024">Number of Router Advertisement Messages Received</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-51.&nbsp;&nbsp;<a name="1005801">IPv6 Autoconfiguration Statistics&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1005805">Statistic</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 252pt">
+            <div class="CellHeading"><a name="1005807">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025052">No. of neighbor solicitations for DAD sent</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025054">Number of neighbor solicitation packets sent for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025056">No. of neighbor solicitations for DAD received</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025058">Number of neighbor solicitation packets received for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025060">No. of neighbor solicitations for DAD forwarded</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025062">Number of neighbor solicitation packets forwarded for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025064">No. of neighbor advertisement for DAD sent</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025066">Number of neighbor advertisement packets sent for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025068">No. of neighbor advertisement for DAD received</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025070">Number of neighbor advertisement packets received for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025072">No. of neighbor advertisements for DAD forwarded</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025074">Number of neighbor advertisement packets forwarded for DAD.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026862">No. of times prefixes changed</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026864">Number of times network prefixes changed.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026866">No. of prefixes received</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026868">Number of prefixes received.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026870">No. of packets drop due to invalid source address</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026872">Number of packets dropped due to invalid source address.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026874">No. of times address is deprecated</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1026876">Number of times address is deprecated.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025076">No. of times address is invalidated</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025078">Number of times address is invalidated.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">3.8.6  <a name="1018742">Sample Scenario</a></div>
+      <div class="Heading3Numbered">3.8.6.1  <a name="1018743">Scenario Description</a></div>
+      <div class="Normal" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0.0pt; margin-top: 0.0pt; text-align: justify; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1025552">The scenario consists of four nodes in a subnet. Nodes 1, 3 and 4 are enabled for IPv6 Autoconfiguration and node 2 is configured for prefix delegation.</a></span></div>
+      <div class="Heading3Numbered">3.8.6.2  <a name="1025590">Command Line Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1025598">To configure the sample scenario from the command line, include the following lines in the scenario configuration (.config) file.</a></div>
+      <div class="Normal" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 0.0pt; text-align: justify; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1027234"> </a></span></div>
+      <div class="Declaration"><a name="1027235"># Create an IPv6 subnet with 4 nodes</a></div>
+      <div class="Declaration"><a name="1027319">SUBNET N64-1000:0::0 {1 thru 4}</a></div>
+      <div class="Declaration"><a name="1027320">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027321"># Configure the network protocol to be IPv6</a></div>
+      <div class="Declaration"><a name="1027290">[ N64-1000:0::0 ] NETWORK-PROTOCOL IPv6</a></div>
+      <div class="Declaration"><a name="1027338">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027241"># Enable IPv6 Autoconfiguration on all nodes</a></div>
+      <div class="Declaration"><a name="1027236">[1 2 3 4] IPV6-AUTOCONFIG-ENABLE YES</a></div>
+      <div class="Declaration"><a name="1027565">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027566"># Configure node 1 as IPv6 autoconfiguration router</a></div>
+      <div class="Declaration"><a name="1027567">[1] IPV6-AUTOCONFIG-DEVICE-TYPE[0] IPV6-AUTOCONFIG-ROUTER</a></div>
+      <div class="Declaration"><a name="1027568">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027569"># Specify prefix for delegation and preferred and valid lifetimes</a></div>
+      <div class="Declaration"><a name="1027570">[1] IPV6-AUTOCONFIG-NETWORK-PREFIX[0] 2000:0:0:2:0:0:0</a></div>
+      <div class="Declaration"><a name="1027571">[1] IPV6-AUTOCONFIG-PREFIX-PREFERRED-LIFETIME[0] 0S</a></div>
+      <div class="Declaration"><a name="1027572">[1] IPV6-AUTOCONFIG-PREFIX-VALID-LIFETIME[0] 0S</a></div>
+      <div class="Declaration"><a name="1025603">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027043"># Configure nodes 2, 3, and 4 as IPv6 autoconfiguration hosts</a></div>
+      <div class="Declaration"><a name="1027050">[2] IPV6-AUTOCONFIG-DEVICE-TYPE[0] IPV6-AUTOCONFIG-HOST</a></div>
+      <div class="Declaration"><a name="1027058">[3] IPV6-AUTOCONFIG-DEVICE-TYPE[0] IPV6-AUTOCONFIG-HOST</a></div>
+      <div class="Declaration"><a name="1027070">[4] IPV6-AUTOCONFIG-DEVICE-TYPE[0] IPV6-AUTOCONFIG-HOST</a></div>
+      <div class="Declaration"><a name="1025604">&nbsp;</a></div>
+      <div class="Declaration"><a name="1027081"># Enable DAD on node 2</a></div>
+      <div class="Declaration"><a name="1025605">[2] IPV6-AUTCONFIG-ENABLE-DAD[0] YES</a></div>
+      <div class="Heading3Numbered">3.8.6.3  <a name="1025592">GUI Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1018748">To configure the sample scenario in the GUI, perform the following steps:</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1027179">Place a wireless subnet and four nodes on the canvas. Connect all four nodes to the wireless subnet.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1027345">Go to </a><span class="Menu_Item">Wireless Subnet Properties Editor &gt; Network Protocol</span> and set <span class="Field">Network Protocol</span> to <span class="Value">IPv6</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1027212">Configure node 1 as an IPv6 autoconfiguration router, as shown in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1026771', '');" title="IPv6 Autoconfiguration Model">Figure&nbsp;3-21</a></span>. Set the parameters as follows:</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1027213">Set </a><span class="Field">Network Prefix</span> to <span style="font-family: &quot;Courier New&quot;">2000:0:0:2:0:0:0</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="NumberedCont"><a name="1027375">Use default values for the other parameters.</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1027604">Configure nodes 2, 3, and 4 as IPv6 autoconfiguration hosts, as shown in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1016434', '');" title="IPv6 Autoconfiguration Model">Figure&nbsp;3-20</a></span>. Set the parameters as follows:</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1027605">Set </a><span class="Field">Enable Duplicate Address Detection</span> to <span class="Value">Yes</span>. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading3Numbered">3.8.6.4  <a name="1027416">Runtime Behavior in GUI</a></div>
+      <div class="BodyAfterHead"><a name="1027420">Save the scenario created in the GUI as described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1025592', '');" title="IPv6 Autoconfiguration Model">Section&nbsp;3.8.6.3</a></span>. In the <span class="Menu_Item">Display Settings</span> dialog (refer to <span class="Variable" style="font-style: italic">QualNet User’s Guide</span> for details), check the <span class="Menu_Item">IP Address</span> box to display IP addresses on the canvas.</div>
+      <div class="Body"><a name="1027424">When the scenario is loaded and before it is initialized by clicking the </a><span class="Menu_Item">Run Simulation</span> button, all interfaces have IP addresses assigned by <span class="Variable">QualNet</span> by default. </div>
+      <div class="Body"><a name="1027428">Initialize the simulation by clicking the </a><span class="Menu_Item">Run Simulation</span> button. All interfaces that are configured as IPv6 autoconfiguration hosts now have a link-local IPv6 address of the format fe80::&lt;mac-address&gt;.</div>
+      <div class="Body"><a name="1027534">Start the simulation by clicking the </a><span class="Menu_Item">Play</span> button. After a very short delay needed for the IPv6 autoconfiguration hosts to acquire IPv6 addresses, all hosts will have IPv6 addresses starting with the prefix configured at the Pv6 autoconfiguration router.</div>
+      <div class="Heading2Numbered">3.8.7  <a name="1027503">Scenarios Included in QualNet</a></div>
+      <div class="BodyAfterHead"><a name="1013565">The QualNet distribution includes several sample scenarios for the IPv6 Autoconfiguration model. All scenarios are located in the directory QUALNET_HOME/scenarios/ developer/ipv6-auto-config. </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Developer', 'IPv6%20Autoconfiguration.html#1019461', '');" title="IPv6 Autoconfiguration Model">Table&nbsp;3-52</a></span> lists the sub-directory where each scenario is located.</div>
+      <div class="Anchor"><a name="1014896">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 3-52.&nbsp;&nbsp;<a name="1019461">IPv6 Autoconfiguration Scenarios Included in QualNet</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1019465">Scenario</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 288pt">
+            <div class="CellHeading"><a name="1019467">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025844">auto-config-without-dad</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1025846">Demonstrate the IPv6 autoconfiguration functionality without Duplicate Address Detection</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1019469">auto-config-with-dad</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1019471">Demonstrate the IPv6 autoconfiguration functionality with Duplicate Address Detection</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">3.8.8  <a name="1002078">References</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1025859">RFC 2462: IPv6 Stateless Address Auto-configuration.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1025860">RFC 2461: Neighbor Discovery for IP Version 6 (IPv6).</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1025861">RFC2373: Internet Protocol Version (IPv6) Addressing Architecture.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

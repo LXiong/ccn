@@ -1,0 +1,18 @@
+URBAN_OPTIONS = -DURBAN_LIB
+
+URBAN_DIR = ../libraries/urban/src
+
+#
+# common sources
+#
+URBAN_SRCS = \
+$(URBAN_DIR)/prop_cost_hata.cpp \
+$(URBAN_DIR)/prop_cost_wi.cpp \
+$(URBAN_DIR)/prop_foliage.cpp \
+$(URBAN_DIR)/prop_hata.cpp \
+$(URBAN_DIR)/prop_suburban.cpp \
+$(URBAN_DIR)/prop_urban.cpp \
+$(URBAN_DIR)/prop_itu_r.cpp
+
+URBAN_INCLUDES = \
+-I$(URBAN_DIR)

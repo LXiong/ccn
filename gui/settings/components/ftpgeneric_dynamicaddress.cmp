@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<category name="FTP Generic Properties" singlehost="false" loopback="disabled" propertytype="FTP/GENERIC-DYNAMICADDRESS" displayname="FTP Generic">
+   <variable name="Source" key="SOURCE" type="SelectionDynamic" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Client node&apos;s ID or IP address."/>
+   <variable name="Destination" key="DESTINATION-URL" type="Text" default="[Required]" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Destination node&apos;s ID, IP address, or Fully Qualified Domain Name (FQDN)."/>
+   <variable name="Items to Send" key="ITEM-TO-SEND" type="Integer" default="100" min="0" help="Packets (not files) to send" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Number of packets to send."/>
+   <variable key="ITEM-SIZE" type="Integer" name="Item Size (bytes)" default="512" min="24" help="Packet size in bytes" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Size of each item."/>
+   <variable name="Start Time" key="START-TIME" type="Time" default="1S" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Time when the transmission of packets should begin."/>
+   <variable name="End Time" key="END-TIME" type="Time" default="25S" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Time when the transmission of packets should end."/>
+   <variable name="Priority" key="PRIORITY" type="Selection" default="PRECEDENCE" keyvisible="false" optional="true" help_ref="File Transfer Protocol/Generic (FTP/Generic):Value of the 3-bit Precedence field of the IP header for the packets generated.">
+      <option value="TOS" name="TOS" help="value (0-255) of the TOS bits in the IP header">
+         <variable name="TOS Value" key="TOS-BITS" type="Integer" default="0" min="0" max="255" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Value of the 8-bit TOS field of the IP header for the packets generated."/>
+      </option>
+      <option value="DSCP" name="DSCP" help="value (0-63) of the DSCP bits in the IP header">
+         <variable name="DSCP Value" key="DSCP-BITS" type="Integer" default="0" min="0" max="63" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Value of the 6-bit DSCP field of the IP header for the packets generated."/>
+      </option>
+      <option value="PRECEDENCE" name="Precedence" help="value (0-7) of the Precedence bits in the IP header">
+         <variable name="Precedence Value" key="PRECEDENCE-BITS" type="Integer" default="0" min="0" max="7" keyvisible="false" optional="false" help_ref="File Transfer Protocol/Generic (FTP/Generic):Value of the 3-bit Precedence field of the IP header for the packets generated."/>
+      </option>
+   </variable>
+   <variable name="Session Name" key="APPLICATION-NAME" type="Text" default="[Optional]" spacesAllowed="false" optional="true" keyvisible="true" />
+</category>

@@ -1,0 +1,3 @@
+CBR 2 host5.qa.chk.org.  100 512 1S 2M 4M PRECEDENCE 0 
+CBR 4 host2.test.com. 100 512 1S 2M 4M PRECEDENCE 0 
+CBR 1 host4.chk.org. 100 512 1S 1S 4M PRECEDENCE 0 

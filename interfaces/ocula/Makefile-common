@@ -1,0 +1,20 @@
+OCULA_INTERFACE_OPTIONS = \
+-DOCULA_INTERFACE \
+# -DSOPS_DEBUG \
+# -DSOPS_EXTRA_DEBUG
+
+OCULA_INTERFACE_DIR = ../interfaces/ocula/src
+
+#
+# common sources
+#
+OCULA_INTERFACE_SRCS = \
+$(OCULA_INTERFACE_DIR)/ops_util.cpp \
+$(OCULA_INTERFACE_DIR)/CommonFunctions.cpp \
+$(OCULA_INTERFACE_DIR)/ExecSettings.cpp \
+$(OCULA_INTERFACE_DIR)/SopsProperty.cpp \
+$(OCULA_INTERFACE_DIR)/SopsRpcInterface.cpp \
+$(OCULA_INTERFACE_DIR)/SPConnection.cpp
+
+OCULA_INTERFACE_INCLUDES = \
+-I$(OCULA_INTERFACE_DIR) 

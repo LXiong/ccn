@@ -1,0 +1,24 @@
+function FileData_Pairs(x)
+{
+x.t("2008","2013");
+x.t("scalable","network");
+x.t("variables","need");
+x.t("variables","running");
+x.t("synchronizer","a.2");
+x.t("synchronizer","extractor");
+x.t("synchronizer","environment");
+x.t("synchronizer","running");
+x.t("need","running");
+x.t("a.2","environment");
+x.t("network","technologies");
+x.t("2013","scalable");
+x.t("extractor","synchronizer");
+x.t("dis","section");
+x.t("hla","dis");
+x.t("section","2.1.3");
+x.t("environment","variables");
+x.t("qualnet","hla");
+x.t("2.1.3","2008");
+x.t("running","extractor");
+x.t("running","qualnet");
+}

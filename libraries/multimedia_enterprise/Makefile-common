@@ -1,0 +1,49 @@
+ENTERPRISE_OPTIONS = -DENTERPRISE_LIB
+
+ENTERPRISE_DIR = ../libraries/multimedia_enterprise/src
+
+#
+# common sources
+#
+ENTERPRISE_SRCS = \
+$(ENTERPRISE_DIR)/app_voip.cpp \
+$(ENTERPRISE_DIR)/mac_garp.cpp \
+$(ENTERPRISE_DIR)/mac_gvrp.cpp \
+$(ENTERPRISE_DIR)/mac_stp.cpp \
+$(ENTERPRISE_DIR)/mac_switch.cpp \
+$(ENTERPRISE_DIR)/mac_switched_ethernet.cpp \
+$(ENTERPRISE_DIR)/mac_vlan.cpp \
+$(ENTERPRISE_DIR)/mf_traffic_conditioner.cpp \
+$(ENTERPRISE_DIR)/mpls.cpp \
+$(ENTERPRISE_DIR)/mpls_ldp.cpp \
+$(ENTERPRISE_DIR)/multicast_dvmrp.cpp \
+$(ENTERPRISE_DIR)/multicast_mospf.cpp \
+$(ENTERPRISE_DIR)/multicast_pim.cpp \
+$(ENTERPRISE_DIR)/multicast_pim_dm.cpp \
+$(ENTERPRISE_DIR)/multicast_pim_sm.cpp \
+$(ENTERPRISE_DIR)/multimedia_h225_ras.cpp \
+$(ENTERPRISE_DIR)/multimedia_h323.cpp \
+$(ENTERPRISE_DIR)/multimedia_sip.cpp \
+$(ENTERPRISE_DIR)/multimedia_sipdata.cpp \
+$(ENTERPRISE_DIR)/multimedia_sipmsg.cpp \
+$(ENTERPRISE_DIR)/multimedia_sipsession.cpp \
+$(ENTERPRISE_DIR)/network_access_list.cpp \
+$(ENTERPRISE_DIR)/network_mobileip.cpp \
+$(ENTERPRISE_DIR)/route_map.cpp \
+$(ENTERPRISE_DIR)/route_parse_util.cpp \
+$(ENTERPRISE_DIR)/route_redistribution.cpp \
+$(ENTERPRISE_DIR)/routing_bgp.cpp \
+$(ENTERPRISE_DIR)/routing_eigrp.cpp \
+$(ENTERPRISE_DIR)/routing_hsrp.cpp \
+$(ENTERPRISE_DIR)/routing_igrp.cpp \
+$(ENTERPRISE_DIR)/routing_ospfv2.cpp \
+$(ENTERPRISE_DIR)/routing_ospfv3.cpp \
+$(ENTERPRISE_DIR)/routing_policy_routing.cpp \
+$(ENTERPRISE_DIR)/routing_qospf.cpp \
+$(ENTERPRISE_DIR)/sch_diffserv.cpp \
+$(ENTERPRISE_DIR)/transport_rsvp.cpp \
+$(ENTERPRISE_DIR)/transport_rtp.cpp \
+$(ENTERPRISE_DIR)/db_multimedia.cpp
+
+ENTERPRISE_INCLUDES = \
+-I$(ENTERPRISE_DIR)

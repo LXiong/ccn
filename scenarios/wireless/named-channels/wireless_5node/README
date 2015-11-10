@@ -1,0 +1,56 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+
+PURPOSE:
+---------
+To test whether it is ok to specify both PHY-LISTENING-CHANNEL-MASK and PHY-LISTENING-CHANNELS as long as both of them do not apply at the same level of precedence to the same interface.(ie. There should be no ambiguity.If node 1 has the interface address of 190.0.1.0 and the following is present in the config file
+[190.0.1.0]	PHY-LISTENABLE-CHANNEL-MASK 1111 
+[1]		PHY-LISTENABLE-CHANNEL-MASK 1111
+[1]	 	PHY-LISTENABLE-CHANNELS channel0, channel3
+Then eventhough both PHY-LISTENABLE-CHANNEL-MASK and PHY-LISTENABLE-CHANNELS are present for node 1 there is no need to display an error since the best match for node 1 is 
+[190.0.1.0]	PHY-LISTENABLE-CHANNEL-MASK 1111 
+which has higher precedence than node level and at that level only PHY-LISTENABLE-CHANNEL-MASK is defined.
+)
+
+
+SCENARIO:
+----------
+
+
+Only five nodes are in the scenario. Nodes 1, 2 and 3 are in one wireless subnet 
+, Node 3, 4 and 5 are in another wireless subnet.
+
+
+APPLICATIONS:
+--------------
+CBR 1 5 100 512 1S 1S 25S PRECEDENCE 0
+
+
+RUN:
+-----
+Run '<QUALNET_HOME>/bin/qualnet wireless_5node.config'
+
+
+DESCRIPTION OF THE FILES:
+--------------------------
+1. wireless_5node.app - QualNet configuration file for application input.
+2. wireless_5node.config - QualNet configuration input file.
+3. wireless_5node.expected.stat - QualNet statistics collection.
+4. wireless_5node.nodes - QualNet node position file.
+5. README - This file.
+

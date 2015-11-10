@@ -1,0 +1,5 @@
+include ../libraries/cellular/Makefile-common
+
+ADDON_OPTIONS   += $(CELLULAR_OPTIONS)
+ADDON_SRCS      += $(CELLULAR_SRCS)
+ADDON_INCLUDES  += $(CELLULAR_INCLUDES)

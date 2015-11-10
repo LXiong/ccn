@@ -1,0 +1,25 @@
+TESTFED_TARGET = ../bin/testfed
+
+TESTFED_OBJS = $(TESTFED_VRLINK_INTERFACE_SRCS:.cpp=.o)
+
+TESTFED_CXXFLAGS = $(DEBUG) $(OPT)
+
+../interfaces/vrlink/testfed/testfed.o: ../interfaces/vrlink/testfed/testfed.cpp
+	$(CXX) $(TESTFED_CXXFLAGS) -c $< -o $@
+	
+../interfaces/vrlink/testfed/testfed_data.o: ../interfaces/vrlink/testfed/testfed_data.cpp 
+	$(CXX) $(TESTFED_CXXFLAGS) -c $< -o $@
+	
+../interfaces/vrlink/testfed/testfed_shared.o: ../interfaces/vrlink/testfed/testfed_shared.cpp
+	$(CXX) $(TESTFED_CXXFLAGS) -c $< -o $@
+	
+../interfaces/vrlink/testfed/vrlink.o: ../interfaces/vrlink/testfed/vrlink.cpp
+	$(CXX) $(TESTFED_CXXFLAGS) -c $< -o $@
+	
+
+#Use this if a vrlink dev environment is installed and you want to build vrlink so's
+#include ../interfaces/vrlink/testfed/Makefile-unix-so 
+#Use this if no vrlink environment is installed and you need prebuilt lib version
+#include ../interfaces/vrlink/testfed/Makefile-unix-lib-so
+
+build-all-and-store-testfed: $(TESTFED_TARGET) store-vrlink-testfed-dsos

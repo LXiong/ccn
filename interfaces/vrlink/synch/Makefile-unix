@@ -1,0 +1,25 @@
+
+LIBS = -lpthread -ldl
+
+include ../interfaces/vrlink/synch/Makefile-common
+include ../interfaces/vrlink/synch/Makefile-unix-common
+
+
+$(SYNCH_TARGET): $(SYNCH_OBJS) $(SYNCH_TARGET_DEPENDENCIES)
+	$(CXX) -o $@ $(LDFLAGS) $(SYNCH_OBJS) -lpthread -ldl
+
+
+SYNCH_VRLINK_INTERFACE_OBJS_PRE = $(SYNCH_VRLINK_INTERFACE_SRCS:.cpp=.o)
+SYNCH_VRLINK_INTERFACE_OBJS = $(SYNCH_VRLINK_INTERFACE_OBJS_PRE:.c=.o)
+
+SYNCH_VRLINK_INTERFACE_INCLUDES = -I$(SYNCH_VRLINK_INTERFACE_SRC_DIR)
+
+ADDON_DEPS       += $(SYNCH_TARGET)
+
+clean-vrlink-synch:
+	-rm -f ../bin/$(SYNCH_VRLINK_INTERFACE_DIS_DSO_NAME)
+	-rm -f ../bin/$(SYNCH_VRLINK_INTERFACE_HLA13_DSO_NAME)
+	-rm -f ../bin/$(SYNCH_VRLINK_INTERFACE_HLA1516_DSO_NAME)
+	-rm -rf $(SYNCH_OBJS) $(SYNCH_TARGET) makRti.log
+	
+ADDONS_CLEAN += clean-vrlink-synch

@@ -1,0 +1,16 @@
+include ../interfaces/dis/Makefile-common
+
+ADDON_OPTIONS   += $(DIS_INTERFACE_OPTIONS)
+ADDON_SRCS      += $(DIS_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(DIS_INTERFACE_INCLUDES)
+
+DIS_INTERFACE_OBJS_PRE = $(DIS_INTERFACE_SRCS:.cpp=.o)
+DIS_INTERFACE_OBJS = $(DIS_INTERFACE_OBJS_PRE:.c=.o)
+
+clean-dis:
+	-rm -f $(DIS_INTERFACE_OBJS)
+
+clean-dis-all: clean-dis
+	-rm -f ../main/external.o
+	-rm -f ../libraries/military/src/mac_link11.o
+	-rm -f ../libraries/military/src/mac_link16.o

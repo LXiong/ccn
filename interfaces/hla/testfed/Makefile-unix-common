@@ -1,0 +1,27 @@
+TARGET = ../../../bin/testfed
+
+all: $(TARGET)
+
+include Makefile-common
+
+OBJS_PRE = $(SRCS:.cpp=.o)
+OBJS     = $(OBJS_PRE:.c=.o)
+
+CC = gcc
+CXX = g++
+
+CFLAGS = $(DEBUG) $(OPT) $(INCLUDE_DIRS) $(RTI_DEFINES)
+CXXFLAGS = $(DEBUG) $(OPT) $(INCLUDE_DIRS) $(RTI_DEFINES)
+LDFLAGS = $(DEBUG) $(OPT)
+
+$(TARGET): $(OBJS)
+	$(CXX) -o $@ $(LDFLAGS) $(OBJS) $(LIBS)
+
+clean:
+	rm -rf $(OBJS) $(TARGET) makRti.log
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) -c $<

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Upgrading DIS Scenarios</title>
+    <link rel="StyleSheet" href="css/Appendix%20C.%20Upgrading%20Scenarios.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20C.%20Upgrading%20Scenarios.6.1.html#1048503">C	Upgrading Scenarios</a> &gt; C.2  Upgrading DIS Scenarios</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">C.2  <a name="1048503">Upgrading DIS Scenarios</a></div>
+      <div class="BodyAfterHead"><a name="1048507">To upgrade a </a><span class="Variable">QualNet</span> 6.1 (or earlier) scenario using DIS, replace the following line in the scenario configuration (.config) file:</div>
+      <div class="Declaration"><a name="1048508">DIS YES</a></div>
+      <div class="Body"><a name="1048509">with the following two lines:</a></div>
+      <div class="Declaration"><a name="1048510">VRLINK           YES</a></div>
+      <div class="Declaration"><a name="1048511">VRLINK-PROTOCOL  DIS</a></div>
+      <div class="Body"><a name="1048521">In addition, replace all occurrences of the old parameters listed </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20C.%20Upgrading%20Scenarios.6.3.html#1048722', '');" title="Upgrading DIS Scenarios">Table&nbsp;C-2</a></span> with the corresponding new parameter.</div>
+      <div class="Body"><a name="1048797">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE C-2.&nbsp;&nbsp;<a name="1048722">Modified DIS Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1048726">Old Parameter Name</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1048728">New Parameter Name</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048730">DIS-DEBUG-PRINT-COMMS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048732">VRLINK-DEBUG-PRINT-COMMS</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048734">DIS-DEBUG-PRINT-COMMS-2 </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048736">VRLINK-DEBUG-PRINT-COMMS-2 </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048738">DIS-DEBUG-PRINT-MAPPING </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048740">VRLINK- DEBUG-PRINT-MAPPING </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048742">DIS-DEBUG-PRINT-DAMAGE </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048744">VRLINK- DEBUG-PRINT-DAMAGE</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048746">DIS-DEBUG-PRINT-TX-STATE </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048748">VRLINK-DEBUG-PRINT-TX-STATE </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048750">DIS-DEBUG-PRINT-MOBILITY </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048752">VRLINK-DEBUG-PRINT-MOBILITY </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048754">DIS-DEBUG-PRINT-TRANSMITTER-PDU </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048756">VRLINK-DEBUG-PRINT-TRANSMITTER-PDU </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048758">DIS-DEBUG-PRINT-PDUS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048760">VRLINK-DEBUG-PRINT-PDUS</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048762">DIS-IP-ADDRESS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048764">VRLINK-DIS-IP-ADDRESS</a></span><span style="font-family: Arial"> (see note)</span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048766">DIS-PORT </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048768">VRLINK-DIS-PORT</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048770">DIS-RECEIVE-DELAY </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048772">VRLINK-RECEIVE-DELAY </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048774">DIS-MAX-RECEIVE-DURATION </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048776">VRLINK-MAX-RECEIVE-DURATION </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048778">DIS-XYZ-EPSILON </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048780">VRLINK-XYZ-EPSILON</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048782">DIS-MOBILITY-INTERVAL </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048784">VRLINK- MOBILITY-INTERVAL </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048786">DIS-ENTITIES-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048788">VRLINK-ENTITIES-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048790">DIS-RADIOS-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048792">VRLINK-RADIOS-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048794">DIS-NETWORKS-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048796">VRLINK-NETWORKS-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+      </table>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1048951">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1048953">If </a><span style="font-family: &quot;Courier New&quot;">DIS-IP-ADDRESS</span> is set to a value other than <span style="font-family: &quot;Courier New&quot;">255.255.255.255</span>, then that address may not be reachable with the default network interface of <span style="font-family: &quot;Courier New&quot;">127.0.0.1</span>. You must set <span style="font-family: &quot;Courier New&quot;">VRLINK-DIS-NETWORK-INTERFACE</span> to a real network interface address (use the <span style="font-family: &quot;Courier New&quot;; font-weight: bold">ipconfig</span> or <span style="font-family: &quot;Courier New&quot;; font-weight: bold">ifconfig</span> command to determine the address).</div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

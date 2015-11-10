@@ -1,0 +1,8 @@
+cache
+log
+node
+qualnet.stat
+string_handling.pl
+windowsize10
+*.swp
+*.csv

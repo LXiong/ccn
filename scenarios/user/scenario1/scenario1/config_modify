@@ -1,0 +1,9 @@
+# ***** QualNet Configuration File *****
+CACHE_SIZE 500       # pkts per node 
+CCN_METHOD NO_VIDEO    # DEFAULT or PRIOR or PROPOSAL
+VIDEO_RATE 300        # kbps
+COMMON_RATE 300       # kbps
+ERROR_RATE 0.3        # %
+
+#*******************Application Layer***********************************
+APP-CONFIG-FILE   ./node_role.app

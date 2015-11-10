@@ -1,0 +1,78 @@
+ifndef RTI_HOME
+$(error You must set the environment variable RTI_HOME to the RTI installation directory.)
+endif
+
+ifndef RTI_INCLUDE_DIR
+RTI_INCLUDE_DIR = $(RTI_HOME)/include
+endif
+
+# check for the RTI include directory
+ifeq ($(strip $(wildcard $(RTI_INCLUDE_DIR))),)
+$(error Could not find the directory containing the RTI include files. Please \
+set the environment variable RTI_INCLUDE_DIR to the directory containing the \
+RTI include files.)
+endif
+
+# look for the HLA 13 header file
+ifndef RTI_HLA13_INCLUDE
+RTI_HLA13_INCLUDE = $(RTI_INCLUDE_DIR)/HLA13
+endif
+
+ifeq ($(strip $(wildcard $(RTI_HLA13_INCLUDE)/RTI.hh)),)
+ifeq ($(strip $(wildcard $(RTI_INCLUDE_DIR)/RTI.hh))),)
+$(error Could not find the directory containing the HLA 1.3 RTI include files. Please \
+set the environment variable RTI_HLA13_INCLUDE to the directory containing the \
+HLA 1.3 RTI include files.)
+else
+RTI_HLA13_INCLUDE = $(RTI_INCLUDE_DIR)
+endif
+endif
+
+# look for the HLA 1516 header file
+ifndef RTI_HLA1516_INCLUDE
+RTI_HLA1516_INCLUDE = $(RTI_INCLUDE_DIR)/HLA1516
+endif
+
+ifeq ($(strip $(wildcard $(RTI_HLA1516_INCLUDE)/RTI/RTI1516.h)),)
+ifeq ($(strip $(wildcard $(RTI_INCLUDE_DIR)/RTI/RTI1516.h))),)
+$(error Could not find the directory containing the HLA 1516 RTI include files. Please \
+set the environment variable RTI_HLA1516_INCLUDE to the directory containing the \
+HLA 1516 RTI include files.)
+else
+RTI_HLA1516_INCLUDE = $(RTI_INCLUDE_DIR)
+endif
+endif
+
+ifndef RTI_LIB_DIR
+RTI_LIB_DIR = $(RTI_HOME)/lib
+endif
+
+# check for the RTI library directory
+ifeq ($(strip $(wildcard $(RTI_LIB_DIR))),)
+$(error Could not find the directory containing the RTI library files. Please \
+set the environment variable RTI_LIB_DIR to the directory containing the RTI \
+library files.)
+endif
+
+ifndef RTI_HLA13_LIBRARY
+# Do we use 64 or 32 bit libraries?
+ifeq ($(findstring 64,$(ARCH)),64)
+RTI_HLA13_LIBRARY = -lRTI-NG_64 -lfedtime_64
+else
+RTI_HLA13_LIBRARY = -lRTI-NG -lfedtime
+endif
+endif
+
+ifndef RTI_HLA1516_LIBRARY
+# Do we use 64 or 32 bit libraries?
+ifeq ($(findstring 64,$(ARCH)),64)
+RTI_HLA1516_LIBRARY = -lrti1516_64 -lfedtime1516_64
+else
+RTI_HLA1516_LIBRARY = -lrti1516 -lfedtime1516
+endif
+endif
+
+ifndef RTI_DEFINES
+RTI_DEFINES = -DRTI_USES_STD_FSTREAM
+endif
+

@@ -1,0 +1,59 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+
+PURPOSE:-
+--------
+This scenario is to test a specific a case of LSA age reaches to maximum(3600 seconds).
+
+
+SCENARIO:-
+---------
+Scenarios contains 6 nodes whose node ids are 42, 80, 302, 304, 404 and 1042.
+
+Nodes-42 and 80 are in wireless subnet-1.
+Nodes-302 and 304 are in wireless subnet-2.
+
+CBR is used to send data segments from
+Node-404 to Node-1042
+
+
+Topology:-
+---------
+
+      (1042)-----(42).......(80)-----(302).....(304)-----(404)
+
+<----> represents wired link.
+<....> represents wireless link.
+
+
+RUN:-
+----
+Run '<QUALNET_HOME>/bin/qualnet max-lsa-age-increment-interval.config'.
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. max-lsa-age-increment-interval.app -  QualNet configuration file for application input.
+2. max-lsa-age-increment-interval.config - QualNet configuration input file.
+3. max-lsa-age-increment-interval.nodes - QualNet node placement file for the simulation run.
+4. max-lsa-age-increment-interval.expected.stat - QualNet statistics collection.
+5. max-lsa-age-increment-interval.member - QualNet multicast group members file.
+5. max-lsa-age-increment-interval.ospf - Ospf area configuration file
+6. max-lsa-age-increment-interval.router-config - QualNet router configuration file.
+6. max-lsa-age-increment-interval.routes-default - QualNet default routes file.
+7. README - This file.

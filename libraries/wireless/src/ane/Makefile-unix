@@ -1,0 +1,26 @@
+#
+# Define ANE addon.
+#
+
+include ../libraries/wireless/src/ane/Makefile-common
+
+# ANE_LIBRARIES = -ldl
+ANE_LIBRARIES = 
+
+ifeq ($(ARCH), linux-glibc-2.3)
+ANE_OPTIONS += -rdynamic
+ANE_LIBRARIES += -rdynamic 
+endif
+
+ifeq ($(ARCH), linux-glibc-2.2)
+ANE_OPTIONS += -rdynamic
+ANE_LIBRARIES += -rdynamic 
+endif
+
+ADDON_OPTIONS   += $(ANE_OPTIONS)
+ADDON_HDRS      += $(ANE_HDRS)
+ADDON_SRCS      += $(ANE_SRCS)
+ADDON_INCLUDES  += $(ANE_INCLUDES)
+ADDON_LIBRARIES += $(ANE_LIBRARIES)
+
+#

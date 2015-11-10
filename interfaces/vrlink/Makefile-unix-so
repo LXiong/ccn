@@ -1,0 +1,111 @@
+ifndef VLHOME
+$(error You must set the environment variable VLHOME to the VRLINK installation directory.)
+endif
+
+VRLINK_INTERFACE_DIS_DSO_NAME = vrlink_interface-dis.so
+VRLINK_INTERFACE_HLA13_DSO_NAME = vrlink_interface-hla13.so
+VRLINK_INTERFACE_HLA1516_DSO_NAME = vrlink_interface-hla1516.so
+
+include ../interfaces/vrlink/Makefile-common
+
+# Do we use 64 or 32 bit libraries?
+ifeq ($(findstring 64,$(ARCH)),64)
+VRLINK_LIB_DIR = $(VLHOME)/lib64
+else
+VRLINK_LIB_DIR = $(VLHOME)/lib
+endif
+
+VRLINK_INTERFACE_LIBRARIES = -lvl -lmtl -lmatrix -lvlutil
+
+#
+# DIS section
+#
+VRLINK_INTERFACE_DIS_DSO_OBJS = \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_shared.o-dis-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_main.o-dis-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_dis.o-dis-$(ARCH)-$(COMPILER)
+
+#LDFLAGS += -rdynamic
+
+VRLINK_INTERFACE_DIS_INCLUDES = \
+    $(VRLINK_INTERFACE_INCLUDES) -I$(VLHOME)/include
+
+VRLINK_INTERFACE_DIS_LIBRARIES = \
+    -L $(VRLINK_LIB_DIR) $(VRLINK_INTERFACE_LIBRARIES) -lvlDIS
+
+../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME): $(VRLINK_INTERFACE_DIS_DSO_OBJS)
+	$(CXX) -shared -Wl,-soname,$@ -o $@ $(DEBUG) $(OPT) $^ $(LIBRARIES_LIB) $(VRLINK_INTERFACE_DIS_LIBRARIES)
+
+%.o-dis-$(ARCH)-$(COMPILER): %.cpp
+	$(CXX) $(CXXFLAGS) $(VRLINK_INTERFACE_DIS_INCLUDES) -fPIC -DDtDIS -o $@ -c $<
+
+include ../interfaces/vrlink/Makefile-unix-rti
+
+#
+# HLA 13 section
+#
+VRLINK_INTERFACE_HLA13_DSO_OBJS = \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_shared.o-hla13-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_main.o-hla13-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_hla.o-hla13-$(ARCH)-$(COMPILER)
+
+VRLINK_INTERFACE_HLA13_INCLUDES = \
+    $(VRLINK_INTERFACE_INCLUDES) -I$(VLHOME)/include -I$(RTI_HLA13_INCLUDE)
+
+VRLINK_INTERFACE_HLA13_LIBRARIES = \
+    -L $(VRLINK_LIB_DIR) $(VRLINK_INTERFACE_LIBRARIES) -lvlHLA13 \
+    -L "$(RTI_LIB_DIR)" $(RTI_HLA13_LIBRARY)
+
+../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME): $(VRLINK_INTERFACE_HLA13_DSO_OBJS)
+	$(CXX) -shared -Wl,-soname,$@ -o $@ $(DEBUG) $(OPT) $^ $(LIBRARIES_LIB) $(VRLINK_INTERFACE_HLA13_LIBRARIES)
+
+%.o-hla13-$(ARCH)-$(COMPILER): %.cpp
+	$(CXX) $(CXXFLAGS) $(VRLINK_INTERFACE_HLA13_INCLUDES) -fPIC -DDtHLA -DDtHLA13 $(RTI_DEFINES) -o $@ -c $<
+
+#
+# HLA 1516 section
+#
+VRLINK_INTERFACE_HLA1516_DSO_OBJS = \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_shared.o-hla1516-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_main.o-hla1516-$(ARCH)-$(COMPILER) \
+    $(VRLINK_INTERFACE_SRC_DIR)/vrlink_hla.o-hla1516-$(ARCH)-$(COMPILER)
+
+VRLINK_INTERFACE_HLA1516_INCLUDES = \
+    $(VRLINK_INTERFACE_INCLUDES) -I$(VLHOME)/include -I$(RTI_HLA1516_INCLUDE)
+
+VRLINK_INTERFACE_HLA1516_LIBRARIES = \
+    -L $(VRLINK_LIB_DIR) $(VRLINK_INTERFACE_LIBRARIES) -lvlHLA1516 \
+    -L "$(RTI_LIB_DIR)" $(RTI_HLA1516_LIBRARY)
+
+../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME): $(VRLINK_INTERFACE_HLA1516_DSO_OBJS)
+	$(CXX) -shared -Wl,-soname,$@ -o $@ $(DEBUG) $(OPT) $^ $(LIBRARIES_LIB) $(VRLINK_INTERFACE_HLA1516_LIBRARIES)
+
+%.o-hla1516-$(ARCH)-$(COMPILER): %.cpp
+	$(CXX) $(CXXFLAGS) $(VRLINK_INTERFACE_HLA1516_INCLUDES) -fPIC -DDtHLA -DDtHLA_1516 $(RTI_DEFINES) -o $@ -c $<
+
+#
+# Targets
+#
+
+VRLINK_INTERFACE_SHARED_OBJECTS = \
+    ../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME) \
+    ../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME) \
+    ../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME)
+
+ADDON_DEPS      += $(VRLINK_INTERFACE_SHARED_OBJECTS)
+
+vrlink-dsos: $(VRLINK_INTERFACE_SHARED_OBJECTS)
+
+clean-vrlink-all:
+	rm -f $(VRLINK_INTERFACE_DIS_DSO_OBJS)
+	rm -f $(VRLINK_INTERFACE_HLA13_DSO_OBJS)
+	rm -f $(VRLINK_INTERFACE_HLA1516_DSO_OBJS)
+
+ADDONS_CLEAN += clean-vrlink-all
+
+store-vrlink-dsos: vrlink-dsos
+	cp ../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME) ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_DIS_DSO_NAME)
+	cp ../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME) ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_HLA13_DSO_NAME)
+	cp ../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME) ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_HLA1516_DSO_NAME)
+
+build-and-store-vrlink-dsos: vrlink-dsos store-vrlink-dsos

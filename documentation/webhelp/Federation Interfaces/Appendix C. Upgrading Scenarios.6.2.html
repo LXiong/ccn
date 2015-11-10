@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Upgrading HLA Scenarios</title>
+    <link rel="StyleSheet" href="css/Appendix%20C.%20Upgrading%20Scenarios.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20C.%20Upgrading%20Scenarios.6.1.html#1033758">C	Upgrading Scenarios</a> &gt; C.1  Upgrading HLA Scenarios</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">C.1  <a name="1033758">Upgrading HLA Scenarios</a></div>
+      <div class="BodyAfterHead"><a name="1046083">To upgrade a </a><span class="Variable">QualNet</span> 6.1 (or earlier) scenario using HLA, replace the following line in the scenario configuration (.config) file:</div>
+      <div class="Declaration"><a name="1046160">HLA YES</a></div>
+      <div class="Body"><a name="1046161">with the following two lines:</a></div>
+      <div class="Declaration"><a name="1046168">VRLINK           YES</a></div>
+      <div class="Declaration"><a name="1046169">VRLINK-PROTOCOL  &lt;HLA-specification&gt;</a></div>
+      <div class="Where"><a name="1046175">where</a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 144pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1046172">&lt;HLA-specification&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 288pt">
+            <div class="Body"><a name="1046174">This is either </a><span style="font-family: &quot;Courier New&quot;">HLA13</span> (for the HLA 1.3 standard) or <span style="font-family: &quot;Courier New&quot;">HLA1516</span> (for the HLA 1516 standard).</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Body"><a name="1048221">In addition, replace all occurrences of the old parameters listed </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20C.%20Upgrading%20Scenarios.6.2.html#1048342', '');" title="Upgrading HLA Scenarios">Table&nbsp;C-1</a></span> with the corresponding new parameter.</div>
+      <div class="Body"><a name="1048328">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE C-1.&nbsp;&nbsp;<a name="1048342">Modified HLA Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1048346">Old Parameter Name</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 216pt">
+            <div class="CellHeading"><a name="1048348">New Parameter Name</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048387">HLA-DEBUG </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048389">VRLINK-DEBUG</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048391">HLA-DEBUG-2 </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048393">VRLINK-DEBUG-2 </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048395">HLA-FEDERATION-NAME </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048397">VRLINK-FEDERATION-NAME</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048399">HLA-FED-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048401">VRLINK-FED-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048403">HLA-FEDERATE-NAME </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048405">VRLINK-DEBUG-2 </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048407">HLA-XYZ-EPSILON </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048409">VRLINK-XYZ-EPSILON</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048411">HLA-TICK-INTERVAL </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048413">VRLINK-TICK-INTERVAL </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048415">HLA-MOBILITY-INTERVAL </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048417">VRLINK-MOBILITY-INTERVAL </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048419">HLA-ENTITIES-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048421">VRLINK-ENTITIES-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048423">HLA-RADIOS-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048425">VRLINK-RADIOS-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048427">HLA-NETWORKS-FILE-PATH </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048429">VRLINK-NETWORKS-FILE-PATH</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048431">HLA-DYNAMIC-STATISTICS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048433">VRLINK-HLA-DYNAMIC-STATISTICS </a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048435">HLA-DYNAMIC-STATISTICS-METRIC-UPDATE-MODE </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048437">VRLINK-HLA-DYNAMIC-STATISTICS-METRIC-UPDATE-MODE</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048439">HLA-DYNAMIC-STATISTICS-SEND-NODEID-DESCRIPTIONS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048441">VRLINK-HLA-DYNAMIC-STATISTICS-SEND-NODEID-DESCRIPTIONS</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048443">HLA-DYNAMIC-STATISTICS-SEND-METRIC-DEFINITIONS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048445">VRLINK-HLA-DYNAMIC-STATISTICS- SEND-METRIC-DEFINITIONS</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048447">HLA-PRINT-RTSS </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048449">VRLINK-DEBUG-PRINT-RTSS</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048451">HLA-RPR-FOM-VERSION </a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-bottom: 2.0pt; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1048453">VRLINK-RPR-FOM-VERSION</a></span><span style="font-family: Arial"> (see note)</span></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Body"><a name="1048847">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1048844">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1048846">RPR FOM 0.5 is no longer supported. </a><span style="font-family: &quot;Courier New&quot;">VRLINK-RPR-FOM-VERSION</span> must be set to <span style="font-family: &quot;Courier New&quot;">1.0</span> or <span style="font-family: &quot;Courier New&quot;">2.0017</span> and <span style="font-family: &quot;Courier New&quot;">VRLINK-FED-FILE-PATH</span> must be set to the appropriate file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%202.%20VR-Link.2.3.html#990961', '');" title="High Level Architecture (HLA) Protocol">Table&nbsp;2-1</a></span>).</div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+#
+# Define ANE addon.
+#
+
+ANE_OPTIONS = -DADDON_ANE
+
+
+ANE_HDRS = \
+    ../libraries/wireless/src/ane/ane_mac.h \
+    ../libraries/wireless/src/ane/anesat_mac.h \
+    ../libraries/wireless/src/ane/anesat_node.h \
+    ../libraries/wireless/src/ane/anesat_subnet.h \
+    ../libraries/wireless/src/ane/anesat_tc.h \
+    ../libraries/wireless/src/ane/anesat_upstream.h \
+
+
+ANE_SRCS = \
+    ../libraries/wireless/src/ane/ane_mac.cpp \
+
+ANE_INCLUDES = \
+    -I../libraries/wireless/src/ane
+
+ANE_OBJS = \
+    ../libraries/wireless/src/ane/ane_mac.o \

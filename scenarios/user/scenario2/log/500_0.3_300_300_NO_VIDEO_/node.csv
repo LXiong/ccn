@@ -1,0 +1,27 @@
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+2,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+3,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+4,219,219,215350,110960,0,0,0,0,219,0,110960,0,0,0,0,0,219,0,215350,0,73,146,146,73,0,0,0,0,106580
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+7,73,73,106580,2190,0,0,0,0,73,0,2190,0,0,0,0,0,73,0,106580,0,0,73,73,0,0,0,0,0,0
+total ,730,730,543850,543850,0,0,0,0,730,0,543850,0,146,0,213160,0,730,0,543850,0,365,365,365,365,0,0,0,0
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+2,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+3,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+4,219,219,215350,110960,0,0,0,0,219,0,110960,0,0,0,0,0,219,0,215350,0,73,146,146,73,0,0,0,0,106580
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+7,73,73,106580,2190,0,0,0,0,73,0,2190,0,0,0,0,0,73,0,106580,0,0,73,73,0,0,0,0,0,0
+total ,730,730,543850,543850,0,0,0,0,730,0,543850,0,146,0,213160,0,730,0,543850,0,365,365,365,365,0,0,0,0
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+2,73,73,2190,106580,0,0,0,0,73,0,106580,0,73,0,106580,0,73,0,2190,0,73,0,0,73,0,0,0,0,0
+3,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+4,219,219,215350,110960,0,0,0,0,219,0,110960,0,0,0,0,0,219,0,215350,0,73,146,146,73,0,0,0,0,106580
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,146,146,108770,108770,0,0,0,0,146,0,108770,0,0,0,0,0,146,0,108770,0,73,73,73,73,0,0,0,0,106580
+7,73,73,106580,2190,0,0,0,0,73,0,2190,0,0,0,0,0,73,0,106580,0,0,73,73,0,0,0,0,0,0
+total ,730,730,543850,543850,0,0,0,0,730,0,543850,0,146,0,213160,0,730,0,543850,0,365,365,365,365,0,0,0,0

@@ -1,0 +1,280 @@
+// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (db991250).
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace AgStkCommUtilLib {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("fbd1cd05-6adb-4932-9806-551c25c9c98e"))
+/* LIBID */ __AgStkCommUtilLib;
+struct __declspec(uuid("726c2c43-981c-4ce4-90ae-a97bc70e63bb"))
+/* interface */ IAgStkCommUtilId;
+struct __declspec(uuid("2b108fef-2757-4a7a-9d02-9abd86e02107"))
+/* interface */ IAgStkCommUtilTime;
+struct __declspec(uuid("cfe84e32-9ebb-45e9-8727-c475b6404908"))
+/* interface */ IAgStkCommUtilSignal;
+struct __declspec(uuid("46c3c3b2-001f-4217-8d9b-2db1835222a9"))
+/* interface */ IAgStkCommUtilLatLonAlt;
+struct __declspec(uuid("b78a16fc-0118-4137-a88c-a6a849846b5c"))
+/* interface */ IAgStkCommUtilCartVect;
+struct __declspec(uuid("543f5836-bd53-4a10-9ffc-d7b5119cca74"))
+/* interface */ IAgStkCommUtilPosition;
+struct __declspec(uuid("7017cffb-d915-4f65-b816-c256bf61a43f"))
+/* interface */ IAgStkCommUtilOrientAzEl;
+struct __declspec(uuid("731795d8-d299-4e3b-b715-80774753042e"))
+/* interface */ IAgStkCommUtilLinkResult;
+struct __declspec(uuid("3309d380-821d-48de-b0d3-e4f5a77f7664"))
+/* interface */ IAgStkCommUtilLink;
+struct __declspec(uuid("76687406-ba76-4073-9151-8c072a0a6a0c"))
+/* interface */ IAgStkCommUtilObject;
+struct __declspec(uuid("e834c8e1-60bd-4a6b-9f76-d90ab18d7d9d"))
+/* interface */ IAgStkCommUtilEntityMapping;
+struct __declspec(uuid("928422e0-0125-454a-8694-0cf6664ce222"))
+/* interface */ IAgStkCommUtilFactory;
+struct /* coclass */ AgStkCommUtilFactory;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilId, __uuidof(IAgStkCommUtilId));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilTime, __uuidof(IAgStkCommUtilTime));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilSignal, __uuidof(IAgStkCommUtilSignal));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilLatLonAlt, __uuidof(IAgStkCommUtilLatLonAlt));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilCartVect, __uuidof(IAgStkCommUtilCartVect));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilPosition, __uuidof(IAgStkCommUtilPosition));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilOrientAzEl, __uuidof(IAgStkCommUtilOrientAzEl));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilLinkResult, __uuidof(IAgStkCommUtilLinkResult));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilLink, __uuidof(IAgStkCommUtilLink));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilObject, __uuidof(IAgStkCommUtilObject));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilEntityMapping, __uuidof(IAgStkCommUtilEntityMapping));
+_COM_SMARTPTR_TYPEDEF(IAgStkCommUtilFactory, __uuidof(IAgStkCommUtilFactory));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("726c2c43-981c-4ce4-90ae-a97bc70e63bb"))
+IAgStkCommUtilId : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall LessThan (
+        /*[in]*/ struct IAgStkCommUtilId * pRHS,
+        /*[out,retval]*/ VARIANT_BOOL * pVal ) = 0;
+      virtual HRESULT __stdcall Clone (
+        /*[out,retval]*/ struct IAgStkCommUtilId * * ppClone ) = 0;
+      virtual HRESULT __stdcall ToString (
+        /*[out,retval]*/ BSTR * pStringRep ) = 0;
+};
+
+struct __declspec(uuid("2b108fef-2757-4a7a-9d02-9abd86e02107"))
+IAgStkCommUtilTime : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_TimeSeconds (
+        /*[out,retval]*/ double * pTimeInSeconds ) = 0;
+      virtual HRESULT __stdcall Equals (
+        /*[in]*/ struct IAgStkCommUtilTime * pRHS,
+        /*[out,retval]*/ VARIANT_BOOL * pVal ) = 0;
+      virtual HRESULT __stdcall Clone (
+        /*[out,retval]*/ struct IAgStkCommUtilTime * * ppClone ) = 0;
+      virtual HRESULT __stdcall CopyFrom (
+        /*[in]*/ struct IAgStkCommUtilTime * pTime ) = 0;
+      virtual HRESULT __stdcall SubtractSeconds (
+        /*[in]*/ double seconds,
+        /*[out,retval]*/ struct IAgStkCommUtilTime * * ppTime ) = 0;
+      virtual HRESULT __stdcall SubtractSecondsCopyTo (
+        /*[in]*/ double seconds,
+        /*[in]*/ struct IAgStkCommUtilTime * pTime ) = 0;
+};
+
+struct __declspec(uuid("cfe84e32-9ebb-45e9-8727-c475b6404908"))
+IAgStkCommUtilSignal : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_PowerWatts (
+        /*[out,retval]*/ double * pPowerWatts ) = 0;
+      virtual HRESULT __stdcall put_PowerWatts (
+        /*[in]*/ double pPowerWatts ) = 0;
+      virtual HRESULT __stdcall get_FrequencyHertz (
+        /*[out,retval]*/ double * pFrequencyHertz ) = 0;
+      virtual HRESULT __stdcall put_FrequencyHertz (
+        /*[in]*/ double pFrequencyHertz ) = 0;
+};
+
+struct __declspec(uuid("46c3c3b2-001f-4217-8d9b-2db1835222a9"))
+IAgStkCommUtilLatLonAlt : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_LatitudeRadians (
+        /*[out,retval]*/ double * pLatitudeRadians ) = 0;
+      virtual HRESULT __stdcall get_LongitudeRadians (
+        /*[out,retval]*/ double * pLongitudeRadians ) = 0;
+      virtual HRESULT __stdcall get_AltitudeMeters (
+        /*[out,retval]*/ double * pAltitudeMeters ) = 0;
+};
+
+struct __declspec(uuid("b78a16fc-0118-4137-a88c-a6a849846b5c"))
+IAgStkCommUtilCartVect : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_XMeters (
+        /*[out,retval]*/ double * pX ) = 0;
+      virtual HRESULT __stdcall get_YMeters (
+        /*[out,retval]*/ double * pY ) = 0;
+      virtual HRESULT __stdcall get_ZMeters (
+        /*[out,retval]*/ double * pZ ) = 0;
+};
+
+struct __declspec(uuid("543f5836-bd53-4a10-9ffc-d7b5119cca74"))
+IAgStkCommUtilPosition : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_Cartesian (
+        /*[out,retval]*/ struct IAgStkCommUtilCartVect * * ppPosCartesian ) = 0;
+      virtual HRESULT __stdcall get_LatLonAlt (
+        /*[out,retval]*/ struct IAgStkCommUtilLatLonAlt * * ppPosLatLonAlt ) = 0;
+};
+
+struct __declspec(uuid("7017cffb-d915-4f65-b816-c256bf61a43f"))
+IAgStkCommUtilOrientAzEl : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_AzimuthRadians (
+        /*[out,retval]*/ double * pAzimuth ) = 0;
+      virtual HRESULT __stdcall get_ElevationRadians (
+        /*[out,retval]*/ double * pElevation ) = 0;
+};
+
+struct __declspec(uuid("731795d8-d299-4e3b-b715-80774753042e"))
+IAgStkCommUtilLinkResult : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_AccessSatisfied (
+        /*[out,retval]*/ VARIANT_BOOL * pAccessSatisfied ) = 0;
+      virtual HRESULT __stdcall get_ReceivedPowerIsotropicWatts (
+        /*[out,retval]*/ double * pRip ) = 0;
+      virtual HRESULT __stdcall get_DelaySeconds (
+        /*[out,retval]*/ double * pDelay ) = 0;
+      virtual HRESULT __stdcall get_ReceivedFrequencyHertz (
+        /*[out,retval]*/ double * pReceivedFreq ) = 0;
+      virtual HRESULT __stdcall get_RangeMeters (
+        /*[out,retval]*/ double * pRange ) = 0;
+      virtual HRESULT __stdcall get_PathLossUnits (
+        /*[out,retval]*/ double * pPathLoss ) = 0;
+      virtual HRESULT __stdcall get_TransmitLinkDirection (
+        /*[out,retval]*/ struct IAgStkCommUtilOrientAzEl * * ppDirection ) = 0;
+      virtual HRESULT __stdcall get_ReceiveLinkDirection (
+        /*[out,retval]*/ struct IAgStkCommUtilOrientAzEl * * ppDirection ) = 0;
+      virtual HRESULT __stdcall get_TransmitPos (
+        /*[out,retval]*/ struct IAgStkCommUtilPosition * * ppPos ) = 0;
+      virtual HRESULT __stdcall get_ReceivePos (
+        /*[out,retval]*/ struct IAgStkCommUtilPosition * * ppPos ) = 0;
+};
+
+struct __declspec(uuid("3309d380-821d-48de-b0d3-e4f5a77f7664"))
+IAgStkCommUtilLink : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall ComputeToReceive (
+        /*[in]*/ struct IAgStkCommUtilTime * time,
+        /*[in]*/ struct IAgStkCommUtilSignal * signal,
+        /*[out,retval]*/ struct IAgStkCommUtilLinkResult * * ppResult ) = 0;
+      virtual HRESULT __stdcall ComputeReceiveGain (
+        /*[in]*/ struct IAgStkCommUtilTime * time,
+        /*[in]*/ struct IAgStkCommUtilSignal * signal,
+        /*[out,retval]*/ double * pGain ) = 0;
+};
+
+struct __declspec(uuid("76687406-ba76-4073-9151-8c072a0a6a0c"))
+IAgStkCommUtilObject : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall ComputePosition (
+        /*[in]*/ struct IAgStkCommUtilTime * time,
+        /*[out,retval]*/ struct IAgStkCommUtilPosition * * ppPos ) = 0;
+      virtual HRESULT __stdcall ComputeOrientation (
+        /*[in]*/ struct IAgStkCommUtilTime * time,
+        /*[out,retval]*/ struct IAgStkCommUtilOrientAzEl * * ppOrientation ) = 0;
+};
+
+struct __declspec(uuid("e834c8e1-60bd-4a6b-9f76-d90ab18d7d9d"))
+IAgStkCommUtilEntityMapping : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall GetStkScenarioFilePath (
+        /*[out,retval]*/ BSTR * pPath ) = 0;
+      virtual HRESULT __stdcall GetTransmitAntennaPath (
+        /*[in]*/ struct IAgStkCommUtilId * pId,
+        /*[out,retval]*/ BSTR * pPath ) = 0;
+      virtual HRESULT __stdcall GetReceiveAntennaPath (
+        /*[in]*/ struct IAgStkCommUtilId * pId,
+        /*[out]*/ double * pRainOutagePercent,
+        /*[out,retval]*/ BSTR * pPath ) = 0;
+};
+
+struct __declspec(uuid("928422e0-0125-454a-8694-0cf6664ce222"))
+IAgStkCommUtilFactory : IUnknown
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall Initialize (
+        /*[in]*/ struct IAgStkCommUtilEntityMapping * pMappingInterface ) = 0;
+      virtual HRESULT __stdcall GetLink (
+        /*[in]*/ struct IAgStkCommUtilId * pXmtrId,
+        /*[in]*/ struct IAgStkCommUtilId * pRcvrId,
+        /*[out,retval]*/ struct IAgStkCommUtilLink * * ppLink ) = 0;
+      virtual HRESULT __stdcall GetObject (
+        /*[in]*/ struct IAgStkCommUtilId * pId,
+        /*[out,retval]*/ struct IAgStkCommUtilObject * * ppObject ) = 0;
+};
+
+struct __declspec(uuid("ea89a8ff-7279-4e80-8ca7-4c930f88868e"))
+AgStkCommUtilFactory;
+    // [ default ] interface IAgStkCommUtilFactory
+    // interface ISupportErrorInfo
+
+} // namespace AgStkCommUtilLib
+
+#pragma pack(pop)

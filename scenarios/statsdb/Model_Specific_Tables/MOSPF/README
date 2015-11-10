@@ -1,0 +1,72 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+PURPOSE:
+-------
+To test the MOSPF Summary tables, provides information in regards to the group LSAs and router LSAs in multicast scenario.
+
+
+
+SCENARIO:
+---------
+In this scenario, there is one MCBR session, with node 5 being the multicast
+source and nodes 2, 6, 7 and 9 being the multicast group members.
+The multicast members join the group before the source sends data.
+However, nodes 7 and 9 leave the group early.
+Nodes 4, 8, 12 and 13 are the IGMP routers.
+Nodes 4, 8, and 12 are the Inter Area Multicast Forwarder.
+
+
+             1     2      3
+             |     |      |
+             +-----++-----+
+                    |
+            ........4........
+            :      / \      :
+            :    /     \    :
+   10 --+   :  /         \  :   +-- 6
+        |   :/             \:   |
+        +-- 12   Backbone   8 --+
+   11 --+   :\             /:   +-- 7
+        |   :  \         /  :   |
+    9 --+   :    \     /    :   +-- 5
+            :......\ /......:
+                    13
+
+MCBR is used to transfer data segments of 512B each at 30 second intervals
+until the end of the simulation. Starting at 10 minutes into the simulation.
+
+MOSPF Summary tables is configured in the config file:
+
+STATS-DB-MULTICAST-MOSPF-SUMMARY-TABLE YES
+
+
+RUN:
+-------
+
+Run '<QUALNET_HOME>/bin/qualnet MOSPF.config'.
+
+
+DESCRIPTION OF THE FILES:
+-------------------------
+1. MOSPF.app -  specifies the application being used.
+2. MOSPF.config - the QualNet configuration input file.
+3. MOSPF.member - specifies the multicast group.
+4. MOSPF.expected.db - QualNet DB collection for MOSPF.
+5. MOSPF.expected.stat - QualNet statistics collection.
+6. MOSPF.ospf - specifies the different type of area with range.
+7. README - this file.

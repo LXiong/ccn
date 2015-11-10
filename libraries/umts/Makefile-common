@@ -1,0 +1,25 @@
+UMTS_OPTIONS = -DUMTS_LIB
+
+UMTS_DIR = ../libraries/umts/src
+
+#
+# common sources
+#
+UMTS_SRCS = \
+$(UMTS_DIR)/app_umtscall.cpp \
+$(UMTS_DIR)/cellular_umts.cpp \
+$(UMTS_DIR)/layer2_umts.cpp \
+$(UMTS_DIR)/layer3_umts.cpp \
+$(UMTS_DIR)/layer3_umts_ue.cpp \
+$(UMTS_DIR)/layer3_umts_nodeb.cpp \
+$(UMTS_DIR)/layer3_umts_rnc.cpp \
+$(UMTS_DIR)/layer3_umts_gsn.cpp \
+$(UMTS_DIR)/layer3_umts_hlr.cpp \
+$(UMTS_DIR)/layer2_umts_pdcp.cpp \
+$(UMTS_DIR)/layer2_umts_rlc.cpp \
+$(UMTS_DIR)/layer2_umts_mac.cpp \
+$(UMTS_DIR)/layer2_umts_mac_phy.cpp \
+$(UMTS_DIR)/phy_umts.cpp \
+
+UMTS_INCLUDES = \
+-I$(UMTS_DIR)

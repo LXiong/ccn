@@ -1,0 +1,63 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+#
+# NODE-POSITION-FILE
+# Format: nodeId simTime (x, y, z) [azimuth elevation]
+#
+# All lines for each node must be sorted in time increasing order.
+#
+# The last two optional parameters (in floating point)
+# specify the orientation of node.
+#
+
+1  0 (20.2,  0.9, 0.11)  0.0 0.0
+2  0 (20.3, 30.8, 0.01) 90.0 0.0
+3  0 (20.4, 60.7, 0.12)
+4  0 (20.5, 90.6, 0.05)
+5  0 (50.6,  0.5, 0.09)
+6  0 (50.7, 30.4, 0.10)
+7  0 (50.8, 60.3, 0.12)
+8  0 (50.9, 90.2, 0.21)
+9  0 (80.1,  0.1, 0.30)
+10 0 (80.2, 30.0, 0.16)
+11 0 (80.3, 60.9, 0.28)
+12 0 (80.4, 90.8, 0.17)
+13 0 (10.2,  0.9, 0.11)
+14 0 (10.3, 30.8, 0.01)
+15 0 (10.4, 60.7, 0.12)
+16 0 (10.5, 90.6, 0.05)
+17 0 (40.6,  0.5, 0.09)
+18 0 (40.7, 30.4, 0.10)
+19 0 (40.8, 60.3, 0.12)
+20 0 (40.9, 90.2, 0.21)
+21 0 (70.1,  0.1, 0.30)
+22 0 (70.2, 30.0, 0.16)
+23 0 (70.3, 60.9, 0.28)
+24 0 (70.4, 90.8, 0.17)
+25 0 (30.2,  0.9, 0.11)
+26 0 (30.3, 30.8, 0.01)
+27 0 (30.4, 60.7, 0.12)
+28 0 (30.5, 90.6, 0.05)
+29 0 (60.6,  0.5, 0.09)
+30 0 (60.7, 30.4, 0.10)
+
+10 100S (200.0, 150.0, 0.2)
+10 200S (200.0, 150.0, 0.2)
+10 500S (250.0, 250.0, 0.1)
+10 800S (200.0, 280.0, 0.5)
+10 900S (300.0, 310.0, 1.0)

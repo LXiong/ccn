@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# This wrapper shell script locates the appropriate GUI binary
+# based on the location of the script and the current architecture, and sets
+# up LD_LIBRARY_PATH to include the required Qt libraries before executing
+# the binary.
+
+PRG=`readlink -f "$0"`
+
+progdir="${PRG%/*}"
+
+# Search for a parent directory containing license_dir directory
+while true; do
+    if [ -d "$progdir/license_dir" ]; then
+        QUALNET_HOME="$progdir"
+        break
+    fi
+    parentdir="${progdir%/*}"
+    if [ -z "$parentdir" -o "$parentdir" = "$progdir" ]; then
+        break
+    fi
+    progdir="$parentdir"
+done
+
+if [ -z "$QUALNET_HOME" ]; then
+    cat 1>&2 <<EOF
+The QualNet installation directory could not be located.
+Please set the QUALNET_HOME environment variable to the correct
+directory and try again.
+EOF
+
+    exit 1
+fi
+
+# Uncomment the next two lines if you get a message box saying
+# "The currently installed OpenGL driver is incompatible with this product."
+#LIBGL_ALWAYS_INDIRECT=1
+#export LIBGL_ALWAYS_INDIRECT
+
+case `uname -m` in
+    x86_64)
+	libdir=linux64
+	;;
+    i?86)
+	libdir=linux32
+	;;
+    *)
+	echo "Architecture `uname -m` is not supported" 1>&2
+	exit 1
+esac
+
+# Prepend library path to LD_LIBRARY_PATH (or set to library path if
+# LD_LIBRARY_PATH is not currently defined).
+LD_LIBRARY_PATH="$QUALNET_HOME/gui/lib/$libdir${LD_LIBRARY_PATH+:${LD_LIBRARY_PATH}}"
+export LD_LIBRARY_PATH
+
+exec "$QUALNET_HOME/gui/lib/$libdir/QualNetGUI" "$@"

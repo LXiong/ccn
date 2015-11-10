@@ -1,0 +1,54 @@
+#Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+PURPOSE:-
+--------
+To test that the dynamic address is assigned to DHCP client by 
+the DHCP server successfully.
+
+
+SCENARIO:-
+---------
+The scenario consists of 4 nodes in a wired subnet. 
+Node 1 is DHCP server and nodes 2, 3 and 4 are DHCP clients.
+
+                             
+                                               1    3
+					        \  /
+						 \/
+						 /\
+						/  \
+					       2    4
+
+
+CBR is configured at two DHCP cliens 2 and 4.
+CBR 2 4 100 512 1S 11S 25S PRECEDENCE 0  
+
+
+RUN:-
+----
+Run '<QUALNET_HOME>/bin/qualnet dynamic-address-4-nodes.config'.
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. dynamic-address-4-nodes.app -  QualNet application input file.
+2. dynamic-address-4-nodes.config - QualNet configuration input file.
+3. dynamic-address-4-nodes.nodes - Qualnet node description input file.
+4. dynamic-address-4-nodes.display - Qualnet display input file.
+5. dynamic-address-4-nodes.expected.stat - QualNet statistics for this scenario.
+6. README - This file.

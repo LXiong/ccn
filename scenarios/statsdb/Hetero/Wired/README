@@ -1,0 +1,56 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+
+PURPOSE:-
+--------
+To test StatsDB in Ipv6-tunnel between a pair of dual-ip enabled nodes
+in wired network.
+
+
+SCENARIO:-
+---------
+
+
+           V6-tunnel(3--4--5)
+             =============
+1----|      "             "      |----6
+     |------3------4------5------|
+2----|                           |----7
+
+
+
+
+Node 3  and Node 5 are two Dual-IP nodes with an IPv6-tunnel between them.
+
+Node 1 is sending CBR data to Node 7 and
+Node 6 initiates GEN/FTP session with Node 2.
+
+RUN:-
+----
+Run "<QUALNET_HOME>/bin/qualnet  Wired.config".
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. Wired.app -  QualNet configuration file for application input.
+2. Wired.config - QualNet configuration input file.
+3. Wired.expected.stat - QualNet statistics collection.
+4. Wired.expected.db - QualNet DB collection.
+5. Wired.tunnel - QualNet Dual-IP tunnel configuration file.
+6. README - This file.
+

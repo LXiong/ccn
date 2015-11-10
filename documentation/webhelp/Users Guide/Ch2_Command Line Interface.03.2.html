@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Running QualNet from the Command Line Interface</title>
+    <link rel="StyleSheet" href="css/Ch2_Command%20Line%20Interface.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Ch2_Command%20Line%20Interface.03.1.html#1136501">2	Command Line Interface</a> &gt; 2.1  Running QualNet from the Command Line Interface</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">2.1  <a name="1136501">Running </a><span class="Variable">QualNet</span> from the Command Line Interface</div>
+      <div class="BodyAfterHead"><a name="1136505">This section describes how to run </a><span class="Variable">QualNet</span> using the command line interface and the input and output files associated with a scenario. (Refer to <span class="Variable" style="font-style: italic">QualNet Programmer’s Guide</span> for instructions for debugging <span class="Variable">QualNet</span>.)</div>
+      <div class="Body"><a name="1136515">To run </a><span class="Variable">QualNet</span>, perform the following steps:</div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1136516">Open a command line, and go to the directory where your scenario is located.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1136520">Run </a><span class="Variable">QualNet</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1136521">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1136522">For Windows, type:</a></div>
+      <div class="Command_Input"><a name="1136523">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1136530">%</a><span class="Variable">QUALNET_HOME</span>%\bin\<span class="Variable">qualnet</span> myconfig.config</div>
+      <div class="Command_Input"><a name="1136531">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1136532">For Linux, type:</a></div>
+      <div class="Command_Input"><a name="1136533">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1136540">$</a><span class="Variable">QUALNET_HOME</span>/bin/<span class="Variable">qualnet</span> myconfig.config</div>
+      <div class="Command_Input"><a name="1136541">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1136542">In the example above, myconfig.config is a configuration file that describes a scenario to be simulated. Any file with the extension .config can be specified as the configuration file. For information on additional parameters that can be specified in the command line, including the number of processors, see </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136702', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.2</a></span>.</div>
+      <div class="BulletedCont"><a name="1136576">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1136567">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="Body"><a name="1136572">If a message is displayed stating that the </a><span class="Variable">QUALNET_HOME</span> variable is not set properly, then set the environment variables, as described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136841', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.3</a></span>.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1136577">Wait for the simulation to complete. A file with the extension “.stat” is generated. (The exact name of the file that is generated is discussed in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136650', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.1.2</a></span>). This file contains the statistics collected during the simulation. The statistics file is a plain text file that can be opened by using any text editor. It can also be viewed graphically using <span class="Variable">QualNet</span> Analyzer (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch7_Analyzer.07.1.html#933341', '');" title="QualNet Analyzer">Chapter&nbsp;6</a></span>).</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading2Numbered">2.1.1  <a name="1136588">Input and Output Files</a></div>
+      <div class="BodyAfterHead"><span class="Variable"><a name="1136592">QualNet</a></span> uses several input files and generates one or more output files. The file names are of the form:</div>
+      <div class="Declaration"><a name="1136593">&lt;filename&gt;.&lt;extension&gt;</a></div>
+      <div class="Where"><a name="1136604">where</a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 90pt">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136596">&lt;filename&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 342pt">
+            <div class="Body"><a name="1136598">Any string</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136600">&lt;extension&gt;</a></span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Body"><a name="1136602">Indication of type of file.</a></div>
+            <div class="BodyAfterHead" style="margin-left: 49.37544pt"><a name="1136603">Examples: config (for configuration file), app (for applications file), <br />stat (for statistics file), etc.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading3Numbered">2.1.1.1  <a name="1136606">Input Files</a></div>
+      <div class="BodyAfterHead"><span class="Variable"><a name="1136613">QualNet</a></span> uses the following three main input files (<span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.1.html#1989005', '');" title="Modeling Networks">Chapter&nbsp;4</a></span> describes the input files in detail):</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><span style="font-family: &quot;Courier New&quot;"><a name="1136617">&lt;filename&gt;</a></span>.<span style="font-family: &quot;Courier New&quot;">config</span>: This is the primary input file for <span class="Variable">QualNet</span> and specifies the network scenario and parameters for the simulation. A sample scenario configuration file, called default.config, is included with the <span class="Variable">QualNet</span> distribution in the directory <span class="Variable">QUALNET_HOME</span>/scenarios/default.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><span style="font-family: &quot;Courier New&quot;"><a name="1136624">&lt;filename&gt;</a></span>.<span style="font-family: &quot;Courier New&quot;">nodes</span>: This file is referenced by the configuration file (as the parameter <span style="font-family: &quot;Courier New&quot;">NODE-POSITION-FILE</span>) and specifies the initial position of nodes in the scenario. A sample nodes file, called default.nodes, is included with the <span class="Variable">QualNet</span> distribution in the directory <span class="Variable">QUALNET_HOME</span>/scenarios/default. The file default.nodes is referenced by the scenario configuration file default.config.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><span style="font-family: &quot;Courier New&quot;"><a name="1136631">&lt;filename&gt;</a></span>.<span style="font-family: &quot;Courier New&quot;">app</span>: This file is referenced by the configuration file (as the parameter <span style="font-family: &quot;Courier New&quot;">APP-CONFIG-FILE</span> and specifies the applications running on the nodes in the scenario. A sample applications file, called default.app, is included with the <span class="Variable">QualNet</span> distribution in the directory <span class="Variable">QUALNET_HOME</span>/scenarios/default. The file default.app is referenced by the scenario configuration file default.config.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Body"><a name="1136641">In addition to the above three files, </a><span class="Variable">QualNet</span> may use other input files. These additional files depend upon the models specified in the configuration file and are referenced by the configuration file. For example, if the configuration file specifies the routing protocol to be OSPF, then an input file (with the extension .ospf) is also used by <span class="Variable">QualNet</span>. The .ospf file specifies parameters specific to the OSPF protocol. Description of models in the model libraries list any additional input files needed by specific models.</div>
+      <div class="Body"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.1.html#1989005', '');" title="Modeling Networks" name="1136648">Chapter&nbsp;4</a></span> describes how to create input files for a scenario.</div>
+      <div class="Heading3Numbered">2.1.1.2  <a name="1136650">Output Files</a></div>
+      <div class="BodyAfterHead"><a name="1136654">The primary output file generated by a </a><span class="Variable">QualNet</span> simulation run is a statistics file which contains the statistics collected during the simulation run. The statistics file has the extension “.stat”. The name of the statistics file depends on the <span style="font-family: &quot;Courier New&quot;">EXPERIMENT-NAME</span> parameter in the configuration file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.3.html#959690', '');" title="Configuring Scenarios">Section&nbsp;4.2.1</a></span>) and the <span style="font-family: &quot;Courier New&quot;">&lt;experiment-name&gt;</span> command line parameter (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136702', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.2</a></span>), as described below:</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1136661">If the </a><span style="font-family: &quot;Courier New&quot;">&lt;experiment-name&gt;</span> parameter is not specified on the command line, and the configuration file does not include the <span style="font-family: &quot;Courier New&quot;">EXPERIMENT-NAME</span> parameter, then the statistics file that is generated is named <span class="Variable">qualnet</span>.stat.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1136665">If the </a><span style="font-family: &quot;Courier New&quot;">&lt;experiment-name&gt;</span> parameter is not specified on the command line, and the configuration file specifies a value for the <span style="font-family: &quot;Courier New&quot;">EXPERIMENT-NAME</span> parameter, then the name of statistics file that is generated is based on the <span style="font-family: &quot;Courier New&quot;">EXPERIMENT-NAME</span> parameter.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1136666">&nbsp;</a></div>
+      <div class="BulletedCont"><span style="font-style: italic"><a name="1136667">Example</a></span>:</div>
+      <div class="BulletedCont"><a name="1136668">If the configuration file contains the following line:</a></div>
+      <div class="Declaration"><a name="1136669">&nbsp;</a></div>
+      <div class="Declaration"><a name="1136670">EXPERIMENT-NAME wireless-scenario</a></div>
+      <div class="Declaration"><a name="1136671">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1136672">then the statistics file that is generated is named wireless-scenario.stat.</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1136673">If the </a><span style="font-family: &quot;Courier New&quot;">&lt;experiment-name&gt;</span> parameter is specified on the command line, then the name of statistics file that is generated is based on the <span style="font-family: &quot;Courier New&quot;">&lt;experiment-name&gt;</span> command line parameter, irrespective of the value of the <span style="font-family: &quot;Courier New&quot;">EXPERIMENT-NAME</span> parameter in the configuration file.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1136674">&nbsp;</a></div>
+      <div class="BulletedCont"><span style="font-style: italic"><a name="1136675">Example</a></span>:</div>
+      <div class="BulletedCont"><a name="1136679">If </a><span class="Variable">QualNet</span> is run using the following command:</div>
+      <div class="Anchor"><a name="1136680">&nbsp;</a></div>
+      <div class="Command_Input"><span class="Variable"><a name="1136684">qualnet</a></span><span class="command"> myconfig.config myscenario</span></div>
+      <div class="Anchor"><a name="1136685">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1136686">then the statistics file that is generated is named myscenario.stat.</a></div>
+      <div class="Body"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.4.html#979864', '');" title="Syntax of Output Files" name="1136690">Section&nbsp;2.3</a></span> describes the format of the statistics (.stat) file.</div>
+      <div class="Body"><a name="1136694">Other output files may also be generated by running </a><span class="Variable">QualNet</span>, depending on the options specified in the configuration file. For example, if packet tracing is enabled by setting parameters in the configuration file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.3.html#976297', '');" title="Configuring Scenarios">Section&nbsp;4.2.10</a></span>), then a trace file is generated. The trace file has the extension “.trace” and is named following the same rules as the statistics file. Refer to <span class="Variable" style="font-style: italic">QualNet Programmer’s Guide</span> for a description of the format of the trace (.trace) file.</div>
+      <div class="Heading2Numbered">2.1.2  <span style="font-size: 13.0pt"><a name="1136702">Additional Command Line Parameters</a></span></div>
+      <div class="BodyAfterHead"><a name="1136703">In addition to the configuration file name, several optional parameters can be specified when </a><span class="Variable">QualNet</span> is run from the command line. The general format for running <span class="Variable">QualNet</span> from a command line is:</div>
+      <div class="Command_Input" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-left: 57.87504pt; text-indent: -41.25024pt; text-transform: none; vertical-align: baseline"><a name="1136710">&nbsp;</a></div>
+      <div class="Command_Input" style="margin-left: 62.25048pt; text-indent: -45.62568pt"><span class="Variable"><a name="1136714">qualnet</a></span><span class="command"> &lt;input-filename&gt; [-animate] [-seed &lt;N&gt;]</span><span class="command"><br /></span><span class="command">[-interactive &lt;host&gt; &lt;port&gt;] </span><span class="command"><br /></span><span class="command">[-np &lt;num-processors&gt;][-lookahead &lt;time&gt;] [-loose &lt;time&gt;]</span><span class="command"><br /></span><span class="command">[-forceeot] [-friendly] [-greedy]</span><span class="command"><br /></span><span class="command">[&lt;experiment-name&gt;]</span></div>
+      <div class="Anchor"><a name="1138219">&nbsp;</a></div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1138216">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="Body"><a name="1138218">All parameters must be entered on the same line.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Body"><a name="1136732">These parameters are explained in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136758', '');" title="Running QualNet from the Command Line Interface">Table&nbsp;2-1</a></span>.</div>
+      <div class="Body"><a name="1137398">To list all options, type:</a></div>
+      <div class="Command_Input"><a name="1137399">&nbsp;</a></div>
+      <div class="Command_Input"><span class="Variable"><a name="1137403">qualnet</a></span><span class="command"> -h</span></div>
+      <div class="Body"><a name="1136733">To obtain information about the libraries installed on your system, type:</a></div>
+      <div class="Command_Input"><a name="1136734">&nbsp;</a></div>
+      <div class="Command_Input"><span class="Variable"><a name="1136738">qualnet</a></span><span class="command"> -print_libraries</span></div>
+      <div class="Body"><a name="1136742">To obtain information on the version of </a><span class="Variable">QualNet</span> installed on your system, type:</div>
+      <div class="Command_Input"><a name="1136743">&nbsp;</a></div>
+      <div class="Command_Input"><span class="Variable"><a name="1136747">qualnet</a></span><span class="command"> -version</span></div>
+      <div class="Body"><a name="1137443">To obtain only the version number of </a><span class="Variable">QualNet</span> installed on your system, type:</div>
+      <div class="Command_Input"><a name="1137444">&nbsp;</a></div>
+      <div class="Command_Input"><span class="Variable"><a name="1137448">qualnet</a></span><span class="command"> -version_number_only</span></div>
+      <div class="Anchor"><a name="1136839">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 403.2pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 2-1.&nbsp;&nbsp;<span class="Variable"><a name="1136758">QualNet</a></span> Command Line Parameters&nbsp;</div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 151.2pt">
+            <div class="CellHeading"><a name="1136762">Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 252pt">
+            <div class="CellHeading"><a name="1136764">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1136766">&lt;input-filename&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136767">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1136769">Name of the configuration file, e.g., myconfig.config.</a></div>
+            <div class="CellBody"><a name="1136770">This parameter is required unless the </a><span class="command" style="font-size: 9.0pt">-h</span>, <br /><span class="command" style="font-size: 9.0pt">-print_libraries</span>, <span class="command" style="font-size: 9.0pt">-version</span>, or <br /><span class="command" style="font-size: 9.0pt">-version_number_only</span> option is specified.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1136797">-animate</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136798">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1136800">Option to print animation commands to standard output.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1136802">-seed &lt;N&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136803">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137592">Option to run </a><span class="Variable">QualNet</span> with the specified seed instead of the seed specified in the scenario configuration (.config) file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.3.html#959690', '');" title="Configuring Scenarios">Section&nbsp;4.2.1</a></span>).</div>
+            <div class="CellBody"><a name="1136808"> </a><span class="command" style="font-size: 9.0pt">&lt;N&gt;</span> is the seed to use.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137488">-interactive &lt;host&gt; &lt;port&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137489">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1138129">Option to run </a><span class="Variable">QualNet</span> on in interactive mode with an external GUI communication over TCP sockets.</div>
+            <div class="CellBody"><span class="command" style="font-size: 9.0pt"><a name="1138130">&lt;host&gt;</a></span> is the host running the GUI.</div>
+            <div class="CellBody"><span class="command" style="font-size: 9.0pt"><a name="1138131">&lt;port&gt;</a></span> is the port number for communication.</div>
+            <div class="CellBody"><a name="1137502">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.4.html#1077592', '');" title="Configuring the Multi-core/Multi-processor Environment">Section&nbsp;4.3</a></span> for details of running <span class="Variable">QualNet</span> on multiple processors.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137599">-np &lt;num-processors&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137600">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137605">Option to run </a><span class="Variable">QualNet</span> on multiple processors.</div>
+            <div class="CellBody"><a name="1137606"> </a><span class="command" style="font-size: 9.0pt">&lt;num-processors&gt;</span> is the number of processors to use.</div>
+            <div class="CellBody"><a name="1137613">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch4_Modeling%20Networks.05.4.html#1077592', '');" title="Configuring the Multi-core/Multi-processor Environment">Section&nbsp;4.3</a></span> for details of running <span class="Variable">QualNet</span> on multiple processors.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137665">-lookahead &lt;time&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137666">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137687">Option to adjust the parallel lookahead time in order to trade timing precision for greater program performance. </a></div>
+            <div class="CellBody"><span class="command" style="font-size: 9.0pt"><a name="1137722">&lt;time&gt;</a></span> is the lookahead time specified as an integer with one of the following time unit indicators:</div>
+            <div class="CellBody" style="text-indent: 17.50032pt"><span class="command" style="font-size: 9.0pt"><a name="1137801">NS</a></span>	: Nanoseconds</div>
+            <div class="CellBody" style="text-indent: 17.50032pt"><span class="command" style="font-size: 9.0pt"><a name="1137808">US</a></span>	: Microseconds</div>
+            <div class="CellBody" style="text-indent: 17.50032pt"><span class="command" style="font-size: 9.0pt"><a name="1137815">MS</a></span>	: Milliseconds </div>
+            <div class="CellBody"><a name="1137822">The time unit indicator is optional and by default it is </a><span class="command" style="font-size: 9.0pt">NS</span>.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137848">-loose &lt;time&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137849">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137851">Same as the </a><span class="command" style="font-size: 9.0pt">-lookahead &lt;time&gt;</span> (provided for compatibility with the previous versions of <span class="Variable">QualNet</span>).</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137894">-friendly</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137895">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137906">Option to run </a><span class="Variable">QualNet</span> such that when <span class="Variable">QualNet</span> is run on a shared memory system, each thread will not try to use as much CPU as possible. This makes it possible to run with more threads than the number of cores.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137991">-greedy</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137992">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1138000">This option is the opposite of the </a><span class="command" style="font-size: 9.0pt">-friendly</span> option.</div>
+            <div class="CellBody"><a name="1138005">If this option is used and </a><span class="Variable">QualNet</span> is run on a shared memory system, each thread will try to use as much CPU as possible and run as possible. </div>
+            <div class="CellBody"><a name="1138032">This is the default synchronization mode.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1138040">-forceeot</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1138041">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1138054">Option to force the simulator to run in Earliest Output Time (EOT) mode even though there are Earliest Common Output Time (ECOT) models in a scenario.</a></div>
+            <div class="CellBody"><a name="1138103">This is most useful when a scenario contains a mix of TDMA and CSMA wireless or wired models. </a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1138110">This option should be used with caution as it will not have repeatable results.</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1137479">&lt;experiment-name&gt;</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1137480">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1137482">Experiment name.</a></div>
+            <div class="CellBody"><a name="1137483">If this parameter is specified, output files are created with this name. See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136650', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.1.2</a></span> for details.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1136818">-print_libraries</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136819">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1136821">Option to print information about the libraries installed on your system.</a></div>
+            <div class="CellBody"><a name="1136825">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Appendix%20A_License%20Verification.10.1.html#1008671', '');" title="License and Libraries Information">Appendix&nbsp;A</a></span> for details.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1136827">-version</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1136828">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1136833">Option to print information on the version of </a><span class="Variable">QualNet</span> installed on your system.</div>
+            <div class="CellBody"><a name="1136835">This command will print out the version number, build number, build date, and the current value of the environment variable </a><span class="Variable">QUALNET_HOME</span>.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody" style="color: #000000; font-family: &quot;Courier New&quot;; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span class="command" style="font-size: 9.0pt"><a name="1138165">-version_number_only</a></span></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1138166">Optional parameter</a></span></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1138171">Option to print only the version number of </a><span class="Variable">QualNet</span> installed on your system.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">2.1.3  <a name="1136841">Environment Variables</a></div>
+      <div class="BodyAfterHead"><a name="1136845">The </a><span class="Variable">QualNet</span> installer for Windows and Linux systems sets the environment variables required for running <span class="Variable">QualNet</span>.</div>
+      <div class="Body"><a name="1136852">However, if the environment variables are not properly set (for example, when you copy </a><span class="Variable">QualNet</span> from another machine), a message will be displayed when you run <span class="Variable">QualNet</span>. In this case, you will need to set the environment variables manually, as described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136863', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.3.1</a></span> (for Windows) and <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Users_Guide', 'Ch2_Command%20Line%20Interface.03.2.html#1136881', '');" title="Running QualNet from the Command Line Interface">Section&nbsp;2.1.3.2</a></span> (for Linux).</div>
+      <div class="Heading3Numbered">2.1.3.1  <a name="1136863">Environment Variables for Windows</a></div>
+      <div class="BodyAfterHead"><a name="1136864">To set the environment variables on Windows systems, do the following:</a></div>
+      <div class="Numbered1_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered1_inner" style="width: 13.7448pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered1_inner"><a name="1136865">Right click on </a><span class="Menu">My Computer</span> and select <span class="Menu">Properties</span> from the menu. Select the <span class="Menu">Advanced</span> tab and click on <span class="Menu">Environment Variables</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1136869">Add or update the environment variable </a><span class="Variable" style="font-family: &quot;Courier New&quot;">QUALNET_HOME</span>. This variable should be set to the root directory of the <span class="Variable">QualNet</span> installation.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1136879">Add </a><span class="Variable" style="font-family: &quot;Courier New&quot;">QUALNET_HOME</span><span style="font-family: &quot;Courier New&quot;">\bin</span> and <span class="Variable" style="font-family: &quot;Courier New&quot;">QUALNET_HOME</span><span style="font-family: &quot;Courier New&quot;">\lib</span> to the <span style="font-family: &quot;Courier New&quot;">PATH</span> variable.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading3Numbered">2.1.3.2  <a name="1136881">Environment Variables for Linux</a></div>
+      <div class="BodyAfterHead"><a name="1136885">To set the </a><span class="Variable">QualNet</span> environment variables on a Linux system, perform the following steps (assuming that <span class="Variable">QualNet</span> is installed at ~/scalable/<span class="Variable">qualnet</span>/<span class="Variable">7.1</span>): </div>
+      <div class="Numbered1_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered1_inner" style="width: 13.7448pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered1_inner"><a name="1136895">Open a command window.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1136896">Edit the shell startup script. To check which shell you are using, type the following command in a command window: </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">echo $SHELL</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="NumberedCont"><a name="1136897">Edit the shell startup script as follows.</a></div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1136898">For csh and tcsh</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Cont" style="margin-left: 43.2pt; text-indent: 0pt"><a name="1136899">Open ~/.cshrc and add the following lines: </a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136900">&nbsp;</a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136910">setenv </a><span class="Variable">QUALNET_HOME</span> ~/scalable/<span class="Variable">qualnet</span>/<span class="Variable">7.1</span> </div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136917">set path = ( $path ~/scalable/</a><span class="Variable">qualnet</span>/<span class="Variable">7.1</span>/bin ) </div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136918">&nbsp;</a></div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1136919">For bash</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Cont" style="margin-left: 43.2pt; text-indent: 0pt"><a name="1136920">Open ~/.bashrc and add the following lines: </a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136921">&nbsp;</a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136931">export </a><span class="Variable">QUALNET_HOME</span>=~/scalable/<span class="Variable">qualnet</span>/<span class="Variable">7.1</span></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136938">PATH=$PATH:~/scalable/</a><span class="Variable">qualnet</span>/<span class="Variable">7.1</span>/bin</div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136939">&nbsp;</a></div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1136940">For sh</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Cont" style="margin-left: 43.2pt; text-indent: 0pt"><a name="1136941"> Open ~/.profile and add the following lines: </a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136942">&nbsp;</a></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><span class="Variable"><a name="1136952">QUALNET_HOME</a></span>=/home/username/scalable/<span class="Variable">qualnet</span>/<span class="Variable">7.1</span>; export <span class="Variable">QUALNET_HOME</span></div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136962">PATH=$PATH:/home/username/scalable/</a><span class="Variable">qualnet</span>/<span class="Variable">7.1</span>/bin</div>
+      <div class="Declaration" style="text-indent: 21.6pt"><a name="1136963">&nbsp;</a></div>
+      <div class="Anchor"><a name="1136969">&nbsp;</a></div>
+      <table class="NoteTable" style="margin-left: 36pt; text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1136966">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1136968">Replace</a><span style="font-family: &quot;Courier New&quot;">/home/username</span> with the absolute path to the home directory if necessary.</div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

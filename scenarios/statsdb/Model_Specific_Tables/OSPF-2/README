@@ -1,0 +1,67 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+PURPOSE:-
+--------
+To show the OSPF (OSPF External LSA, OSPF Interface State, OSPF Neighbor State, OSPF Network State, OSPF Router LSA, OSPF Summary LSA)StatsDB tables.
+
+
+SCENARIO:-
+---------
+
+Following StatsDB OSPF tables are configure in the config file:
+
+1. The OSPF External LSA table is configured to check the periodic information about the OSPF External Link State Database (LSDB) of an OSPF node.
+STATS-DB-OSPF-EXTERNAL-LSA-TABLE YES
+
+2. The OSPF Interface State table is configured to check the periodic information about the OSPF interface state machine of an OSPF node.
+STATS-DB-OSPF-INTERFACE-STATE-TABLE YES
+
+3. The OSPF Neighbor State table is configured to check the periodic information about the OSPF neighbor state machine of an OSPF node.
+STATS-DB-OSPF-NEIGHBOR-STATE-TABLE YES
+
+4. The OSPF Network State table is configured to check the periodic information about the OSPF Network Link State Database (LSDB) of an OSPF node.
+STATS-DB-OSPF-NETWORK-STATE-TABLE YES
+
+5. The OSPF Router LSA table is configured to check the periodic information about the OSPF Router Link State Database (LSDB) of an OSPF node.
+STATS-DB-OSPF-ROUTER-LSA-TABLE YES
+
+6. The OSPF Summary LSA table is configured to check the periodic information about the OSPF Summary Link State Database (LSDB) of an OSPF node.
+STATS-DB-OSPF-SUMMARY-LSA-TABLE YES
+
+
+
+CBR is used to transfer 10 data segments of 512B each at 5 second intervals starting at 70 minutes into the simulation.
+
+RUN:-
+----
+
+Run '<QUALNET_HOME>/bin/qualnet OSPF-2.config'.
+
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. OSPF-2.app -  QualNet application configuration input file.
+2. OSPF-2.config - QualNet configuration input file.
+3. OSPF-2.ospf - Ospf area configuration file
+4. OSPF-2.bgp - Bgp configuration file
+5. OSPF-2.expected.db - QualNet DB collection for OSPFv2.
+6. OSPF-2.expected.stat - QualNet statistics collection.
+7. README - This file.
+
+

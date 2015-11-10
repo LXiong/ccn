@@ -1,0 +1,73 @@
+VRLINK_INTERFACE_DIS_DSO_NAME = vrlink_interface-dis.so
+VRLINK_INTERFACE_HLA13_DSO_NAME = vrlink_interface-hla13.so
+VRLINK_INTERFACE_HLA1516_DSO_NAME = vrlink_interface-hla1516.so
+
+VRLINK_VLUTIL_SO = libvlutil.so
+VRLINK_VL_SO = libvl.so.35
+VRLINK_MATRIX_SO = libmatrix.so.35
+VRLINK_MTL_SO = libmtl.so.35
+VRLINK_VLDIS_SO = libvlDIS.so.35
+VRLINK_VLHLA13_SO = libvlHLA13.so.35
+VRLINK_VLHLA1516_SO = libvlHLA1516.so.35
+
+# Do we use 64 or 32 bit libraries?
+ifeq ($(findstring 64,$(ARCH)),64)
+LINUX_LIB_TYPE_FOR_VRLINK = linux-common-x64
+else
+LINUX_LIB_TYPE_FOR_VRLINK = linux-common
+endif
+
+
+../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_DIS_DSO_NAME) ../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME)
+
+../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_HLA13_DSO_NAME) ../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME)
+
+../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME): force
+	cp ../lib/$(ARCH)/vrlink/$(VRLINK_INTERFACE_HLA1516_DSO_NAME) ../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME)
+ 
+../bin/$(VRLINK_VLUTIL_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_VLUTIL_SO) ../bin/$(VRLINK_VLUTIL_SO)
+
+../bin/$(VRLINK_VL_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_VL_SO) ../bin/$(VRLINK_VL_SO)
+
+../bin/$(VRLINK_MATRIX_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_MATRIX_SO) ../bin/$(VRLINK_MATRIX_SO)
+
+../bin/$(VRLINK_MTL_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_MTL_SO) ../bin/$(VRLINK_MTL_SO)
+
+../bin/$(VRLINK_VLDIS_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_VLDIS_SO) ../bin/$(VRLINK_VLDIS_SO)
+
+../bin/$(VRLINK_VLHLA13_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_VLHLA13_SO) ../bin/$(VRLINK_VLHLA13_SO)
+    
+../bin/$(VRLINK_VLHLA1516_SO): force
+	cp ../lib/$(LINUX_LIB_TYPE_FOR_VRLINK)/vrlink/$(VRLINK_VLHLA1516_SO) ../bin/$(VRLINK_VLHLA1516_SO)
+        
+#
+# Targets
+#
+VRLINK_INTERFACE_SHARED_OBJECTS = \
+    ../bin/$(VRLINK_INTERFACE_DIS_DSO_NAME) \
+    ../bin/$(VRLINK_INTERFACE_HLA13_DSO_NAME) \
+    ../bin/$(VRLINK_INTERFACE_HLA1516_DSO_NAME) \
+    ../bin/$(VRLINK_VLUTIL_SO) \
+    ../bin/$(VRLINK_VL_SO) \
+    ../bin/$(VRLINK_MATRIX_SO) \
+    ../bin/$(VRLINK_MTL_SO) \
+    ../bin/$(VRLINK_VLDIS_SO) \
+    ../bin/$(VRLINK_VLHLA13_SO) \
+    ../bin/$(VRLINK_VLHLA1516_SO)
+    
+ADDON_DEPS      += $(VRLINK_INTERFACE_SHARED_OBJECTS)
+
+clean-vrlink-all:
+	rm -f $(VRLINK_INTERFACE_SHARED_OBJECTS)
+
+ADDONS_CLEAN += clean-vrlink-all
+
+force :

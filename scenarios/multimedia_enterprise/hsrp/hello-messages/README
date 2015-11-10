@@ -1,0 +1,64 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+PURPOSE:
+-------
+To test the hsrp hello messages generation in a simple wired scenario.
+
+SCENARIO:
+---------
+Node 1 thru 6 are connected through a Hub.
+Nodes 7 thru 9 are connected through a Hub.
+Node 1 and 2 are connected to Node 7 via wired links.
+Node 1 and 2 are configured as HSRP Routers.
+
+TOPOLOGY:
+---------
+
+8           9
+|           |
+--------------
+      |
+      7
+     / \
+   /     \
+  1       2
+  |       |
+-------------
+|   |    |   |
+3   4    5   6
+
+
+
+Application:-
+------------
+CBR is used to send 100 data segments of 512B from node 3 to node 8.
+
+
+RUN:
+-------
+
+Type '<QUALNET_HOME>/bin/qualnet hsrp_example.config'.
+
+
+DESCRIPTION OF THE FILES:
+-------------------------
+1. hello-messages.app -  QualNet configuration file for application input.
+2. hello-messages.config - QualNet configuration input file.
+3. hello-messages.nodes - QualNet node placement file for the simulation run.    
+4. hello-messages.expected.stat - QualNet statistics collection.
+5. README - this file.

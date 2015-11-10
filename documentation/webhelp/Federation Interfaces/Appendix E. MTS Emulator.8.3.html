@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Running QualNet and MTS</title>
+    <link rel="StyleSheet" href="css/Appendix%20E.%20MTS%20Emulator.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20E.%20MTS%20Emulator.8.1.html#1038550">E	MTS Emulator</a> &gt; E.2  Running QualNet and MTS</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">E.2  <a name="1038550">Running </a><span class="Variable">QualNet</span> and MTS</div>
+      <div class="BodyAfterHead"><a name="1038551">To run </a><span class="Variable">QualNet</span> with MTS using the Socket Interface, perform the following steps: </div>
+      <div class="Numbered1" style="margin-bottom: 0.0pt; margin-left: 13.7448pt; margin-top: 3.0pt">1.	<a name="1038555">Set up a scenario by editing the </a><span class="Variable">QualNet</span> configuration file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.4.html#1169505', '');" title="Socket Interface Configuration">Section&nbsp;3.3.1</a></span>) and the MTS configuration file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.2.html#1037281', '');" title="MTS Configuration File">Section&nbsp;E.1</a></span>).</div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038559">Open two command windows. In one window, change the directory to the one where the </a><span class="Variable">QualNet</span> configuration file is stored. In the other window, change the directory to the one where the MTS configuration file is stored. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038560">In the </a><span class="Variable">QualNet</span> command window, type the following command:</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1038561">For Windows:</a></div>
+      <div class="Command_Input"><a name="1038562">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1038563">%</a><span class="Variable">QUALNET_HOME</span>%\bin\<span class="Variable">qualnet</span> &lt;<span class="Variable">QualNet</span>-config-file&gt;</div>
+      <div class="Command_Input"><a name="1038564">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1038565">For Linux:</a></div>
+      <div class="Command_Input"><a name="1038566">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1038567">$</a><span class="Variable">QUALNET_HOME</span>/bin/<span class="Variable">qualnet</span> &lt;<span class="Variable">QualNet</span>-config-file&gt;</div>
+      <div class="Where"><a name="1038576">where</a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 412.87608pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 180.62568pt">
+            <div class="Body"><a name="1038570"> </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;</span><span class="Variable">QualNet</span><span style="font-family: &quot;Courier New&quot;; font-weight: bold">-config-file&gt;</span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 232.2504pt">
+            <div class="Body"><a name="1038572">Name of the </a><span class="Variable">QualNet</span> configuration file (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.4.html#1169505', '');" title="Socket Interface Configuration">Section&nbsp;3.3.1</a></span>).</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038578">In the MTS window, type the following command:</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1038579">For Windows:</a></div>
+      <div class="Command_Input"><a name="1038580">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1038584">%</a><span class="Variable">QUALNET_HOME</span>%\bin\mts-socket &lt;MTS-configuration-file&gt;</div>
+      <div class="Command_Input"><a name="1038585">&nbsp;</a></div>
+      <div class="BulletedCont"><a name="1038586">For Linux:</a></div>
+      <div class="Command_Input"><a name="1038587">&nbsp;</a></div>
+      <div class="Command_Input"><a name="1038591">$</a><span class="Variable">QUALNET_HOME</span>/bin/mts-socket &lt;MTS-configuration-file&gt;</div>
+      <div class="Where"><a name="1038600">where</a></div>
+      <table class="ArgumentTable" style="text-align: left; width: 432.62496pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 180.37512pt">
+            <div class="Body"><a name="1038594"> </a><span style="font-family: &quot;Courier New&quot;; font-weight: bold">&lt;MTS-configuration-file&gt;</span></div>
+          </td>
+          <td style="padding-bottom: 6pt; padding-left: 0pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top; width: 252.24984pt">
+            <div class="Body"><a name="1038599">Name of the MTS configuration file (see </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.2.html#1037281', '');" title="MTS Configuration File">Section&nbsp;E.1</a></span>).</div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

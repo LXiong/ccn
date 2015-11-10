@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Sample Scenario for Running QualNet and MTS</title>
+    <link rel="StyleSheet" href="css/Appendix%20E.%20MTS%20Emulator.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Appendix%20E.%20MTS%20Emulator.8.1.html#1038602">E	MTS Emulator</a> &gt; E.3  Sample Scenario for Running QualNet and MTS</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">E.3  <a name="1038602">Sample Scenario for Running </a><span class="Variable">QualNet</span> and MTS</div>
+      <div class="BodyAfterHead"><a name="1038606">This section describes a sample scenario for running </a><span class="Variable">QualNet</span> with MTS using the Socket Interface. <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span> gives a description of the scenario to be simulated. <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038622', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.2</a></span> describes the input files (MTS configuration file, <span class="Variable">QualNet</span> configuration file, and the entity mapping file) for the scenario. <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038768', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.3</a></span> describes the output (log) files produced for the scenario.</div>
+      <div class="Heading2Numbered">E.3.1  <a name="1038614">Scenario Description</a></div>
+      <div class="BodyAfterHead"><a name="1040084">The following is a description of the sample scenario.</a></div>
+      <div class="Numbered1" style="margin-bottom: 0.0pt; margin-left: 13.7448pt; margin-top: 3.0pt">1.	<span class="Variable"><a name="1040085">QualNet</a></span> can simulate 5.0 seconds ahead of MTS.</div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1040086">Three nodes, node A100, node A200, and node A300, are created at time 10. Nodes A100 and A200 are ground nodes with initial position (41.000005, 46.000005). Node A300 is an air node with initial position (41.000005, 46.000005, 5.0).</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038618">Starting at 150 seconds, node 1 sends 512-byte TCP messages to node 2 every 2 seconds.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038619">Starting at 150 seconds, node 2 sends 512-byte TCP messages to node 1 every 2 seconds.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">5.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1038620">Node A200 is damaged at 250 seconds.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading2Numbered">E.3.2  <a name="1038622">Input Files</a></div>
+      <div class="BodyAfterHead"><a name="1038626">In this section, we describe how to set up the input files to run the scenario described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>.</div>
+      <div class="Heading3Numbered">E.3.2.1  <a name="1038628">MTS Configuration File</a></div>
+      <div class="BodyAfterHead"><a name="1038632">The MTS configuration file for the sample scenario of </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span> is called mts-config.txt and is shown in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038699', '');" title="Sample Scenario for Running QualNet and MTS">Figure&nbsp;E-1</a></span>. Comments in the file explain how each command corresponds to the scenario.</div>
+      <div class="Body"><a name="1038639">Notice that two extra commands, which are extraneous to the scenario </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>, are included in the configuration file. These commands are included to illustrate the type of error and response messages generated. The first of these is a command to change a node’s position beyond the range and results in ana error message (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038836', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.3.2</a></span>). The other is a communications request to a damaged node and results in a communications response indicating a failure (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038898', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.3.4</a></span>).</div>
+      <table class="NoteTable" style="text-align: left; width: 432pt" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 36pt">
+            <div class="Note_003a">
+              <span class="Bold">Note:</span><a name="1038648">&nbsp;</a></div>
+          </td>
+          <td style="padding-bottom: 2pt; padding-left: 0pt; padding-right: 0pt; padding-top: 4pt; vertical-align: top; width: 396pt">
+            <div class="NoteText"><a name="1038650"> Commands can be entered in the file in any order.</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Code_Segment"><a name="1038651">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038652"># File name: mts-config.txt</a></div>
+      <div class="Code_Segment"><a name="1038653">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038654"># Tell MTS which IP address to connect to.</a></div>
+      <div class="Code_Segment"><a name="1038655">Address 127.0.0.1</a></div>
+      <div class="Code_Segment"><a name="1038656">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038657"># Tell MTS which port to connect to.</a></div>
+      <div class="Code_Segment"><a name="1038658">Port 5032</a></div>
+      <div class="Code_Segment"><a name="1038659">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038660"># Initializes simulation and set the coordinate system.</a></div>
+      <div class="Code_Segment"><a name="1038661">InitializeSimulation COORDINATESYSTEM LatLonAlt</a></div>
+      <div class="Code_Segment"><a name="1040121">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1040122"># Tell </a><span class="Variable">QualNet</span> which execution mode to use, and how far ahead </div>
+      <div class="Code_Segment"><a name="1040131"># it can simulate. </a></div>
+      <div class="Code_Segment"><a name="1040123">TimeManagementMode TimeManagedFast 5.0</a></div>
+      <div class="Code_Segment"><a name="1038665">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038666"># Create A100 (ground node) at location (41.000005, 46.000005, 0.0) at time 10.</a></div>
+      <div class="Code_Segment"><a name="1038667">CreatePlatform A100 10.0 X 41.00005 Y 46.000005 Z 0.0  TYPE 0</a></div>
+      <div class="Code_Segment"><a name="1038668">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038669"># Create A200 (ground node by default) at location (41.000005, 46.000005, 0.0)</a></div>
+      <div class="Code_Segment"><a name="1038670"># at time 10.</a></div>
+      <div class="Code_Segment"><a name="1038671">CreatePlatform A200 10.0 X 41.00005 Y 46.000005 Z 0.0</a></div>
+      <div class="Code_Segment"><a name="1038672">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038673"># Create A300 (air node) at location (41.000005, 46.000005, 5.0) at time 10.</a></div>
+      <div class="Code_Segment"><a name="1038674">CreatePlatform A300 10.0 X 41.00005 Y 46.000005 Z 5.0 TYPE 1</a></div>
+      <div class="Code_Segment"><a name="1038675">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038677"># Command for node A100 to send 512-byte TCP messages to node A200 every </a></div>
+      <div class="Code_Segment"><a name="1038678"># 2 seconds, starting at time 150 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038679">CommEffectsRequest  A100  A200 150.0  INTERVAL 2.0 ID1 1 ID2 0 TCP SIZE 512  DESCRIPTION “HELLO”</a></div>
+      <div class="Code_Segment"><a name="1038680">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038681"># Command for node A200 to send 512-byte TCP messages to node A100 every </a></div>
+      <div class="Code_Segment"><a name="1038682"># 2 seconds, starting at time 150 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038683">CommEffectsRequest A200 A100 150.0 INTERVAL 2.0 ID1 1 TCP SIZE 512 DESCRIPTION “HI”</a></div>
+      <div class="Code_Segment"><a name="1038684">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038685"># Command for node A300 to change its position at time 200 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038686"># This command will result in an error because the coordinates are out </a></div>
+      <div class="Code_Segment"><a name="1041691"># of range.</a></div>
+      <div class="Code_Segment"><a name="1038687">UpdatePlatform A300 200.0 X 100.0 Y 400.0 Z 0.0</a></div>
+      <div class="Code_Segment"><a name="1038688">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038689"># Command to damage node A200 at 250.0 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038690">UpdatePlatform A200 250.0 DamageState 1</a></div>
+      <div class="Code_Segment"><a name="1038691">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038692"># Command for node A100 to send 512-byte TCP messages to node A200 every </a></div>
+      <div class="Code_Segment"><a name="1038693"># 2 seconds, starting at time 350 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038694"># This command will result in a failure because node A200 is damaged.</a></div>
+      <div class="Code_Segment"><a name="1038695">CommEffectsRequest A100 A200 350.0 INTERVAL 2.0 ID 1 TCP SIZE 512 DESCRIPTION “BYE”</a></div>
+      <div class="Code_Segment"><a name="1038696"># Command to end simulation at time 600.</a></div>
+      <div class="Code_Segment"><a name="1038697">StopSimulation 600.0</a></div>
+      <div class="Figure">FIGURE E-1.&nbsp;&nbsp;<a name="1038699">MTS Configuration File for Sample Scenario</a></div>
+      <div class="Heading3Numbered">E.3.2.2  <span class="Variable"><a name="1038701">QualNet</a></span> Configuration File</div>
+      <div class="BodyAfterHead"><a name="1038702">To run MTS with </a><span class="Variable">QualNet</span>, in addition to the parameters needed for stand-alone <span class="Variable">QualNet</span> operation, several other parameters need to be specified in the <span class="Variable">QualNet</span> configuration file. For the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>, the additional parameters that need to be specified are shown in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038750', '');" title="Sample Scenario for Running QualNet and MTS">Figure&nbsp;E-2</a></span>. Comments before each parameter describe the purpose of the parameter. It is assumed that the parameter <span style="font-family: &quot;Courier New&quot;">COORDINATE-SYSTEM</span> is set to <span style="font-family: &quot;Courier New&quot;">LANLOTALT</span> in the <span class="Variable">QualNet</span> configuration file. This is needed because the coordinates specified in the MTS configuration file in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038628', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.2.1</a></span> are in the Lat/Lon/Alt format.</div>
+      <div class="Code_Segment"><a name="1038712">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1039317"># Indicate that Socket Interface will be used to communicate with another</a></div>
+      <div class="Code_Segment"><a name="1041711"># program.</a></div>
+      <div class="Code_Segment"><a name="1039318">SOCKET-INTERFACE YES</a></div>
+      <div class="Code_Segment"><a name="1039319">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038716"># Wait 15 seconds before sending a CommEffectsResponse FAILURE for </a></div>
+      <div class="Code_Segment"><a name="1040215"># a UDP message.</a></div>
+      <div class="Code_Segment"><a name="1038717">SOCKET-INTERFACE-UDP-FAILURE-TIMEOUT 15S</a></div>
+      <div class="Code_Segment"><a name="1038718">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038719"># Wait 90 seconds before sending a CommEffectsResponse FAILURE for a TCP </a></div>
+      <div class="Code_Segment"><a name="1041722"># message.</a></div>
+      <div class="Code_Segment"><a name="1038720">SOCKET-INTERFACE-TCP-FAILURE-TIMEOUT 90S</a></div>
+      <div class="Code_Segment"><a name="1038721">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038722"># Print per-packet statistics for each CommEffectsRequest to specified file.</a></div>
+      <div class="Code_Segment"><a name="1038723">SOCKET-INTERFACE-PRINT-PER-PACKET-STATS ./mts-demo.stats</a></div>
+      <div class="Code_Segment"><a name="1038724">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038725"># Specify the name of the entity mapping file.</a></div>
+      <div class="Code_Segment"><a name="1038726">SOCKET-INTERFACE-ENTITY-MAPPING-FILE ./mts-demo.entities</a></div>
+      <div class="Code_Segment"><a name="1038727">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038728"># Specify the number of ports Socket Interface should open for connection.</a></div>
+      <div class="Code_Segment"><a name="1038729">SOCKET-INTERFACE-NUM-PORTS 2</a></div>
+      <div class="Code_Segment"><a name="1038730">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038731"># Specify the ports to listen for the external program connection.</a></div>
+      <div class="Code_Segment"><a name="1038732">SOCKET-INTERFACE-PORT[0] 5032		</a></div>
+      <div class="Code_Segment"><a name="1038733">SOCKET-INTERFACE-PORT[1] 5033</a></div>
+      <div class="Code_Segment"><a name="1038734">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038735"># Log all output to files.</a></div>
+      <div class="Code_Segment"><a name="1038736">SOCKET-INTERFACE-LOG FILE</a></div>
+      <div class="Code_Segment"><a name="1038737">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038738"># Base output statistics on simulation time (specify ‘0’ as value).</a></div>
+      <div class="Code_Segment"><a name="1038739">SOCKET-INTERFACE-STATS-PRINT-REAL-TIME 0</a></div>
+      <div class="Code_Segment"><a name="1038740">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038741"># Set the interval to output statistics to 20 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038742">SOCKET-INTERFACE-STATS-PRINT-INTERVAL 20</a></div>
+      <div class="Code_Segment"><a name="1038743">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038744"># Base the graph log file on simulation time (specify ‘0’ as value).</a></div>
+      <div class="Code_Segment"><a name="1038745">SOCKET-INTERFACE-GRAPH-PRINT-REAL-TIME 0</a></div>
+      <div class="Code_Segment"><a name="1038746">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038747"># Set the interval to output the graph log file to 60 seconds.</a></div>
+      <div class="Code_Segment"><a name="1038748">SOCKET-INTERFACE-GRAPH-PRINT-INTERVAL 20S</a></div>
+      <div class="Figure">FIGURE E-2.&nbsp;&nbsp;<a name="1038750">Parameters to be Added to </a><span class="Variable">QualNet</span> Configuration File for Sample Scenario</div>
+      <div class="Heading3Numbered">E.3.2.3  <a name="1038751">Entity Mapping File</a></div>
+      <div class="BodyAfterHead"><a name="1038758">For the sample scenario described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>, the entity mapping file is shown in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038766', '');" title="Sample Scenario for Running QualNet and MTS">Figure&nbsp;E-3</a></span>. The entity mapping file is called mts-demo.entities. The left column corresponds to the MTS entity and the right column corresponds to the <span class="Variable">QualNet</span> node identifier that the MTS entity maps to.</div>
+      <div class="Code_Segment"><a name="1038759">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038760"># Entity ID   </a><span class="Variable">QualNet</span> Node ID</div>
+      <div class="Code_Segment"><a name="1038761">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038762">A100                5</a></div>
+      <div class="Code_Segment"><a name="1038763">“A200”             10</a></div>
+      <div class="Code_Segment"><a name="1038764">“A300”             “16”</a></div>
+      <div class="Figure">FIGURE E-3.&nbsp;&nbsp;<a name="1038766">Entity Mapping File for Sample Scenario</a></div>
+      <div class="Heading2Numbered">E.3.3  <a name="1038768">Output Files</a></div>
+      <div class="BodyAfterHead"><a name="1038772">In this section, we examine the output files produced by running the scenario described in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>.</div>
+      <div class="Heading3Numbered">E.3.3.1  <a name="1038774">File driver.log</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038834', '');" title="Sample Scenario for Running QualNet and MTS" name="1038781">Figure&nbsp;E-4</a></span> shows the file driver.log corresponding to the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.5.html#1170213', '');" title="Output Files">Section&nbsp;3.4.1</a></span> for a description of the syntax of the file driver.log.</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038785">Each line starts with a timestamp (simulation time enclosed in square brackets).</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038786">The first three lines correspond to simulation initialization.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038787">The next line corresponds to </a><span class="Variable">QualNet</span> running in time managed fast mode with a time advance to 5.0 seconds.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038788">The next three lines correspond to the creation of the three nodes.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038789">The next several lines correspond to simulation time advancing by 5.0 seconds each time.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038790">Following that, the next line corresponds to the first (</a><span style="font-family: &quot;Courier New&quot;">Id2</span> value is 0) request to send data of size 512 bytes from node A100 to node A200. This corresponds to the following line from mts-config.txt (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038699', '');" title="Sample Scenario for Running QualNet and MTS">Figure&nbsp;E-1</a></span>):</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Declaration"><a name="1038794">&nbsp;</a></div>
+      <div class="Declaration"><a name="1038795">CommEffectsRequest  A100  A200 150.0  INTERVAL 2.0 ID1 1 ID2 0 TCP SIZE 512  DESCRIPTION “HELLO”</a></div>
+      <div class="Declaration"><a name="1038796">&nbsp;</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038797">Most of the remaining lines correspond to exchange of data between node 100 and node 200 and to the advancing of the simulation clock. The value of </a><span style="font-family: &quot;Courier New&quot;">Id2</span> is incremented for each data unit exchanged between nodes.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038834', '');" title="Sample Scenario for Running QualNet and MTS" name="1038801">Figure&nbsp;E-4</a></span> also shows lines corresponding to update the position of node A300 and the command to stop the simulation.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Code_Segment"><a name="1038802">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038803">[  0.000000] InitializeSimulation: TimeManagementMode = TimeManaged, CoordinateSystem = LatLonAlt</a></div>
+      <div class="Code_Segment"><a name="1038804">[  0.000000] PauseSimulation</a></div>
+      <div class="Code_Segment"><a name="1038805">[  0.000000] ExecuteSimulation</a></div>
+      <div class="Code_Segment"><a name="1038806">[  0.000000] AdvanceTime: TimeAllowance = 5.000000</a></div>
+      <div class="Code_Segment"><a name="1038807">[  5.000000] CreatePlatform: EntityId = A300, Position = (41.000050, 46.000005, 5.000000), State = Undamaged, CreateTime = 10.000000, Type = 1</a></div>
+      <div class="Code_Segment"><a name="1038808">[  5.000000] CreatePlatform: EntityId = A100, Position = (41.000050, 46.000005, 0.000000), State = Undamaged, CreateTime = 10.000000, Type = 0</a></div>
+      <div class="Code_Segment"><a name="1038809">[  5.000000] CreatePlatform: EntityId = A200, Position = (41.000050, 46.000005, 0.000000), State = Undamaged, CreateTime = 10.000000</a></div>
+      <div class="Code_Segment"><a name="1038810">[  5.000000] AdvanceTime: TimeAllowance = 10.000000</a></div>
+      <div class="Code_Segment"><a name="1038811">[ 10.000000] AdvanceTime: TimeAllowance = 15.000000</a></div>
+      <div class="Code_Segment"><a name="1038812">[ 15.000000] AdvanceTime: TimeAllowance = 20.000000</a></div>
+      <div class="Code_Segment"><a name="1038813">...</a></div>
+      <div class="Code_Segment"><a name="1038814">[140.000000] AdvanceTime: TimeAllowance = 145.000000</a></div>
+      <div class="Code_Segment"><a name="1038815">[140.000435] CommEffectsRequest: Id1 = 1, Id2 = 0, Protocol = TCP, Size = 512, Sender = A200, Receiver = A100, RequestTime = 150.000000, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038816">[140.000435] CommEffectsRequest: Id1 = 1, Id2 = 0, Protocol = TCP, Size = 512, Sender = A100, Receiver = A200, RequestTime = 150.000000, Description = HELLO</a></div>
+      <div class="Code_Segment"><a name="1038817">[145.000000] AdvanceTime: TimeAllowance = 150.000000</a></div>
+      <div class="Code_Segment"><a name="1038818">[145.004444] CommEffectsRequest: Id1 = 1, Id2 = 1, Protocol = TCP, Size = 512, Sender = A200, Receiver = A100, RequestTime = 152.000000, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038819">[145.004708] CommEffectsRequest: Id1 = 1, Id2 = 1, Protocol = TCP, Size = 512, Sender = A100, Receiver = A200, RequestTime = 152.000000, Description = HELLO</a></div>
+      <div class="Code_Segment"><a name="1038820">[145.004708] CommEffectsRequest: Id1 = 1, Id2 = 2, Protocol = TCP, Size = 512, Sender = A200, Receiver = A100, RequestTime = 154.000000, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038821">[145.007252] CommEffectsRequest: Id1 = 1, Id2 = 2, Protocol = TCP, Size = 512, Sender = A100, Receiver = A200, RequestTime = 154.000000, Description = HELLO</a></div>
+      <div class="Code_Segment"><a name="1038822">[150.000000] AdvanceTime: TimeAllowance = 155.000000</a></div>
+      <div class="Code_Segment"><a name="1038823">...</a></div>
+      <div class="Code_Segment"><a name="1038824">[195.000000] UpdatePlatform: EntityId = A300, UpdateTime = 200.000000, Position = (100.000000, 400.000000, 0.000000)</a></div>
+      <div class="Code_Segment"><a name="1038825">[195.000000] CommEffectsRequest: Id1 = 1, Id2 = 25, Protocol = TCP, Size = 512, Sender = A200, Receiver = A100, RequestTime = 200.000000, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038826">[195.000000] CommEffectsRequest: Id1 = 1, Id2 = 25, Protocol = TCP, Size = 512, Sender = A100, Receiver = A200, RequestTime = 200.000000, Description = HELLO</a></div>
+      <div class="Code_Segment"><a name="1038827">[195.000000] AdvanceTime: TimeAllowance = 200.000000</a></div>
+      <div class="Code_Segment"><a name="1038828">...</a></div>
+      <div class="Code_Segment"><a name="1038829">[595.000000] StopSimulation: StopTime = 600.000000</a></div>
+      <div class="Code_Segment"><a name="1038830">[595.000000] CommEffectsRequest: Id1 = 1, Id2 = 225, Protocol = TCP, Size = 512, Sender = A200, Receiver = A100, RequestTime = 600.000000, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038831">[595.000000] AdvanceTime: TimeAllowance = 600.000000</a></div>
+      <div class="Code_Segment"><a name="1038832">...</a></div>
+      <div class="Figure">FIGURE E-4.&nbsp;&nbsp;<a name="1038834">File driver.log for Sample Scenario</a></div>
+      <div class="Heading3Numbered">E.3.3.2  <a name="1038836">File errors.log</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038852', '');" title="Sample Scenario for Running QualNet and MTS" name="1038843">Figure&nbsp;E-5</a></span> shows the file errors.log corresponding to the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.5.html#1170298', '');" title="Output Files">Section&nbsp;3.4.2</a></span> for a description of the syntax of the file errors.log.</div>
+      <div class="Body"><a name="1038847">In this scenario, the file errors.log records only one error which corresponds to the command to update Node A300’s position to out-of-range coordinates. </a></div>
+      <div class="Code_Segment"><a name="1038848">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038849">[  0.000000] Socket Interface Errors Logfile</a></div>
+      <div class="Code_Segment"><a name="1038850">[200.000000] ErrorMessage: InvalidCoordinates, Error = Latitude out of range: 100.000000 (maximum is 42.000000), OriginatingMessage = UpdatePlatform: EntityId = A300, UpdateTime = 200.000000, Position = (100.000000, 400.000000, 0.000000)</a></div>
+      <div class="Figure">FIGURE E-5.&nbsp;&nbsp;<a name="1038852">File errors.log for Sample Scenario</a></div>
+      <div class="Heading3Numbered">E.3.3.3  <a name="1038854">File graph.log</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038896', '');" title="Sample Scenario for Running QualNet and MTS" name="1038861">Figure&nbsp;E-6</a></span> shows the file graph.log corresponding to the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.5.html#1170351', '');" title="Output Files">Section&nbsp;3.4.3</a></span> for a description of the syntax of the file graph.log.</div>
+      <div class="Body"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038896', '');" title="Sample Scenario for Running QualNet and MTS" name="1038868">Figure&nbsp;E-6</a></span> shows the connectivity graph at time 280.010899. It shows the status of each node. All three nodes are gateways of subnet 100. It also shows that node A300 is a RAP and there are no other nodes in its region.</div>
+      <div class="Code_Segment"><a name="1038869">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038870">...</a></div>
+      <div class="Code_Segment"><a name="1038871">[280.010899] =============================================================</a></div>
+      <div class="Code_Segment"><a name="1038872">[280.010899] EntityID: A100               NodeID: 5</a></div>
+      <div class="Code_Segment"><a name="1038873">[280.010899]     Location: X = 41.000050, Y = 46.000005, Z = 145.426000</a></div>
+      <div class="Code_Segment"><a name="1038874">[280.010899]     Type: Ground</a></div>
+      <div class="Code_Segment"><a name="1038875">[280.010899]     Interface: 192.0.0.5     Subnet Id: 100 </a></div>
+      <div class="Code_Segment"><a name="1038876">[280.010899]     Is Gateway:  Yes, subnets 100</a></div>
+      <div class="Code_Segment"><a name="1038877">[280.010899]     Multicast Groups: 224.0.0.5 224.0.0.1 224.0.0.2 224.0.0.13</a></div>
+      <div class="Code_Segment"><a name="1038878">[280.010899] EntityID: A200               NodeID: 10</a></div>
+      <div class="Code_Segment"><a name="1038879">[280.010899]     Location: X = 41.000050, Y = 46.000005, Z = 145.426000</a></div>
+      <div class="Code_Segment"><a name="1038880">[280.010899]     Type: Ground</a></div>
+      <div class="Code_Segment"><a name="1038881">[280.010899]     Interface: 192.0.0.10     Subnet Id: 100 </a></div>
+      <div class="Code_Segment"><a name="1038882">[280.010899]     Is Gateway:  Yes, subnets 100</a></div>
+      <div class="Code_Segment"><a name="1038883">[280.010899]     Multicast Groups: 224.0.0.5 224.0.0.1 224.0.0.2 224.0.0.13</a></div>
+      <div class="Code_Segment"><a name="1038884">[280.010899] EntityID: A300               NodeID: 16</a></div>
+      <div class="Code_Segment"><a name="1038885">[280.010899]     Location: X = 41.000050, Y = 46.000005, Z = 5.000000</a></div>
+      <div class="Code_Segment"><a name="1038886">[280.010899]     Type: Air</a></div>
+      <div class="Code_Segment"><a name="1038887">[280.010899]     Interface: 192.0.0.16     Subnet Id: 100 [RAP]    Members: </a></div>
+      <div class="Code_Segment"><a name="1038888">[280.010899]     Is Gateway:  Yes, subnets 100</a></div>
+      <div class="Code_Segment"><a name="1038889">[280.010899]     Multicast Groups: 224.0.0.5 224.0.0.1 224.0.0.2 224.0.0.13</a></div>
+      <div class="Code_Segment"><a name="1038890">[280.010899] Region Summary.  Platforms in parenthesis are RAPs.</a></div>
+      <div class="Code_Segment"><a name="1038891">[280.010899]     Subnet 100, gateways A100 A200 A300</a></div>
+      <div class="Code_Segment"><a name="1038892">[280.010899]         (A300)</a></div>
+      <div class="Code_Segment"><a name="1038893">[300.012106] =============================================================</a></div>
+      <div class="Code_Segment"><a name="1038894">...</a></div>
+      <div class="Figure">FIGURE E-6.&nbsp;&nbsp;<a name="1038896">File graph.log for Sample Scenario</a></div>
+      <div class="Heading3Numbered">E.3.3.4  <a name="1038898">File responses.log</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1041329', '');" title="Sample Scenario for Running QualNet and MTS" name="1038905">Figure&nbsp;E-7</a></span> shows the file responses.log corresponding to the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.5.html#1170375', '');" title="Output Files">Section&nbsp;3.4.4</a></span> for a description of the syntax of the file responses.log.</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038909">Each line starts with a timestamp (simulation time enclosed in square brackets).</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038910">The first few lines correspond to simulation initialization.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038911">The next several lines correspond to responses to command to advance time.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038912">The next several lines, the first one with timestamp 151.310207, correspond to successful responses communication effects requests.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038913">At time 256.000435, a response indicating a failure is sent. Note that this response corresponds to the request which was received 90.000435 seconds earlier. This latency is due to the TCP timeout being set to 90 seconds in the </a><span class="Variable">QualNet</span> configuration file.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Code_Segment"><a name="1038914">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038915">...</a></div>
+      <div class="Code_Segment"><a name="1038916">[  0.000000] Socket Interface Respones Logfile</a></div>
+      <div class="Code_Segment"><a name="1038917">[  0.000000] SimulationState: State = Standby, OldState = Initialized</a></div>
+      <div class="Code_Segment"><a name="1038918">[  0.000000] SimulationState: State = Initialized, OldState = Paused</a></div>
+      <div class="Code_Segment"><a name="1038919">[  0.000000] SimulationState: State = Paused, OldState = Executing</a></div>
+      <div class="Code_Segment"><a name="1038920">[  4.998801] SimulationIdle: CurrentTime = 4.998801</a></div>
+      <div class="Code_Segment"><a name="1038921">[  9.999403] SimulationIdle: CurrentTime = 9.999403</a></div>
+      <div class="Code_Segment"><a name="1038922">[ 14.998114] SimulationIdle: CurrentTime = 14.998114</a></div>
+      <div class="Code_Segment"><a name="1038923">...</a></div>
+      <div class="Code_Segment"><a name="1038924">[149.999423] SimulationIdle: CurrentTime = 149.999423</a></div>
+      <div class="Code_Segment"><a name="1038925">[151.310207] CommEffectsResponse: Id1 = 1, Id2 = 0, Sender = A200, Receiver = A100, Status = Success, ReceiveTime = 151.310207, Latency = 1.310207</a></div>
+      <div class="Code_Segment"><a name="1038926">[151.728266] CommEffectsResponse: Id1 = 1, Id2 = 0, Sender = A100, Receiver = A200, Status = Success, ReceiveTime = 151.728266, Latency = 1.728266</a></div>
+      <div class="Code_Segment"><a name="1038927">[152.630395] CommEffectsResponse: Id1 = 1, Id2 = 1, Sender = A100, Receiver = A200, Status = Success, ReceiveTime = 152.630395, Latency = 0.630395</a></div>
+      <div class="Code_Segment"><a name="1038928">[152.660400] CommEffectsResponse: Id1 = 1, Id2 = 1, Sender = A200, Receiver = A100, Status = Success, ReceiveTime = 152.660400, Latency = 0.660400</a></div>
+      <div class="Code_Segment"><a name="1038929">...</a></div>
+      <div class="Code_Segment"><a name="1038930">[164.310064] CommEffectsResponse: Id1 = 1, Id2 = 7, Sender = A200, Receiver = A100, Status = Success, ReceiveTime = 164.310064, Latency = 0.310064</a></div>
+      <div class="Code_Segment"><a name="1038931">[164.999260] SimulationIdle: CurrentTime = 164.999260</a></div>
+      <div class="Code_Segment"><a name="1038932">...</a></div>
+      <div class="Code_Segment"><a name="1038933">[254.999954] SimulationIdle: CurrentTime = 254.999954</a></div>
+      <div class="Code_Segment"><a name="1038934">[256.000435] CommEffectsResponse: Id1 = 1, Id2 = 8, Sender = A200, Receiver = A100, Status = Failure, ReceiveTime = 256.000435, Latency = 90.000435, Description = HI</a></div>
+      <div class="Code_Segment"><a name="1038935">[256.000435] CommEffectsResponse: Id1 = 1, Id2 = 8, Sender = A100, Receiver = A200, Status = Failure, ReceiveTime = 256.000435, Latency = 90.000435, Description = HELLO</a></div>
+      <div class="Code_Segment"><a name="1041327">...</a></div>
+      <div class="Figure">FIGURE E-7.&nbsp;&nbsp;<a name="1041329">File responses.log for Sample Scenario</a></div>
+      <div class="Heading3Numbered">E.3.3.5  <a name="1041331">File stats.log</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038980', '');" title="Sample Scenario for Running QualNet and MTS" name="1038947">Figure&nbsp;E-8</a></span> shows the file stats.log corresponding to the sample scenario described in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Appendix%20E.%20MTS%20Emulator.8.4.html#1038614', '');" title="Sample Scenario for Running QualNet and MTS">Section&nbsp;E.3.1</a></span>. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.5.html#1170403', '');" title="Output Files">Section&nbsp;3.4.5</a></span> for a description of the syntax of the file stats.log.</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038951">The first line states that the statistics printed on the following lines are for the time interval from the start of simulation to simulation time 200.000070 seconds.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038952">The second line shows the simulation time and real time elapsed.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038953">The next line shows how many platforms have been created (number of </a><span style="font-family: &quot;Courier New&quot;">CreatePlatform</span> messages processed), how many platforms have been updated (number of <span style="font-family: &quot;Courier New&quot;">UpdatePlatformState</span> messages processed), how many communication requests have been modeled (number of <span style="font-family: &quot;Courier New&quot;">CommEffectsRequest</span> messages processed), and the total number of <span style="font-family: &quot;Courier New&quot;">CreatePlatform</span>, <span style="font-family: &quot;Courier New&quot;">UpdatePlatformState</span>, and <span style="font-family: &quot;Courier New&quot;">CommEffectsRequest</span> messages processed.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038954"> The next line shows how many communication responses (</a><span style="font-family: &quot;Courier New&quot;">CommEffectsResponse</span> messages) were generated as well as how many of those were successful and how many were failures. (Note that some communication requests may be outstanding.)</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038955">The next line shows the average number of messages that were received since the beginning of the simulation (</a><span style="font-family: &quot;Courier New&quot;">Avg Mesg/Sec</span>) as well as the average number <span style="font-family: &quot;Courier New&quot;">CommEffectsResponse</span> messages sent as successes (<span style="font-family: &quot;Courier New&quot;">Succ</span>) and failures (<span style="font-family: &quot;Courier New&quot;">Fail</span>). </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="BulletedCont"><a name="1038956">The last item printed on the same line is the average number of late packets, i.e., </a><span style="font-family: &quot;Courier New&quot;">CommEffectsResponse</span> messages that were designated as failures but would have been successes if the failure timeout window were larger. For example, if a packet takes 20 seconds to reach its destination but the failure timeout window is 15 seconds, then the packet is marked as a failure even though it was received successfully.</div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038957">The next line shows the average number of messages (</a><span style="font-family: &quot;Courier New&quot;">Last Mesg/Sec</span>), the average number <span style="font-family: &quot;Courier New&quot;">CommEffectsResponse</span> messages sent as successes (<span style="font-family: &quot;Courier New&quot;">Succ</span>) and failures (<span style="font-family: &quot;Courier New&quot;">Fail</span>), and the number of late packets in the period from the time of the last statistics log to the current simulation time. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1038958">The final line shows the average real time speed since the beginning of simulation (</a><span style="font-family: &quot;Courier New&quot;">Avg Real Time Speed</span>) and average real time speed in the period from the time of the last statistics log to the current simulation time (<span style="font-family: &quot;Courier New&quot;">Last Real Time Speed</span>). This indicates the speedup of <span class="Variable">QualNet</span> versus real time. A real time speed of 10 means <span class="Variable">QualNet</span> is running 10 times faster than real time.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Code_Segment"><a name="1038959">&nbsp;</a></div>
+      <div class="Code_Segment"><a name="1038960">...</a></div>
+      <div class="Code_Segment"><a name="1038961">[200.000070] Performance Stats for Time Interval: SimTime = 200.000070</a></div>
+      <div class="Code_Segment"><a name="1038962">[200.000070] Current Sim Time[s] =         200.00  Real Time[s] =    2.85</a></div>
+      <div class="Code_Segment"><a name="1038963">[200.000070]     Creates = 3, Updates = 0, Requests = 62, Messages = 65</a></div>
+      <div class="Code_Segment"><a name="1038964">[200.000070]     Responses = 16, Successes = 16, Failures = 0</a></div>
+      <div class="Code_Segment"><a name="1038965">[200.000070]     Avg  Mesg/Sec = 22.84, Succ = 5.62, Fail = 0.00 (0.00 late)</a></div>
+      <div class="Code_Segment"><a name="1038966">[200.000070]     Last Mesg/sec = 77.01, Succ = 0.00, Fail = 0.00 (0.00 late)</a></div>
+      <div class="Code_Segment"><a name="1038967">[200.000070]     Avg  Real Time Speed = 43.35, Last Real Time Speed = No Packets</a></div>
+      <div class="Code_Segment"><a name="1038968">[220.000435] Performance Stats for Time Interval: SimTime = 220.000435</a></div>
+      <div class="Code_Segment"><a name="1038969">[220.000435] Current Sim Time[s] =         220.00  Real Time[s] =    3.12</a></div>
+      <div class="Code_Segment"><a name="1038970">[220.000435]     Creates = 3, Updates = 0, Requests = 82, Messages = 85</a></div>
+      <div class="Code_Segment"><a name="1038971">[220.000435]     Responses = 16, Successes = 16, Failures = 0</a></div>
+      <div class="Code_Segment"><a name="1038972">[220.000435]     Avg  Mesg/Sec = 27.23, Succ = 5.13, Fail = 0.00 (0.00 late)</a></div>
+      <div class="Code_Segment"><a name="1038973">[220.000435]     Last Mesg/sec = 76.21, Succ = 0.00, Fail = 0.00 (0.00 late)</a></div>
+      <div class="Code_Segment"><a name="1038974">[220.000435]     Avg  Real Time Speed = 43.35, last Real Time Speed = No Packets</a></div>
+      <div class="Code_Segment"><a name="1038975">...</a></div>
+      <div class="Figure">FIGURE E-8.&nbsp;&nbsp;<a name="1038980">File stats.log for Sample Scenario</a></div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+# Normal
+LTE_OPTIONS = -DLTE_LIB
+# USE Debug Log (for developer)
+#LTE_OPTIONS = -DLTE_LIB -DLTE_LIB_LOG
+# USE Validataion Log (for developer)
+#LTE_OPTIONS = -DLTE_LIB -DLTE_LIB_LOG -DLTE_LIB_VALIDATION_LOG
+
+LTE_DIR = ../libraries/lte
+LTE_SRCDIR = ../libraries/lte/src
+
+#
+# common sources
+#
+LTE_SRCS = \
+$(LTE_SRCDIR)/lte_common.cpp \
+$(LTE_SRCDIR)/lte_rrc_config.cpp \
+$(LTE_SRCDIR)/log_lte.cpp \
+$(LTE_SRCDIR)/phy_lte.cpp \
+$(LTE_SRCDIR)/phy_lte_establishment.cpp \
+$(LTE_SRCDIR)/layer2_lte.cpp \
+$(LTE_SRCDIR)/layer2_lte_establishment.cpp \
+$(LTE_SRCDIR)/layer2_lte_mac.cpp \
+$(LTE_SRCDIR)/layer2_lte_pdcp.cpp \
+$(LTE_SRCDIR)/layer2_lte_rlc.cpp \
+$(LTE_SRCDIR)/layer2_lte_sch.cpp \
+$(LTE_SRCDIR)/layer2_lte_sch_roundrobin.cpp \
+$(LTE_SRCDIR)/layer2_lte_sch_pf.cpp \
+$(LTE_SRCDIR)/layer2_lte_sch_ue_default.cpp \
+$(LTE_SRCDIR)/layer3_lte.cpp \
+$(LTE_SRCDIR)/layer3_lte_filtering.cpp \
+$(LTE_SRCDIR)/layer3_lte_measurement.cpp \
+$(LTE_SRCDIR)/epc_lte.cpp \
+$(LTE_SRCDIR)/epc_lte_app.cpp \
+$(LTE_SRCDIR)/matrix_calc.cpp \
+
+LTE_INCLUDES = \
+-I$(LTE_SRCDIR)

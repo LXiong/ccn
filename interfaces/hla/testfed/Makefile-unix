@@ -1,0 +1,33 @@
+include Makefile-unix-common
+
+CC = gcc
+CXX = g++
+
+DEBUG = -Wall -Wno-unused-function
+OPT = -O3
+
+ifndef RTI_HOME
+$(error You must set the environment variable RTI_HOME to the RTI installation directory.)
+endif
+
+ifndef RTI_INCLUDE_DIR
+RTI_INCLUDE_DIR = $(RTI_HOME)/include
+endif
+
+ifndef RTI_LIB_DIR
+RTI_LIB_DIR = $(RTI_HOME)/lib
+endif
+
+ifndef RTI_LIBRARY
+RTI_LIBRARY = -lRTI-NG -lfedtime
+endif
+
+ifndef RTI_DEFINES
+RTI_DEFINES = -DRTI_USES_STD_FSTREAM
+endif
+
+INCLUDE_DIRS = "-I$(RTI_INCLUDE_DIR)"
+LIBS = -lz \
+"-L$(RTI_LIB_DIR)" $(RTI_LIBRARY) $(RTI_ADDITIONAL_LIBRARIES)\
+-lpthread
+

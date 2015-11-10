@@ -1,0 +1,92 @@
+#
+# Define simulator kernel files.
+#
+
+MAIN_OBJ = \
+../kernel/obj/main.o-$(ARCH)-$(COMPILER) \
+
+KERNEL_OBJS = \
+../kernel/obj/mobility_private.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/parallel.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/partition_private.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/phy_private.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/propagation_private.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/3dmath.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/CalendarQ.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/clock.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/context.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/coordinates.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/fileio.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/mapping.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/qualnet_error.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/sched_calendar.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/sched_splaytree.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/sched_std_library.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/scheduler.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/simplesplay.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/splaytree.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/weather.o-$(ARCH)-$(COMPILER) \
+../kernel/obj/product_info.o-$(ARCH)-$(COMPILER)
+
+#
+# Define simulator source files.
+# (ordered by library)
+#
+
+MAIN_SRCS = \
+../main/app_util.cpp \
+../main/application.cpp \
+../main/atomic.cpp \
+../main/sliding_win.cpp \
+../main/circularbuffer.cpp \
+../main/dynamic.cpp \
+../main/external.cpp \
+../main/external_util.cpp \
+../main/external_socket.cpp \
+../main/geometry.cpp \
+../main/gui.cpp \
+../main/library_info.cpp \
+../main/list.cpp \
+../main/memory.cpp \
+../main/message.cpp \
+../main/node.cpp \
+../main/partition.cpp \
+../main/random.cpp \
+../main/stubs.cpp \
+../main/trace.cpp \
+../main/WallClock.cpp \
+\
+../main/mac.cpp \
+../main/mobility.cpp \
+../main/terrain.cpp \
+../main/network.cpp \
+../main/stats.cpp \
+../main/stats_app.cpp \
+../main/stats_global.cpp \
+../main/stats_mac.cpp \
+../main/stats_net.cpp \
+../main/stats_phy.cpp \
+../main/stats_transport.cpp \
+../main/stats_queue.cpp \
+../main/timer_manager.cpp \
+../main/transport.cpp \
+../main/user.cpp \
+\
+../main/phy_connectivity.cpp \
+\
+
+SIM_SRCS = \
+$(MAIN_SRCS) \
+$(ADDON_SRCS)
+
+UPGRADE_SCENARIO_SRC = ../main/upgrade_scenario.cpp
+
+#
+# Define include directories.
+#
+
+INCLUDE_DIRS = \
+-I../include \
+-I../include/$(ARCH) \
+$(ADDON_INCLUDES)
+

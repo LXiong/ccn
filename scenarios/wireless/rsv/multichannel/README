@@ -1,0 +1,68 @@
+PURPOSE:-
+--------
+To test operation of mac satellite bentpipe with phy satellite rsv
+supporting multiple channels
+
+
+SCENARIO:-
+---------
+A single subnet with four nodes is created in the simulation.  
+
+
+           SATELLITE (1)
+            /    |    \
+           /     |     \
+          /      |      \
+       GS (2)  GS (3)  GS (4)
+
+Three application flows are there:
+
+LOOKUP application:
+
+LOOKUP 2 3 0 512 100 1.00S 0S 10S 295S
+LOOKUP 3 4 0 512 100 1.00S 0S 10S 295S
+LOOKUP 4 2 0 512 100 1.00S 0S 10S 295S
+
+LOOKUP 3 2 0 512 100 1.00S 0S 10S 295S
+LOOKUP 4 3 0 512 100 1.00S 0S 10S 295S
+LOOKUP 2 4 0 512 100 1.00S 0S 10S 295S
+
+
+
+HOW THE SCENARIO WILL WORK:
+---------------------------
+
+The uplink channels configured at satellite node 1 are 0, 1 and 2.
+
+Ground stations with node id 2, 3 and 4 are configured with uplink channels 
+as 0, 1 and 2 respectively.
+
+Ground stations with node id 2, 3 and 4 are configured with downlink channels
+as 3, 4 and 5 respectively.
+
+When the Satellite node will receive data on uplink channel 0(sent by ground station node 2),
+it will transmit the data on downlink channels with channel-id 4 and 5.
+
+When the Satellite node will receive data on uplink channel 1(sent by ground station node 3),
+it will transmit the data on downlink channels with channel-id 3 and 5.
+
+When the Satellite node will receive data on uplink channel 2(sent by ground station node 4),
+it will transmit the data on downlink channels with channel-id 3 and 4.
+
+As ground stations 2 ,3 and 4 are configured with downlink channels 3, 4 and 5 respectively.
+Hence, they will receive each other's data via satellite node 1.
+
+
+RUN:-
+----
+Run '<QUALNET_HOME>/bin/exata satellite.config'.
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. satellite.app -  QualNet configuration file for application input.
+2. satellite.config - QualNet configuration input file.
+3. satellite.router-models - QualNet router model input file
+4. satellite.nodes - QualNet position input file
+5. satellite.routes-static - QualNet static route input file
+6. README - This file.

@@ -1,0 +1,9 @@
+#
+# Define Sensor Networks Library models.
+#
+
+include ../libraries/sensor_networks/Makefile-common
+
+ADDON_OPTIONS   += $(SENSOR_NETWORKS_OPTIONS)
+ADDON_SRCS      += $(SENSOR_NETWORKS_SRCS)
+ADDON_INCLUDES  += $(SENSOR_NETWORKS_INCLUDES)

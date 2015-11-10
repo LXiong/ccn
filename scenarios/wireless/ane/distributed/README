@@ -1,0 +1,39 @@
+PURPOSE:-
+--------
+To test ANE distributed scheduling methods.  
+
+
+
+SCENARIO:-
+---------
+Five subnets are created each with a connection to the satellite (node 51)
+
+                               SUBNET 5.0
+                                          SUBNET 4.0
+
+
+                SUBNET 1.0       51(SAT)       SUBNET 3.0
+
+
+
+                               SUBNET 2.0
+
+Forty nine flows are defined which carry FTP traffic from one subnet to
+the next in a round-robin fashion.  
+
+FTP/GENERIC <N> <N+1> 0 1000 30S 0S
+
+for N=1..49
+
+RUN:-
+----
+Run '<QUALNET_HOME>/bin/qualnet distributed.config'.
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. distributed.app -  QualNet configuration file for application input.
+2. distributed.config - QualNet configuration input file.
+3. distributed.routes-default - QualNet routing input file.
+4. distributed.expected.stat - QualNet statistics collection.
+5. README - This file.

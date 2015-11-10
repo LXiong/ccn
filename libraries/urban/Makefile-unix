@@ -1,0 +1,6 @@
+
+include ../libraries/urban/Makefile-common
+
+ADDON_OPTIONS   += $(URBAN_OPTIONS)
+ADDON_SRCS      += $(URBAN_SRCS)
+ADDON_INCLUDES  += $(URBAN_INCLUDES)

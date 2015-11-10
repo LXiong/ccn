@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<category name="NODE CONFIGURATION">
+<subcategory name="DHCP">
+    <variable name="Enable DHCP" key="DHCP-ENABLED"  invisible ="WirelessSubnet, WiredSubnet" optional="true" interfaceindex="true" type="Selection" default="NO">
+        <option value="NO" name="No" />
+        <option value="YES" name="Yes">
+            <variable name="DHCP Device Type" key="DHCP-DEVICE-TYPE" interfaceindex="true" type="Selection" default="CLIENT">
+                <option value="SERVER" name="Server" >
+                    <variable name= "Default Lease Time" key= "DHCP-SERVER-DEFAULT-LEASE-TIME" interfaceindex="true" optional="true" type="Time" default="30S" min="12S"/>
+                    <variable name= "Maximum Lease Time" key= "DHCP-SERVER-MAX-LEASE-TIME" interfaceindex="true" optional="true" type="Time" default="100S" min="12S" />
+                    <variable name= "First IP Address" key= "DUMMY-DHCP-SERVER-START-IP-RANGE" invisible = "Interface" type="Text" default="Configure at Interfaces" disable="true" dontWriteToConfig="true"/>
+                    <variable name= "Last IP Address" key= "DUMMY-DHCP-SERVER-END-IP-RANGE" invisible = "Interface" type="Text" default="Configure at Interfaces" disable="true" dontWriteToConfig="true"/>
+                    <variable name= "Default Gateway" key= "DUMMY-DHCP-SERVER-DEFAULT-GATEWAY" invisible = "Interface" type="Text" default="Configure at Interfaces" disable="true" dontWriteToConfig="true"/>
+                    <variable name= "Subnet Mask" key= "DUMMY-DHCP-SERVER-SUBNET-MASK" type="Text" invisible = "Interface" default="Configure at Interfaces" disable="true" dontWriteToConfig="true"/>
+                    <variable name= "Primary DNS Server" key= "DUMMY-DHCP-SERVER-PRIMARY-DNS-SERVER" invisible = "Interface" type="Text" default="Configure at Interfaces" disable="true" dontWriteToConfig="true"/>
+                    <variable name= "First IP Address" key= "DHCP-SERVER-START-IP-RANGE" invisible = "Device" interfaceindex="true" optional="true" type="Text" default="[Required]"/>
+                    <variable name= "Last IP Address" key= "DHCP-SERVER-END-IP-RANGE" invisible = "Device" interfaceindex="true" optional="true" type="Text" default="[Required]"/>
+                    <variable name= "Default Gateway" key= "DHCP-SERVER-DEFAULT-GATEWAY" invisible = "Device" interfaceindex="true" optional="true" type="Text" default="[Required]"/>
+                    <variable name= "Subnet Mask" key= "DHCP-SERVER-SUBNET-MASK" type="Text" invisible = "Device" interfaceindex="true" optional="true" default="[Required]"/>
+                    <variable name= "Primary DNS Server" key= "DHCP-SERVER-PRIMARY-DNS-SERVER" invisible = "Device" interfaceindex="true" type="Text" optional="true" default="[Required]"/>
+                    <variable name= "Secondary DNS Servers" key= "DHCP-SERVER-SECONDARY-DNS-SERVERS" invisible = "Device" interfaceindex="true" type="Text" optional="true" default="[Optional]" help="The servers can be specified by a comma separated list. One secondary server can also be specified." />
+                    <variable name= "Manual Allocation File" key= "DHCP-SERVER-MANUAL-ALLOCATION-CONFIG-FILE" interfaceindex="true" type="File" optional="true" default="[Optional]" filetype="manual"/>
+                </option>
+                <option value="CLIENT" name="Client" >
+                    <variable name="Acquire DHCP Options Only" key="DHCP-CLIENT-INFORM" interfaceindex="true" type="Selection" optional="true" default="NO">
+                        <option value="NO" name="No">
+                            <variable name= "Requested Lease Time" key= "DHCP-CLIENT-LEASE-TIME" requires="[DHCP-CLIENT-INFORM] == 'NO'" optional="true" interfaceindex="true" default="30S" type="Time" min="12S" />
+                         </option>
+                         <option value="YES" name="Yes"/>
+                    </variable>
+                    <variable name= "Client Identifier" key= "DHCP-CLIENT-ID" invisible = "device" interfaceindex="true" optional="true" default="[optional]" type="Text"/>
+                    <variable name= "Initial Retransmission Value" key= "DHCP-CLIENT-MESSAGE-RETRANSMISSION-TIMER" interfaceindex="true" optional="true" default="10S" type="Time" max="64S"/>
+                    <variable name= "Enable Client for MANET" key= "DHCP-MANET-ENABLED-CLIENT" interfaceindex="true" optional="true" default="NO" type="Selection" >
+                        <option value="NO" name="No" />
+                        <option value="YES" name="Yes"/>
+                    </variable>
+                </option>
+                <option value="RELAY" name="Relay Agent" >
+                    <variable name= "Server IP Addresses" key= "DHCP-RELAY-SERVER-ADDRESS" optional="true" interfaceindex="true" default="[Required]" type="Text" help="The servers can be specified by a comma separated list. One server can also be specified."/>
+                </option>
+            </variable>
+        </option>
+    </variable>
+</subcategory>
+</category>

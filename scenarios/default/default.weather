@@ -1,0 +1,55 @@
+# Copyright (c) 2001-2013, SCALABLE Network Technologies, Inc.  All Rights Reserved.
+#                          600 Corporate Pointe
+#                          Suite 1200
+#                          Culver City, CA 90230
+#                          info@scalable-networks.com
+#
+# This source code is licensed, not sold, and is subject to a written
+# license agreement.  Among other things, no portion of this source
+# code may be copied, transmitted, disclosed, displayed, distributed,
+# translated, used as the basis for a derivative work, or used, in
+# whole or in part, for any program or purpose other than its intended
+# use in compliance with the license agreement as part of the QualNet
+# software.  This source code and certain of the algorithms contained
+# within it are confidential trade secrets of Scalable Network
+# Technologies, Inc. and may not be used as the basis for any other
+# software, hardware, product or service.
+
+#
+# This file allows the user to specify weather patterns that move and affect propagation.
+# Weather currently supports only latitude longitude coordinates correctly.
+#
+# Besides the parameters specified here, the most important parameter related
+# to the weather implementation is the channel frequency.  Higher frequency signals
+# will be more affected by the weather.
+#
+# The pattern is specified using the following syntax:
+#
+# WEATHER-PATTERN[<id>] (<x1,y1>;<x2,y2>;<x3,y3>;...) <altitude> <intensity> <polarization> <hierarchy ID>
+#
+# where
+# <id> is a unique ID for the weather pattern, starting with 0.
+# <x1,y1> are x,y coordinates that form an arbitrary polygon.
+# <altitude> is specified in meters.
+# <intensity> is millimeters of precipitation per hour.
+# <polarization is HORIZONTAL or VERTICAL and refers to the type of antenna being modeled.
+# <hierarchy ID> is for positioning in the GUI.  0 means the outermost level.
+#
+# An example weather pattern, consisting of polygon of five points, is given here.
+#
+# WEATHER-PATTERN[0] (22.318367,131.631;22.448,133.926;24.155,134.308;25.346,132.788;24.212,130.425) 1000.0 10.0 HORIZONTAL 0
+#
+# Usually coordinates should be given in much higher precision than this.  For example,
+# see the waypoints below.
+#
+# Weather movement is specified as a series of waypoints, which are interpreted as new
+# positions for the first point of the weather pattern.  The other points of the weather
+# pattern are moved by the same delta.  The format of the waypoint is
+# <id> <arrival time> (<coordinates>)
+#
+# for example
+#
+# 0 120S (21.820408163265718,132.61484467301395)
+# 0 240S (21.151020408163113,133.52699979150717)
+# 0 400S (20.80000000000036,135.02988393912017)
+# 0 800S (20.702040816326285,137.41017443880708)

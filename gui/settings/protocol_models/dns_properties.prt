@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<category name="NODE CONFIGURATION">
+<subcategory name="DNS">
+    <variable name="Enable DNS" key="DNS-ENABLED"  optional="true" type="Selection" default="NO">
+        <option value="NO" name="No" />
+        <option value="YES" name="Yes">
+            <variable name="Configure as DNS Server" key="DNS-SERVER" invisible="Interface" optional="true" type="Selection" default="NO">
+                <option value="NO" name="No" />
+                <option value="YES" name="Yes">
+                    <variable name= "DNS Domain Name Space File" key= "DNS-DOMAIN-NAME-SPACE-FILE" type="File" optional="true" default="[Required]" filetype="dnsspace"/>
+                    <variable name= "DNS Domain Names File" key= "DNS-DOMAIN-NAMES-FILE" type="File" optional="true" default="[Required]" filetype="dnsregister"/>
+                </option>
+            </variable>
+            <variable name="Configure as DNS Client" key="DNS-CLIENT" optional="true" type="Selection" default="NO">
+                <option value="NO" name="No" />
+                <option value="YES" name="Yes">
+                    <variable name= "Primary DNS Server" key= "DNS-SERVER-PRIMARY" optional="true" default="[Required if DHCP is not enabled]" type="Text"/>
+                    <variable name= "Secondary DNS Server" key= "DNS-SERVER-SECONDARY" optional="true" default="[Optional]" type="Text"/>                
+                    <variable name= "DNS Hosts File" key= "DNS-HOSTS-FILE" type="File" optional="true" invisible="Interface" default="[Optional]" filetype="hosts"/>
+                    <variable name= "DNS Cache Timeout Interval" key= "DNS-CACHE-TIMEOUT-INTERVAL" invisible="Interface" optional="true" default="20S" type="Time"/>
+                </option>
+            </variable>
+        </option>
+    </variable>
+</subcategory>
+</category>

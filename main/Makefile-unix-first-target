@@ -1,0 +1,95 @@
+#
+# Executables
+#
+
+all: product
+
+# Set the default product type.  Default is qualnet
+
+BUILD_TARGET = qualnet
+
+# this is gmake syntax, allowing 'make build=exata' to build exata
+# if "build=" is missing on the command line, it will default to 
+# the BUILD_TARGET listed above.
+
+ifeq "$(build)" "exata"
+BUILD_TARGET = exata
+endif
+ifeq "$(build)" "ces"
+BUILD_TARGET = ces
+endif
+ifeq "$(build)" "jne"
+BUILD_TARGET = jne
+endif
+ifeq "$(build)" "qualnet"
+BUILD_TARGET = qualnet
+endif
+
+
+ifeq "$(BUILD_TARGET)" "qualnet"
+PRODUCT_TYPE = qualnet
+include ../addons/db/Makefile-unix
+endif
+
+ifeq "$(BUILD_TARGET)" "exata"
+PRODUCT_TYPE = exata
+include ../interfaces/lib-emulation/Makefile-unix
+include ../addons/db/Makefile-unix
+include ../interfaces/openSSL/Makefile-unix
+FLAGS = -DEXATA -DEXATA_CYBER
+include ../libraries/cyber/Makefile-unix
+endif
+
+ifeq "$(BUILD_TARGET)" "ces"
+PRODUCT_TYPE = ces
+include ../interfaces/lib-emulation/Makefile-unix
+include ../addons/db/Makefile-unix
+include ../addons/stats_manager/Makefile-unix
+include ../addons/parser/Makefile-unix
+include ../libraries/ces/Makefile-unix
+include ../interfaces/ces/Makefile-unix
+include ../libraries/cyber/core/Makefile-unix
+include ../interfaces/openSSL/Makefile-unix
+FLAGS = -DEXATA -DADDON_BOEINGFCS
+endif
+
+ifeq "$(BUILD_TARGET)" "jne"
+PRODUCT_TYPE = jne
+include ../interfaces/lib-emulation/Makefile-unix
+include ../addons/stats_manager/Makefile-unix
+include ../addons/parser/Makefile-unix
+include ../libraries/ces/Makefile-unix
+include ../interfaces/ces/Makefile-unix
+include ../libraries/jne/Makefile-unix        #JWNM models (CA, MA, PR, Audit)
+include ../interfaces/jne/Makefile-unix   # JNE interfaces (JSR, C2, HITL, VMF)
+include ../libraries/cyber/core/Makefile-unix
+include ../interfaces/openSSL/Makefile-unix
+include ../interfaces/zlib/Makefile-unix
+include ../interfaces/netconf/Makefile-unix
+include ../addons/db/Makefile-unix # Make sure this comes AFTER openSSL, in case MySQL is being used.
+FLAGS = -DEXATA -DADDON_BOEINGFCS
+endif
+
+SIM_EXEC         = ../bin/$(PRODUCT_TYPE)
+RADIO_RANGE_EXEC = ../bin/radio_range
+SHPTOXML_EXEC    = ../bin/shptoxml
+UPGRADE_SCENARIO_EXEC = ../bin/upgrade_scenario
+
+# The following allows the user to build QualNet for multiple operating system
+# and compiler variations in the same directory tree.  Primarily useful for
+# cross platform testing.
+SIM_OS_EXEC      = ../bin/$(PRODUCT_TYPE).$(ARCH)-$(COMPILER)
+
+ALL_TARGETS = $(SIM_EXEC)
+
+#
+# Targets with the "boost" prefix are used to build the Boost libraries
+# under addons/boost.
+#
+BOOST_VER = 1_52_0
+
+boost:
+	@cd ../addons/boost; $(MAKE) -f Makefile-unix $(BOOST_VER)
+	
+boost-clean:
+	@cd ../addons/boost; $(MAKE) -f Makefile-unix $(BOOST_VER)_clean

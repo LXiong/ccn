@@ -1,0 +1,1725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Abstract Network Equation – Satellite (ANESAT) Model</title>
+    <link rel="StyleSheet" href="css/ANESAT.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">
+      <a class="WebWorks_Breadcrumb_Link" href="Ch4%20-%20MAC%20Layer%20Models.html#1039724">4	MAC Layer Models</a> &gt; 4.5  Abstract Network Equation – Satellite (ANESAT) Model</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="Heading1Numbered">4.5  <a name="1039724">Abstract Network Equation – Satellite (ANESAT) Model</a></div>
+      <div class="Heading2Numbered">4.5.1  <a name="1044100">Description</a></div>
+      <div class="BodyAfterHead"><a name="1044090">This ANESAT abstract satellite model provides an advanced set of tools that simplifies the modeling of:</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039725">Asymmetric channel models</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039726">Upstream traffic conditioners</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039727">Dynamic upstream bandwidth reservation</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039728">Multiple upstream systems</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039729">Spot-beam satellites</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Body"><a name="1039730">These features are characteristics of many advanced broadband satellite systems being deployed presently. </a></div>
+      <div class="BodyAfterHead"><a name="1063279">A system is composed of one or more subnets operating across a bidirectional set of channels. Each subnet has a single downstream (or forward) link and a number of associated upstream links. Each downstream link if operated on a TDMA fashion based on the priority dequeuing from the Network layer. Each subnet has a head-end, which may either be the satellite or a head-end ground station, and zero or more client terminals. The usage of the upstream and downstream channels is completely under the control of the head-end process. Each upstream contains a shared set of data that permit it to be scheduled as a group. This most often happens when two or more subnets on a head-end would like to share a common set of upstream channels. Each transmitter (i.e., node/interface pair connected to a satellite channel) can be optionally instantiated with an ingress traffic conditioner. This traffic conditioner limits the amount of traffic being transmitted from the terminal regardless of the available serialization rate available to that terminal. All terminals, including the head-end, process the packets at the network layer. Additional queuing disciplines may be therefore imposed at the client terminal model. These disciplines include strict priority queuing and weighted fair queuing.</a></div>
+      <div class="Heading2Numbered">4.5.2  <a name="1044137">Features and Assumptions</a></div>
+      <div class="BodyAfterHead"><a name="1044138">This section describes the implemented features, omitted features, assumptions and limitations of the ANESAT model.</a></div>
+      <div class="Heading3Numbered">4.5.2.1  <a name="1046968">Implemented Features</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046978">Both bent-pipe and processing payload functionality.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046979">An advanced DAMA for the satellite models</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046980">80x speed up on models</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046981">A high performance scheduler for </a><span class="Variable">QualNet</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1046982">Necessary abstractions for high performance operation in bent-pipe and satellite model</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading3Numbered">4.5.2.2  <a name="1044141">Omitted Features</a></div>
+      <div class="BodyAfterHead"><a name="1044142">None</a></div>
+      <div class="Heading3Numbered">4.5.2.3  <a name="1044143">Assumptions and Limitations</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1044144">Abstractions were used in the implementation of this model.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Heading2Numbered">4.5.3  <a name="1044145">Supplemental Information</a></div>
+      <div class="BodyAfterHead"><a name="1044129">None.</a></div>
+      <div class="Heading2Numbered">4.5.4  <a name="1039732">Command Line Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1044171">To specify ANESAT as the MAC protocol, include the following parameter in the scenario configuration (.config) file:</a></div>
+      <div class="Declaration"><a name="1044172">&nbsp;</a></div>
+      <div class="Declaration"><a name="1044173">[&lt;Qualifier&gt;]  MAC-PROTOCOL	ANE</a></div>
+      <div class="Declaration"><a name="1044174">&nbsp;</a></div>
+      <div class="BodyAfterHead"><a name="1044163">The scope of this parameter declaration can be Global, Node, Subnet, or Interface. See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'Ch1%20-%20Overview.01.2.html#1064427', '');" title="Conventions Used">Section&nbsp;1.2.1.1</a></span> for a description of <span style="font-family: &quot;Courier New&quot;">&lt;Qualifier&gt;</span> for each scope.</div>
+      <div class="Anchor"><a name="1056805">&nbsp;</a></div>
+      <div class="Heading4"><a name="1044212">ANESAT Parameters</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1061116', '');" title="Abstract Network Equation – Satellite (ANESAT) Model" name="1044216">Table&nbsp;4-62</a></span> lists the ANESAT parameters specified in the scenario configuration (.config) file. See <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'Ch1%20-%20Overview.01.2.html#1058602', '');" title="Conventions Used">Section&nbsp;1.2.1.3</a></span> for a description of the format used for the parameter table.</div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-62.&nbsp;&nbsp;<a name="1061116">ANESAT Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 162pt">
+            <div class="CellHeading" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1061122">Parameter</a></span></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 104.4pt">
+            <div class="CellHeading" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1061124">Value</a></span></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 201.6pt">
+            <div class="CellHeading" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: normal; font-variant: normal; font-weight: bold; text-transform: none; vertical-align: baseline"><a name="1061126">Description</a></span></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061128">ANESAT-SATELLITE-ARCHITECTURE</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061129">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061130">Scope</a></div>
+            <div class="CellBody"><a name="1061131">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061133">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061134">BENTPIPE</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061135">PROCESSPAYLOAD</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><a name="1061136">Default:</a></div>
+            <div class="CellBody_Courier_Indented" style="margin-left: 5.8752pt"><a name="1061137"> PROCESSPAYLOAD</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061139">Specifies the type of satellite system to be modeled (i.e., sets architecture of subnet to be either switched/routed in space or at the ground station).</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061141">ANESAT-UPLINK-CHANNEL</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061142">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061143">Scope</a></div>
+            <div class="CellBody"><a name="1061144">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061146">Integer</a></div>
+            <div class="CellRun-In_Courier"><a name="1061147">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061148">≥ 0</a></div>
+            <div class="CellRun-In_Courier"><a name="1061149">Default:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061150">0</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061152">Specifies the channel with which this interface address or node is to be associated.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061154">ANESAT-UPSTREAM-GROUP</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061155">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061156">Scope</a></div>
+            <div class="CellBody"><a name="1061157">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061159">String</a></div>
+            <div class="CellRun-In_Courier"><a name="1061160">Default:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061161"> DefaultUpstreamGroup</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061163">Specifies the upstream group for a sharing of upstream resources across multiple subnets.</a></div>
+            <div class="CellBody"><a name="1061164">This only has physical realism if the interfaces/subnets are all on one node, like a multi-beam or multi-channel satellite.</a></div>
+            <div class="CellBody"><a name="1062732">This parameter is required only if the scenario has more than one ANESAT subnet. Each ANESAT subnet requires a unique upstream group ID.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061166">ANESAT-UPSTREAM-COUNT</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061167">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061168">Scope</a></div>
+            <div class="CellBody"><a name="1061169">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061171">Integer</a></div>
+            <div class="CellRun-In_Courier"><a name="1061172">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061173">&gt; 0</a></div>
+            <div class="CellRun-In_Courier"><a name="1061174">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061175">1</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061177">Specifies the number of total upstreams in the simulation.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061179">ANESAT-UPSTREAM-BANDWIDTH</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061180">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061181">Scope</a></div>
+            <div class="CellBody"><a name="1061182">All</a></div>
+            <div class="CellRun-In_Plain"><a name="1061183">Instances</a></div>
+            <div class="Cell_2nd_Line"><a name="1061184">upstream channel index</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061186">Real</a></div>
+            <div class="CellRun-In_Courier"><a name="1061187">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061188">&gt; 0</a></div>
+            <div class="CellRun-In_Courier"><a name="1061189">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061190">1.0e6</a></div>
+            <div class="CellRun-In_Plain"><a name="1061191">Unit</a></div>
+            <div class="Cell_2nd_Line"><a name="1061192">bps</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061194">Specifies the upstream bandwidth for a particular upstream channel.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061196">ANESAT-UPSTREAM-MAC-LATENCY</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061197">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061198">Scope</a></div>
+            <div class="CellBody"><a name="1061199">All</a></div>
+            <div class="CellRun-In_Plain"><a name="1061582">Instances</a></div>
+            <div class="Cell_2nd_Line"><a name="1061583">upstream channel index</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061201">Time </a></div>
+            <div class="CellRun-In_Courier"><a name="1061202">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061203">≥ 0S</a></div>
+            <div class="CellRun-In_Courier"><a name="1061204">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061205">0.04S</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061207">Specifies the upstream media access latency for a particular upstream channel.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061209">ANESAT-DOWNSTREAM-BANDWIDTH</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061210">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061211">Scope</a></div>
+            <div class="CellBody"><a name="1061212">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061214">Real</a></div>
+            <div class="CellRun-In_Courier"><a name="1061215">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061216">&gt; 0</a></div>
+            <div class="CellRun-In_Courier"><a name="1061217">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061218">70.0e6</a></div>
+            <div class="CellRun-In_Plain"><a name="1061219">Unit</a></div>
+            <div class="Cell_2nd_Line"><a name="1061220">bps</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061222">Specifies the downstream bandwidth for a particular downstream channel.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061224">ANESAT-DOWNSTREAM-MAC-LATENCY</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061225">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061226">Scope</a></div>
+            <div class="CellBody"><a name="1061227">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061229">Time </a></div>
+            <div class="CellRun-In_Courier"><a name="1061230">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061231">≥ 0S</a></div>
+            <div class="CellRun-In_Courier"><a name="1061232">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061233">0.005S</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061235">Specifies the downstream media access latency for a given downstream channel</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061237">ANESAT-UPSTREAM-TRAFFIC-CONDITIONING-TYPE</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061238">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061239">Scope</a></div>
+            <div class="CellBody"><a name="1061240">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061242">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061243">RESIDUAL</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061244">STRICT</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061245">NONE</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><a name="1061246">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061247">NONE</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061249">Specifies the type of upstream traffic conditioner.</a></div>
+            <div class="CellBody" style="margin-left: 54pt"><span style="font-family: &quot;Courier New&quot;"><a name="1061250">RESIDUAL</a></span>:	A residual bandwidth limiting operation is performed. When this type is specified, <span style="font-family: &quot;Courier New&quot;">ANESAT-UPSTREAM-BANDWIDTH-LIMIT</span> and <span style="font-family: &quot;Courier New&quot;">ANESAT-UPSTREAM-BANDWIDTH-MINIMUM</span> parameters must be configured.</div>
+            <div class="CellBody" style="margin-left: 53.1252pt"><span style="font-family: &quot;Courier New&quot;"><a name="1061251">STRICT</a></span>:	Bandwidth is strictly limited to the value of the traffic limit. When this type is specified, <span style="font-family: &quot;Courier New&quot;">ANESAT-UPSTREAM-BANDWIDTH-LIMIT</span> parameter must be configured.</div>
+            <div class="CellBody" style="margin-left: 53.1252pt"><span style="font-family: &quot;Courier New&quot;"><a name="1061252">NONE</a></span>:	No conditioning is performed at the ingress interface.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061254">ANESAT-UPSTREAM-BANDWIDTH-MINIMUM</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061255">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061256">Scope</a></div>
+            <div class="CellBody"><a name="1061257">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061259">Real</a></div>
+            <div class="CellRun-In_Courier"><a name="1061260">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061261">&gt; 0</a></div>
+            <div class="CellRun-In_Courier"><a name="1061262">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061263">64000</a></div>
+            <div class="CellRun-In_Plain"><a name="1061264">Unit</a></div>
+            <div class="Cell_2nd_Line"><a name="1061265">bps</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061267">Specifies the minimum bandwidth to be allocated by the upstream traffic conditioner.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1061268">This parameter is used for residual conditioning only.</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061270">ANESAT-UPSTREAM-BANDWIDTH-LIMIT</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061271">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061272">Scope</a></div>
+            <div class="CellBody"><a name="1061273">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061275">Real</a></div>
+            <div class="CellRun-In_Courier"><a name="1061276">Range:</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061277">&gt; ANESAT-UPSTREAM-BANDWIDTH-MINIMUM</a></div>
+            <div class="CellRun-In_Courier"><a name="1061278">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061279">512000</a></div>
+            <div class="CellRun-In_Plain"><a name="1061280">Unit</a></div>
+            <div class="Cell_2nd_Line"><a name="1061281">bps</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061283">Specifies the bandwidth limit on the upstream traffic conditioner.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1061284">This parameter is used for strict or residual conditioning only.</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061286">ANESAT-CHANNEL-ID</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061287">Required</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061288">Scope</a></div>
+            <div class="CellBody"><a name="1061289">All</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061291">String</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061293">Specifies the subnet channel name associated with the node.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061295">ANE-EQUATION-DEFINITION </a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061296">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061297">Scope</a></div>
+            <div class="CellBody"><a name="1061298">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061300">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061301">ane_default_mac</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061302">anesat_mac</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><a name="1061303">Default</a></div>
+            <div class="CellBody_Courier_Indented" style="text-indent: -0.24984000000000073pt"><a name="1061304">ane_default_mac</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061306">Specifies the name of the equation object (class or shared object). </a></div>
+            <div class="CellBody"><a name="1061795">	</a><span style="font-family: &quot;Courier New&quot;">ane_default_mac</span>:	 Base satellite</div>
+            <div class="CellBody"><a name="1061802">	</a><span style="font-family: &quot;Courier New&quot;">anesat_mac</span>: 	Multichannel satellite</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061308">ANE-SUBNET-ARCHITECTURE</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061309">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061310">Scope</a></div>
+            <div class="CellBody"><a name="1061311">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061313">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061314">ASYMMETRIC</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1061315">SYMMETRIC</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><a name="1061316">Default</a></div>
+            <div class="CellBody_Courier_Indented" style="text-indent: -0.24984000000000073pt"><a name="1061317">SYMMETRIC</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062209">Specifies the subnet topology.</a></div>
+            <div class="CellBody" style="margin-left: 71.25048pt"><span class="Courier"><a name="1062210">	ASYMMETRIC</a></span>:<span class="Courier">	</span>This value indicates a client/server architecture where the topology would be configured as “Host to Gateway”. If asymmetric host style is specified, <span class="Courier">ANE-HEADEND-NODE</span> parameter must also be configured.</div>
+            <div class="CellBody" style="margin-left: 71.25048pt"><a name="1061321">	</a><span class="Courier">SYMMETRIC</span>:<span class="Courier">	</span>Subnet architecture is “Host to Host”.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061323">ANE-HEADEND-NODE</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061324">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061325">Scope</a></div>
+            <div class="CellBody"><a name="1061326">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061328">Integer</a></div>
+            <div class="CellRun-In_Courier"><a name="1061329">Range</a></div>
+            <div class="CellBody_Courier"><a name="1061330">&gt; 0</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061332">Specifies the node that is the master of the subnet transmissions, both upstream and downstream.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1061333">This parameter is required only for asymmetric architecture. </a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061335">ANE-PROCESSOR-NODE</a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061336">Required</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061337">Scope</a></div>
+            <div class="CellBody"><a name="1061338">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061340">Integer</a></div>
+            <div class="CellRun-In_Courier"><a name="1061341">Range</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061342">&gt; 0</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061344">Specifies the centralized processor node for Distributed Memory Architecture (DMA) or cluster instantiation.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1061345">This is a required parameter for centralized processor. </a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1061347">ANE-PROCESSOR-NODE-INDEX </a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1061348">Required</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1061349">Scope</a></div>
+            <div class="CellBody"><a name="1061350">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061352">Integer</a></div>
+            <div class="CellRun-In_Courier"><a name="1061353">Range</a></div>
+            <div class="CellBody_Courier_Indented"><a name="1061354">&gt; 0</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1061356">Specifies the centralized processor interface index for DMA or cluster instantiation.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="Parameter_Name"><a name="1062843">GESTALT-PREFER-SHARED-MEMORY </a></div>
+            <div class="Cell_2nd_Line" style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><span style="color: #000000; font-family: Arial; font-size: 9.0pt; font-style: italic; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1062844">Optional</a></span></div>
+            <div class="CellRun-In_Plain"><a name="1062845">Scope</a></div>
+            <div class="CellBody"><a name="1062846">Global</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062862">List:</a></div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1062865">YES</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellBulleted_Courier_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellBulleted_Courier_inner" style="width: 9pt; white-space: nowrap;">•	</div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellBulleted_Courier_inner"><a name="1062882">NO</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="CellRun-In_Courier"><a name="1062866">Default: </a></div>
+            <div class="CellBody_Courier_Indented"><a name="1062867">YES</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062852">This parameter indicates that the simulation should use shared memory optimizations when possible. </a></div>
+            <div class="CellBody"><a name="1062909">The ANESAT model uses shared memory optimizations to reduce the simulation overhead while preserving high fidelity operation.</a></div>
+            <div class="CellNote_outer" style="margin-left: 0pt">
+              <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+                <tr style="vertical-align: baseline;">
+                  <td>
+                    <div class="CellNote_inner" style="width: 25.2pt; white-space: nowrap;">
+                      <span class="Bold">Note: 	</span>
+                    </div>
+                  </td>
+                  <td width="100%">
+                    <div class="CellNote_inner"><a name="1062920">This option is not available in a cluster environment.</a></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">4.5.5  <a name="1057148">GUI Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1057149">This section describes how to configure ANESAT model in the GUI.</a></div>
+      <div class="Anchor"><a name="1062773">&nbsp;</a></div>
+      <div class="Heading4"><a name="1062762">Satellite and Ground Station Devices</a></div>
+      <div class="BodyAfterHead"><a name="1057769">In the GUI, ANESAT is modeled by the ANE Satellite subnet in the Network Components toolbar of the Standard Toolset. </a></div>
+      <div class="Anchor"><a name="1057776"><img class="Default" src="images/ANESatelliteButton.gif" width="201" height="49" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-39.&nbsp;&nbsp;<a name="1057778">ANE Satellite Device in Network Components Toolbar</a></div>
+      <div class="Body"><a name="1062789">Ground stations can be modeled by the Default Device or the Ground Station Device in the Devices toolbar of the Standard Toolset.</a></div>
+      <div class="Anchor"><a name="1062793"><img class="Default" src="images/GroundStationDeviceInToolBar.gif" width="214" height="48" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-40.&nbsp;&nbsp;<a name="1062794">Ground Station Device in Devices Toolbar</a></div>
+      <div class="Heading4"><a name="1057154">Configuring ANESAT Parameters</a></div>
+      <div class="BodyAfterHead"><a name="1057155">To configure the ANESAT parameters, perform the following steps:</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1058069">Place an ANE Satellite subnet and a Ground Station node on the canvas.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1058070">Add a link between the ANE Satellite subnet and the Ground Station node.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1057158">Go to one of the following locations:</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1057162">To set properties for a specific subnet, go to </a><span class="Menu_Item">Wireless Subnet Properties Editor </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> MAC Layer</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1057163">To set properties a specific interface of a node, go to one of the following locations:</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Sub1_outer" style="margin-left: 28.8pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_Sub1_inner" style="width: 14.400000000000002pt; white-space: nowrap;">
+                <span class="BulletSymbol">-	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_Sub1_inner"><span class="Menu_Item"><a name="1057173">Interface Properties Editor </a></span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interfaces </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interface # </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> MAC Layer</span>. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_Sub1_outer" style="margin-left: 28.8pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_Sub1_inner" style="width: 14.400000000000002pt; white-space: nowrap;">
+                <span class="BulletSymbol">-	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_Sub1_inner"><span class="Menu_Item"><a name="1057183">Default Device Properties Editor </a></span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interfaces </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> Interface # </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> MAC Layer</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1057184">&nbsp;</a></div>
+      <div class="NumberedCont"><a name="1057185">In this section, we show how to configure the ANESAT general parameters in the Wireless Subnet Properties editor. Parameters can be set in the other properties editors in a similar way.</a></div>
+      <div class="Anchor"><a name="1057186">&nbsp;</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1057187">Set </a><span class="Menu_Item">MAC Protocol</span> to <span class="Value">Abstract Network Equation (ANE) Satellite</span> and set the dependent parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1057202', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-63</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1062323"><img class="Default" src="images/ANESAT-Parameters.gif" width="590" height="481" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-41.&nbsp;&nbsp;<a name="1062324">Setting ANESAT Parameters</a></div>
+      <div class="Anchor"><a name="1057285">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-63.&nbsp;&nbsp;<a name="1057202">Command Line Equivalent of ANESAT Parameters&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1057208">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1057210">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1057212">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057214">Satellite Architecture</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057216">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057218">ANESAT-SATELLITE-ARCHITECTURE</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057220">Uplink Channel</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057222">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057224">ANESAT-UPLINK-CHANNEL</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057226">Upstream Channel Group</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057228">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057230">ANESAT-UPSTREAM-GROUP</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057232">Channel Count</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057234">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057236">ANESAT-UPSTREAM-COUNT</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057238">Upstream Traffic Conditioner Type</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057240">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057242">ANESAT-UPSTREAM-TRAFFIC-CONDITIONING-TYPE</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057244">Downstream Bandwidth</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057246">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057248">ANESAT-DOWNSTREAM-BANDWIDTH</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057250">Downstream MAC Latency</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057252">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057254">ANESAT-DOWNSTREAM-MAC-LATENCY</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057256">ANESAT Subnet Channel Identifier</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057258">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057260">ANESAT-CHANNEL-ID</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057262">Equation Definition File/class</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057264">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057266">ANE-EQUATION-DEFINITION</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057268">Subnet Topology</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057270">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057272">ANE-SUBNET-ARCHITECTURE</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057274">ANE Simulation Processing Node</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057276">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057278">ANE-PROCESSOR-NODE</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057280">ANE Simulation Node Index</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057282">Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057284">ANE-PROCESSOR-NODE-INDEX</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1057286">&nbsp;</a></div>
+      <div class="Heading4" style="text-indent: 14.4pt"><a name="1057287">Setting Parameters</a></div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1057291">Set </a></span><span class="Field">ANE Simulation Processing Node</span> to the node ID of the Ground Station in the scenario.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1058554">&nbsp;</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">5.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1057293">Set </a><span class="Menu_Item">Channel Count</span> to the number of upstreams in the scenario and configure the channel properties as follows:</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_Sub1__0028first_0029_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_Sub1__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">a.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_Sub1__0028first_0029_inner"><a name="1058423">Click the </a><span class="Menu_Item">Open Array Editor</span> <img class="Default" src="images/ArrayEditor-Button.gif" width="27" height="24" style="display: inline; float: none; left: 0.0; top: 0.0" alt="" /> button in the <span class="Menu_Item">Value</span> column. This opens the Array Editor (see <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1057301', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-42</a></span>).</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_Sub1_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_Sub1_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">b.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_Sub1_inner"><a name="1058444">In the left panel of the Array Editor, select the index of the channel to be configured. In the right panel, set the parameters listed in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1057305', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-64</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1057300"><img class="Default" src="images/ANESAT-UpstreamChannelParameters.gif" width="566" height="224" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-42.&nbsp;&nbsp;<a name="1057301">Setting Upstream Channel Parameters</a></div>
+      <div class="Anchor"><a name="1057328">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-64.&nbsp;&nbsp;<a name="1057305">Command Line Equivalent of Upstream Channel Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1057311">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1057313">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1057315">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057317">Upstream Bandwidth</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057319">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057321">ANESAT-UPSTREAM-BANDWIDTH</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057323">Upstream MAC Latency</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1057325">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1057327">ANESAT-UPSTREAM-MAC-LATENCY</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">6.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1062367">If </a><span class="Menu_Item">Upstream Traffic Conditioner Type</span> is set to <span class="Value">Residual</span> then set the dependent parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1062412', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-65</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1062382"><img class="Default" src="images/ANESAT-UpstreamTrafficResidual.gif" width="590" height="512" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-43.&nbsp;&nbsp;<a name="1062429">Setting Parameters for Residual Upstream Traffic Conditioner</a></div>
+      <div class="Anchor"><a name="1062449">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-65.&nbsp;&nbsp;<a name="1062412">Command Line Equivalent of Residual Upstream Traffic Conditioner Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1062418">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1062420">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1062422">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062470">Upstream Bandwidth Limit</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062472">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1062474">ANESAT-UPSTREAM-BANDWIDTH-LIMIT</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062476">Upstream Bandwidth Minimum</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062478">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1062480">ANESAT-UPSTREAM-BANDWIDTH-MINIMUM</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">7.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1062493">If </a><span class="Menu_Item">Upstream Traffic Conditioner Type</span> is set to <span class="Value">Strict</span> then set the dependent parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1062505', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-66</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1062500"><img class="Default" src="images/ANESAT-UpstreamTrafficStrict.gif" width="590" height="494" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-44.&nbsp;&nbsp;<a name="1062501">Setting Parameters for Strict Upstream Traffic Conditioner</a></div>
+      <div class="Anchor"><a name="1062528">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-66.&nbsp;&nbsp;<a name="1062505">Command Line Equivalent of Strict Upstream Traffic Conditioner Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1062511">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1062513">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1062515">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062517">Upstream Bandwidth Limit</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1062519">Subnet, Interface</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1062521">ANESAT-UPSTREAM-BANDWIDTH-LIMIT</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">8.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1062352">If </a><span class="Menu_Item">Subnet Topology</span> is set to <span class="Value">Host to Gateway</span> then set the dependent parameters listed in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1058585', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-67</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1058581"><img class="Default" src="images/ANESAT-HostToGatewayParameters.gif" width="590" height="481" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-45.&nbsp;&nbsp;<a name="1058602">Setting Subnet Topology Parameters</a></div>
+      <div class="Anchor"><a name="1058608">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-67.&nbsp;&nbsp;<a name="1058585">Command Line Equivalent of Subnet Topology Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1058591">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1058593">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1058595">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1058597">Headend Node</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1058599"> Subnet</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1058601">ANE-HEADEND-NODE</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Anchor"><a name="1058603">&nbsp;</a></div>
+      <div class="Heading4" style="text-indent: 14.4pt"><a name="1058525">Setting Parameters</a></div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt; vertical-align: baseline">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner" style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none"><span style="color: #000000; font-family: Arial; font-size: 10.0pt; font-style: normal; font-variant: normal; font-weight: normal; text-transform: none; vertical-align: baseline"><a name="1058528">Set </a></span><span class="Field">Headend Node</span> to the node ID of the Ground Station in the scenario.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1057366">&nbsp;</a></div>
+      <div class="Heading4"><a name="1062943">Configuring Memory Optimization Parameters</a></div>
+      <div class="BodyAfterHead"><a name="1062944">To configure the memory optimization parameters, perform the following steps:</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1062945">Go to </a><span class="Menu_Item">Scenario Properties Editor </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> General &gt; Parallel Settings</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1062946">To enable shared memory optimizations, set </a><span class="Field">Prefer Shared Memory</span> to <span class="Value">Yes</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1062935"><img class="Default" src="images/ANESAT-SharedMemoryParameters.gif" width="584" height="202" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-46.&nbsp;&nbsp;<a name="1063017">Setting Memory Optimization Parameters</a></div>
+      <div class="Anchor"><a name="1063066">&nbsp;</a></div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-68.&nbsp;&nbsp;<a name="1063049">Command Line Equivalent of Subnet Topology Parameters</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1063055">GUI Parameter </a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 108pt">
+            <div class="CellHeading"><a name="1063057">Scope of GUI Parameter</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1063059">Command Line Parameter</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1063061">Prefer Shared memory</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1063063"> Global</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody_Courier"><a name="1063065">GESTALT-PREFER-SHARED-MEMORY</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">4.5.6  <a name="1039853">Programming Interface</a></div>
+      <div class="BodyAfterHead"><a name="1039854">The model has a single programmatic interface available to the user to modify the dynamic rate limit on the local node's upstream traffic conditioner(s). This is done via the routine MAC_ManagementRequest(). </a></div>
+      <div class="Declaration"><a name="1039855">void MAC_ManagementRequest(Node *node, int interfaceIndex, ManagementRequest *req, ManagementResponse *resp);</a></div>
+      <div class="Body"><a name="1039856">The MAC responds to the following request types:</a></div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039857">ManagementRequestEcho: A basic ping to check process is still working</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_inner"><a name="1039858">ManagementRequestSetBandwidthLimit: The STRICT traffic conditioner accepts this command and updates its local traffic conditioning rate limit. The new limit is passed to the process as a pointer to a double that contains the new rate limit. That pointer is to be stored in req &gt; data. </a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Body"><a name="1039859">If supported, the MAC responds with ManagementResponseOK. More details can be found on the data structures in mac/mac.h. An example of the use of MAC_ManagementRequest is shown below:</a></div>
+      <div class="Declaration"><a name="1039860">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039861">void setbw(Node *node, int ifidx) {</a></div>
+      <div class="Declaration"><a name="1039862">    ManagementRequest req, resp;</a></div>
+      <div class="Declaration"><a name="1039863">    double updatedBandwidth = 768.0e3;</a></div>
+      <div class="Declaration"><a name="1039864">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039865">    req.type = ManagementRequestSetBandwidthLimit;</a></div>
+      <div class="Declaration"><a name="1039866">    req.data = (void*)&amp;updatedBandwidth;</a></div>
+      <div class="Declaration"><a name="1039867">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039868">    MAC_ManagementRequest(node, ifidx, &amp;req, &amp;resp);</a></div>
+      <div class="Declaration"><a name="1039869">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039870">    if (resp.result != ManagementResponseOK) {</a></div>
+      <div class="Declaration"><a name="1039871">         // error</a></div>
+      <div class="Declaration"><a name="1039872">    }</a></div>
+      <div class="Declaration"><a name="1039873">}</a></div>
+      <div class="Heading2Numbered">4.5.7  <a name="1046329">Statistics</a></div>
+      <div class="BodyAfterHead"><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1039881', '');" title="Abstract Network Equation – Satellite (ANESAT) Model" name="1046319">Table&nbsp;4-69</a></span> lists the statistics collected for the ANESAT model that are output to the statistics (.stat) file at the end of simulation. </div>
+      <table class="Format_A" style="text-align: left; width: 363.74976000000003pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-69.&nbsp;&nbsp;<a name="1039881">ANESAT Statistics</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 183.74976pt">
+            <div class="CellHeading"><a name="1039885">Statistic</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1039887">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039889">Frames sent</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039891">Total number of frames sent</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039893">Frames received</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039895">Total number of frames received</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039897">Frames relayed</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1039899">Total number of frames relayed</a></div>
+          </td>
+        </tr>
+      </table>
+      <div class="Heading2Numbered">4.5.8  <a name="1039901">Sample Scenario</a></div>
+      <div class="Heading3Numbered">4.5.8.1  <a name="1046411">Scenario Description</a></div>
+      <div class="Heading4"><a name="1046423">Topology</a></div>
+      <div class="BodyAfterHead"><a name="1039905">The sample scenario topology is shown in </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1039974', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-47</a></span>.</div>
+      <div class="CellHeading"><a name="1039972"><img class="Default" src="images/ANESAT.27.1.10.jpg" width="618" height="549" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-47.&nbsp;&nbsp;<a name="1039974">Sample Scenario Topology</a></div>
+      <div class="Heading3Numbered">4.5.8.2  <a name="1039975">Command Line Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1039976">To configure the sample scenario, include the following lines in the scenario configuration (.config) file:</a></div>
+      <div class="Declaration"><a name="1039977">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039978">APP-CONFIG-FILE ./ane-example.app</a></div>
+      <div class="Declaration"><a name="1039979">&nbsp;</a></div>
+      <div class="Declaration"><a name="1039980">SUBNET N8-0.0 { 1,3,6 }</a></div>
+      <div class="Declaration"><a name="1039981">[N8-0.0] ANESAT-CHANNEL-ID Downlink1</a></div>
+      <div class="Declaration"><a name="1039982">[N8-0.0] ANE-HEADEND-NODE 6</a></div>
+      <div class="Declaration"><a name="1039983">#</a></div>
+      <div class="Declaration"><a name="1039984">SUBNET N8-1.0 { 2,4,5,6 }</a></div>
+      <div class="Declaration"><a name="1039985">[N8-1.0] ANESAT-CHANNEL-ID Downlink2</a></div>
+      <div class="Declaration"><a name="1039986">[N8-1.0] ANE-HEADEND-NODE 6</a></div>
+      <div class="Declaration"><a name="1039987">#</a></div>
+      <div class="Declaration"><a name="1039988">[1] ANESAT-UPLINK-CHANNEL 0</a></div>
+      <div class="Declaration"><a name="1039989">[2] ANESAT-UPLINK-CHANNEL 1</a></div>
+      <div class="Declaration"><a name="1039990">[3] ANESAT-UPLINK-CHANNEL 0</a></div>
+      <div class="Declaration"><a name="1039991">[4] ANESAT-UPLINK-CHANNEL 1</a></div>
+      <div class="Declaration"><a name="1039992">[5] ANESAT-UPLINK-CHANNEL 2</a></div>
+      <div class="Declaration"><a name="1039993">#</a></div>
+      <div class="Declaration"><a name="1039994">MAC-PROTOCOL   ANE</a></div>
+      <div class="Declaration"><a name="1039996">ANE-EQUATION-DEFINITION anesat_mac</a></div>
+      <div class="Declaration"><a name="1039997">ANE-SUBNET-ARCHITECTURE Asymmetric</a></div>
+      <div class="Declaration"><a name="1039998">ANESAT-SATELLITE-ARCHITECTURE BentPipe</a></div>
+      <div class="Declaration"><a name="1039999">ANESAT-UPSTREAM-TRAFFIC-CONDITIONING-TYPE RESIDUAL</a></div>
+      <div class="Declaration"><a name="1040000">&nbsp;</a></div>
+      <div class="Declaration"><a name="1040001">ANESAT-UPSTREAM-COUNT 3</a></div>
+      <div class="Declaration"><a name="1040002">&nbsp;</a></div>
+      <div class="Declaration"><a name="1040003">ANESAT-UPSTREAM-BANDWIDTH 1.0e6</a></div>
+      <div class="Declaration"><a name="1040004">ANESAT-DOWNSTREAM-BANDWIDTH 1.0e6</a></div>
+      <div class="Declaration"><a name="1040005">&nbsp;</a></div>
+      <div class="Declaration"><a name="1040006">ANESAT-UPSTREAM-BANDWIDTH-LIMIT 512.0e3</a></div>
+      <div class="Declaration"><a name="1040007">ANESAT-UPSTREAM-BANDWIDTH-MINIMUM 64.0e3</a></div>
+      <div class="Declaration"><a name="1061889">&nbsp;</a></div>
+      <div class="Declaration"><a name="1061909">ANESAT-UPSTREAM-MAC-LATENCY 0.001</a></div>
+      <div class="Declaration"><a name="1061890">ANESAT-DOWNSTREAM-MAC-LATENCY 0.001</a></div>
+      <div class="Body"><a name="1040016">Include the following lines in the application configuration (ane-example.app) file:</a></div>
+      <div class="Declaration"><a name="1040017">CBR 5 2 0 512 10MS 100S 400S PRECEDENCE 0</a></div>
+      <div class="Declaration"><a name="1048097">CBR 1 2 0 512 10MS 100S 400S PRECEDENCE 1</a></div>
+      <div class="Declaration"><a name="1048137">CBR 4 2 0 512 10MS 100S 400S PRECEDENCE 2</a></div>
+      <div class="Heading3Numbered">4.5.8.3  <a name="1059897">GUI Configuration</a></div>
+      <div class="BodyAfterHead"><a name="1060189">The following scenario is designed using the QualNet GUI. To create a new scenario perform the following steps:</a></div>
+      <div class="Numbered__0028first_0029_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered__0028first_0029_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">1.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered__0028first_0029_inner"><a name="1059939">Place six </a><span style="font-weight: bold">Ground Station</span> <img class="Default" src="images/GroundStation.gif" width="25" height="25" style="display: inline; float: none; left: 0.0; top: 0.0" alt="" /> devices and two <span style="font-weight: bold">ANE Satellite Subnets </span><img class="Default" src="images/ANE_Satellite_Subnet.gif" width="25" height="25" style="display: inline; float: none; left: 0.0; top: 0.0" alt="" />. Connect them with links as shown in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1059950', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-48</a></span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1059948"><img class="Default" src="images/SatelliteScenario-Subnet.gif" width="364" height="298" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-48.&nbsp;&nbsp;<a name="1059950">Sample Scenario GUI Layout</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">2.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1059963">For subnet 190.0.1.0 (left satellite), go to </a><span class="Menu_Item">Wireless Subnet Properties Editor </span><span class="Bold" style="font-size: 10pt">&gt;</span><span class="Menu_Item" style="color: #000000"> MAC Layer</span> and set the properties as shown in <span class="Cross-Ref" style="font-size: 10pt"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1061651', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-49</a></span><span class="Menu_Item" style="color: #000000">.</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1061476"><img class="Default" src="images/ANESAT-LeftSatelliteProperties.gif" width="590" height="509" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-49.&nbsp;&nbsp;<a name="1061651">Left Satellite Properties</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">3.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1061669">To set the uplink channel parameters, open the array editor for the </a><span class="Field">Channel Count</span> parameter and set the properties as shown in <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1061945', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-50</a></span> for each of the indices.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1061938"><img class="Default" src="images/ANESAT-UpstreamChannelProperties.gif" width="566" height="228" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-50.&nbsp;&nbsp;<a name="1061945">Upstream Channel Properties</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">4.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1061931">For subnet 190.0.2.0 (right satellite), set the properties as shown in </a><span class="Cross-Ref" style="font-size: 10pt"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1061651', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-49</a></span> and <span class="Cross-Ref" style="font-size: 10pt"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1061945', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Figure&nbsp;4-50</a></span><span class="Menu_Item" style="color: #000000">, </span>except for setting <span class="Field">ANESAT Subnet Channel Identifier</span> to <span class="Value">Downlink2</span><span class="Menu_Item" style="color: #000000">.</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">5.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1062032">For node 1 (Ground Station 1):</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1063368">Go to </a><span class="Menu_Item">Default Device Properties Editor &gt; Interfaces &gt; Interface 0 &gt; MAC Layer</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1063432">Set </a><span class="Menu_Item">MAC Protocol</span> to <span class="Value">Abstract Network Equation (ANE) Satellite.</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1063433">Set </a><span class="Menu_Item">Satellite Architecture</span> to <span class="Value">Bent Pipe.</span> </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bulleted_Indented_outer" style="margin-left: 14.4pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bulleted_Indented_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="BulletSymbol">•	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bulleted_Indented_inner"><a name="1063378">Se </a><span class="Field">Uplink Channel</span> to <span class="Value">0</span><span class="Menu_Item" style="color: #000000">.</span></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1061710"><img class="Default" src="images/ANESAT-Node1Parameters.gif" width="589" height="456" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-51.&nbsp;&nbsp;<a name="1061717">Uplink Channel for Ground Station 1</a></div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">6.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1061744">Similarly, set </a><span class="Field">Uplink Channel</span> to <span class="Value">1</span><span class="Menu_Item" style="color: #000000">, </span><span class="Value" style="font-family: Arial; font-size: 10pt">0</span><span class="Menu_Item" style="color: #000000">, </span><span class="Value" style="font-family: Arial; font-size: 10pt">1</span>, and <span class="Value">2</span><span class="Menu_Item" style="color: #000000"> </span>for nodes 2, 3, 4 and 5, respectively.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">7.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1060062">Add CBR applications between the following nodes: 5 to 2, 1 to 2, and 4 to 2. </a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Numbered_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Numbered_inner" style="width: 14.4pt; white-space: nowrap;">
+                <span class="StepNumber">8.	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Numbered_inner"><a name="1060063">For the CBR application between nodes 5 and 2, set the </a><span class="Menu_Item">Precedence Value</span> to <span class="Value">0</span>, between nodes 1 and 2 set the <span class="Menu_Item">Precedence Value</span> to <span class="Value">1</span>, and between nodes 4 and 2 set the <span class="Menu_Item">Precedence Value</span> to <span class="Value">2</span>.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Anchor"><a name="1060067"><img class="Default" src="images/CBR_Properties.gif" width="596" height="325" style="display: block; float: none; left: 0.0; top: 0.0" alt="" /></a></div>
+      <div class="Figure">FIGURE 4-52.&nbsp;&nbsp;<a name="1060068">Sample CBR Configuration Settings</a></div>
+      <div class="Heading2Numbered">4.5.9  <a name="1048187">Scenarios Included in </a><span class="Variable">QualNet</span></div>
+      <div class="BodyAfterHead"><a name="1046512">The </a><span class="Variable">QualNet</span> distribution includes several sample scenarios for the ANESAT model. All scenarios are located in the directory <span class="Variable">QUALNET_HOME</span>/scenarios/satellite/ane. <span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Wireless', 'ANESAT.html#1046525', '');" title="Abstract Network Equation – Satellite (ANESAT) Model">Table&nbsp;4-70</a></span> lists the sub-directory where each scenario is located.</div>
+      <table class="Format_A" style="text-align: left; width: 468pt" cellspacing="0" summary="">
+        <caption>
+          <div class="TableTitle">TABLE 4-70.&nbsp;&nbsp;<a name="1046525">ANESAT Model Scenarios&nbsp;</a></div>
+        </caption>
+        <tr>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 180pt">
+            <div class="CellHeading"><a name="1046529">Scenario Sub-directory</a></div>
+          </td>
+          <td style="background-color: #E6E6E6; border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: bottom; width: 288pt">
+            <div class="CellHeading"><a name="1046531">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046533">centralized</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046535">	Shows the example of ANE centralized scheduling methods.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046537">distributed	</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046539">Shows the example of ANE distributed scheduling methods.</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046541">two-sat	</a></div>
+          </td>
+          <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 0.5pt; border-left-color: #000000; border-left-style: solid; border-left-width: 0.5pt; border-right-color: #000000; border-right-style: solid; border-right-width: 0.5pt; border-top-color: #000000; border-top-style: solid; border-top-width: 0.5pt; padding-bottom: 2pt; padding-left: 6pt; padding-right: 6pt; padding-top: 4pt; vertical-align: top">
+            <div class="CellBody"><a name="1046543">Shows the example of simultaneous ANE operation.</a></div>
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

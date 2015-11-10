@@ -1,0 +1,30 @@
+SYNCH_TARGET = ../bin/synch
+
+SYNCH_OBJS = $(SYNCH_VRLINK_INTERFACE_SRCS:.cpp=.o)
+
+SYNCH_CXXFLAGS = $(DEBUG) $(OPT)
+
+../interfaces/vrlink/synch/sim_types.o: ../interfaces/vrlink/synch/sim_types.cpp
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+	
+../interfaces/vrlink/synch/synch_types.o: ../interfaces/vrlink/synch/synch_types.cpp 
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+	
+../interfaces/vrlink/synch/configFiles.o: ../interfaces/vrlink/synch/configFiles.cpp
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+	
+../interfaces/vrlink/synch/Config.o: ../interfaces/vrlink/synch/Config.cpp
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+
+../interfaces/vrlink/synch/synch.o: ../interfaces/vrlink/synch/synch.cpp
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+
+../interfaces/vrlink/synch/vrlink.o: ../interfaces/vrlink/synch/vrlink.cpp
+	$(CXX) $(SYNCH_CXXFLAGS)  -c $< -o $@
+
+#Use this if a vrlink dev environment is installed and you want to build vrlink so's
+#include ../interfaces/vrlink/synch/Makefile-unix-so 
+#Use this if no vrlink environment is installed and you need prebuilt lib version
+#include ../interfaces/vrlink/synch/Makefile-unix-lib-so
+
+build-all-and-store-synch: $(SYNCH_TARGET) store-vrlink-synch-dsos

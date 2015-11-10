@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>Introduction</title>
+    <link rel="StyleSheet" href="css/Ch%201.%20Introduction.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <div>
+      <img src="snt-logo-text2-transparent-small.png" />
+    </div>
+    <br />
+    <div class="WebWorks_Breadcrumbs" style="text-align: left;">1	Introduction</div>
+    <hr align="left" />
+    <blockquote>
+      <div class="ChapterTitle_outer" style="margin-left: 0pt">
+        <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="ChapterTitle_inner" style="width: 72pt; white-space: nowrap;">
+                <span class="ChapterNumber">1	</span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="ChapterTitle_inner"><a name="931443">Introduction</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Body"><a name="976752">Multiple simulators can be used to simulate different aspects of the same scenario. The results of such a co-operative simulation can be more realistic and meaningful than those obtained by using any single simulator. When multiple simulation systems are integrated together into a coordinated "synchronized" environment, they create a "federation". An example of this is an enhanced air traffic control training system that is a created as a federation of tools that predict weather patterns and training platforms to teach air traffic control operators. This system realistically models the effects on ground-to-air communications due to variable weather behavior.</a></div>
+      <div class="Body"><a name="976761">In a federated environment, the multiple simulators pass various types of messages among them to coordinate their actions and responses. One system might model entity movement over terrain. Distance and speed updates from this system are passed to another simulator in the federation to enable real-time recalculation of other effects, such as radio communication between entities.</a></div>
+      <div class="Body"><a name="976762">The key to creating an effective federation of simulation systems is that they all need to interoperate using a common communications protocol. The modeling and simulation industry has standardized a small number of protocols in order to simplify this process. SCALABLE supports three of the most popular standard interfaces for enabling federation: High Level Architecture (HLA), Distributed Interactive Simulation (DIS) and IP sockets.</a></div>
+      <div class="Anchor"><a name="976830">&nbsp;</a></div>
+      <div class="Heading4"><a name="977157">VR-Link Interface</a></div>
+      <div class="BodyAfterHead"><a name="977159">The VR-Link networking toolkit from MAK Technologies (</a><span class="Hyperlink">www.mak.com</span>) provides a protocol-independent API that abstracts away the details of simulation networking protocols. The <span class="Variable">QualNet</span> VR-Link interface allows you to network simulators and virtual reality applications using HLA or DIS.</div>
+      <div class="Body"><a name="977169">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%202.%20VR-Link.2.1.html#986660', '');" title="VR-Link Interface">Chapter&nbsp;2</a></span> for details of the <span class="Variable">QualNet</span> Socket Interface.</div>
+      <div class="Anchor"><a name="972065">&nbsp;</a></div>
+      <div class="Heading4"><a name="977180">High Level Architecture</a></div>
+      <div class="BodyAfterHead"><a name="976891">High Level Architecture (HLA) is a general-purpose architecture for distributed computer simulation systems. Computer simulations can interact (i.e., communicate data and synchronize actions) with other computer simulations regardless of the computing platforms. The interaction between simulations is managed by a Run-Time Infrastructure (RTI). HLA is an interoperability standard for distributed simulation used to support analysis, engineering and training in a number of different domains.</a></div>
+      <div class="Body"><a name="976892">In HLA terminology, the collection of communicating simulations is called a </a><span style="font-style: italic">federation</span> and each simulation is called a <span style="font-style: italic">federate</span>. The object and interaction classes used in the federation are defined in a module called Federation Object Model (FOM). Information is exchanged between simulations using this FOM.</div>
+      <div class="Body"><a name="975239">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%202.%20VR-Link.2.3.html#986723', '');" title="High Level Architecture (HLA) Protocol">Section&nbsp;2.2</a></span> for details of the <span class="Variable">QualNet</span> HLA interface.</div>
+      <div class="Anchor"><a name="975124">&nbsp;</a></div>
+      <div class="Heading4"><a name="975111">Distributed Interactive Simulation</a></div>
+      <div class="BodyAfterHead"><a name="975112">Distributed Interactive Simulation (DIS) is an IEEE standard for interfacing multiple simulation tools into a single, real-time simulation. The transport of information between simulators is performed using UDP and broadcast and/or multicast IP. Although superseded by HLA and IEEE 1516, DIS still remains popular for its simplicity of operation and the ease of creating a DIS interface. </a></div>
+      <div class="Body"><a name="975264">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%202.%20VR-Link.2.4.html#988199', '');" title="Distributed Interaction Simulation (DIS) Protocol">Section&nbsp;2.3</a></span> for details of the <span class="Variable">QualNet</span> DIS interface.</div>
+      <div class="Anchor"><a name="976555">&nbsp;</a></div>
+      <div class="Heading4"><a name="976419">Socket Interface</a></div>
+      <div class="BodyAfterHead"><a name="976444">The Socket Interface provides inter-process communication between </a><span class="Variable">QualNet</span> and an external program over a TCP socket, with <span class="Variable">QualNet</span> acting as the server and the external program as the client. Several types of messages can be sent between the two processes.</div>
+      <div class="Body"><a name="976954">See </a><span class="Cross-Ref"><a href="javascript:WWHClickedPopup('Federation_Interfaces', 'Ch%203.%20Socket%20Interface.3.1.html#1044674', '');" title="Socket Interface">Chapter&nbsp;3</a></span> for details of the <span class="Variable">QualNet</span> Socket Interface.</div>
+      <div class="Anchor"><a name="976978">&nbsp;</a></div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <hr align="left" />
+    <table align="left">
+      <tr>
+        <td class="WebWorks_Company_Phone_Bottom">© 2008 - 2013 SCALABLE Network Technologies, Inc. All rights reserved.</td>
+      </tr>
+    </table>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

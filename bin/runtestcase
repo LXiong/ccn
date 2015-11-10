@@ -1,0 +1,1094 @@
+#!/usr/bin/perl
+
+
+# To use this script to run a single test case,
+#  cd to the desired directory
+#  $QUALNET_HOME/bin/runtestcase <file.config>
+# where file.config is the name of the test case input file.
+# num_cpus is optional for use with Parallel QualNet
+#
+# To use this file to run all the verification scenarios, do the following:
+#
+#  cd $QUALNET_HOME/scenarios
+#  $QUALNET_HOME/bin/runtestcase -r
+#
+# The script will find every test case (config file), run qualnet on it,
+# and compare the produced stat file with the expected.
+
+
+# --- Includes ------------------------------------------------
+
+use File::Basename;
+use File::Find qw(find);
+use Cwd qw(abs_path);
+
+
+# --- Main ----------------------------------------------------
+
+# If set to 1, simulator is executed under mpirun.
+$is_mpi = 0;
+
+# If set to 1, directories under the current working directory are traversed
+# and scenarios matching the given config_file are tested in sequence.
+$is_recursive = 0;
+
+# The config file name or glob match to test.
+$config_file = '*.config';
+
+# The number of processors the simulator is run with.
+$num_processors = 1;
+
+# The number of parallel tests permitted to be run simulataneously.
+$num_parallel_tests = 0;
+
+# The output log file used in lieu of standard out.
+$output_log_file = '';
+
+# If set to 1, the summary is logged to file used in lieu of standard out.
+$use_summary_log = 0;
+
+# If set to 1, output file and printed to the standard output log.
+$inline_diff = 0;
+
+# The hostfile that is run with the simulation in MPI mode.
+$hostfile = $ENV{HOME} . '/hostfile';
+
+# Product specific definitions.
+$product_exec = 'qualnet';
+$product_home_key = 'QUALNET_HOME';
+
+# Automatically set the product home directory if run under an installation directory.
+$save_dir = abs_path('.');
+$product_home = auto_set_product_home();
+if ($product_home eq '') {
+    $product_home = $ENV{$product_home_key};
+}
+
+if (! (-e "${product_home}/bin/${product_exec}" || -e "${product_home}/bin/${product_exec}.exe" || -e "${product_home}/bin/${product_exec}.mpi") ) {
+    print "ERROR: The simulator/emulator: ${product_exec}, was not found in bin. \n";
+    exit 1;
+}
+
+#check if testfed exists
+$testfed_exists = 0;
+if (-e "${product_home}/bin/testfed" || -e "${product_home}/bin/testfed.exe") {
+	$testfed_exists = 1;
+}
+chdir($save_dir);
+
+# Read command line arguments.
+$arg_index = 0;
+$argcnt = $#ARGV + 1;
+for ($loop_index = 0; $loop_index < $argcnt; $loop_index++) {
+    # Process arguments with "-" options
+    $arg = $ARGV[$loop_index];
+    if ($arg eq '-h') {
+        print_usage();
+        next;
+    }
+    if ($arg eq '-np') {
+        $loop_index++;
+        $num_processors = $ARGV[$loop_index];
+        if (!$use_summary_log) {
+            print "number_of_processors = $num_processors\n";
+        }
+        next;
+    }
+    if ($arg eq '-mpi') {
+        $is_mpi = 1;
+        $loop_index++;
+        $hostfile = $ARGV[$loop_index];
+        if (!$use_summary_log) {
+            print "mpi = $hostfile\n";
+        }
+        next;
+    }
+    if ($arg eq '-r') {
+        $is_recursive = 1;
+        next;
+    }
+    if ($arg eq '-p') {
+        $loop_index++;
+        $num_parallel_tests = $ARGV[$loop_index];
+        if (!$use_summary_log) {
+            print "number_of_parallel_tests = $num_parallel_tests\n";
+        }
+        next;
+    }
+    if ($arg eq '-inline') {
+        $inline_diff = 1;
+        next;
+    }
+    if ($arg eq '-f') {
+        $loop_index++;
+        $output_log_file = $ARGV[$loop_index];
+        if (!$use_summary_log) {
+            print "output_log = $output_log_file\n";
+        }
+        next;
+    }
+    if ($arg eq '-summary_file') {
+        $use_summary_log = 1;
+        next;
+    }
+    
+    # Process remaining arguments
+    if ($arg_index == 0) {
+        $config_file = $arg;
+    }
+    $arg_index++;
+}
+
+
+$summary_file = '';
+if ($use_summary_log) {
+    $output_log_file = abs_path($config_file) . '.log';
+    $summary_file = abs_path($config_file) . '.summary';
+}
+
+
+$root_test_path = abs_path('.');
+%outcome_summary = ();
+
+# Test directories under the CWD if -r option is set.
+# Apply test the only config file(s) in CWD otherwise.
+my %visited = ();
+$output_stream = STDOUT;
+if ($output_log_file ne '') {
+    open(OUTPUT_STREAM, ">${output_log_file}") || print "Error: ${output_log_file}, $!\n";
+    $output_stream = OUTPUT_STREAM;
+}
+
+my %dir_array_completed = ();
+my %scenario_list = ();
+my %scenario_list_completed = ();
+my %scenario_list_running = ();
+
+
+if ($num_parallel_tests > 0) {
+    init_tests_parallel('.', $output_stream);
+    
+    my $count_running = 0;
+    foreach $scenario (sort keys %scenario_list) {
+        my $pdivision_cmd = "$product_home/bin/runtestcase '$scenario' -summary_file -np $num_processors ";
+        if ($is_mpi) {
+            $pdivision_cmd .= " -mpi '$hostfile' ";
+        }
+        if ($inline_diff) {
+            $pdivision_cmd .= " -inline ";
+        }
+        $pdivision_cmd .= "&";
+        system($pdivision_cmd);
+        $scenario_list_running{$scenario} = 1;
+
+        $count_running = count_running_tests($output_stream);
+        while ($count_running >= $num_parallel_tests) {
+            sleep 1;
+            $count_running = count_running_tests($output_stream);
+        }
+    }
+    $count_scenarios = keys %scenario_list;
+    $count_running = count_running_tests($output_stream);
+    while ($count_running > 0) {
+        sleep 1;
+        $count_running = count_running_tests($output_stream);
+    }
+    #print_completed_tests($output_stream);
+    print_summary($output_stream);
+}
+elsif ($is_recursive) {
+    apply_test('.', $output_stream);
+    apply_test_recursive('.', $output_stream);
+    print_summary($output_stream);
+}
+else {
+    my $num_completed = apply_test('.', $output_stream);
+    if ($num_completed == 0) {
+        print_usage();
+    }
+}
+
+
+if ($output_log_file ne '') {
+    close $output_stream;
+}
+
+
+
+# --- Functions -----------------------------------------------
+
+
+
+# Prints end of run summary for recursive and parallel tests
+sub print_summary {
+    my $output_stream = shift;
+    print $output_stream "Test Summary:\n";
+    foreach $lib_name (sort keys %outcome_summary) {
+        print $output_stream "  $lib_name: ";
+        if ($outcome_summary{$lib_name}{'stat_failure'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'stat_failure'} . ' stat FAILED. ';
+        }
+        if ($outcome_summary{$lib_name}{'trace_failure'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'trace_failure'} . ' trace FAILED. '; 
+        }
+        if ($outcome_summary{$lib_name}{'db_failure'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'db_failure'} . ' db FAILED. ';
+        }
+        if ($outcome_summary{$lib_name}{'stat_success'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'stat_success'} . ' stat passed. '; 
+        }
+        if ($outcome_summary{$lib_name}{'trace_success'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'trace_success'} . ' trace passed. ';
+        }
+        if ($outcome_summary{$lib_name}{'db_success'} > 0) {
+            print $output_stream $outcome_summary{$lib_name}{'db_success'} . ' db passed. ';
+        }
+        print $output_stream "\n";
+    }
+}
+
+
+
+# Calls apply_test recursively under the given path.
+sub apply_test_recursive {
+    my $curr_path = shift;
+    my $output_stream = shift;
+    my @sub_dirs = list_dir($curr_path);
+    my $top_abs_path = abs_path($curr_path);
+    foreach $curr_sub_dir (@sub_dirs) {
+        my $abs_path = abs_path($curr_path . '/' . $curr_sub_dir);
+        apply_test($abs_path, $output_stream);
+        if (-d $abs_path) {
+            apply_test_recursive($abs_path, $output_stream);
+        }
+        chdir($top_abs_path);
+    }
+}
+
+
+
+# Returns an array of the directory names in the given path.
+sub list_dir {
+    my $curr_path = shift;
+    opendir my($dh), $curr_path or die "Couldn't open dir '$curr_path': $!";
+    my @temp_array = grep { !/^\./ } readdir $dh;
+    closedir $dh;
+    my @dir_array = ();
+    foreach $curr_dir (@temp_array) {
+        if (-d $curr_dir) {
+            push @dir_array, $curr_dir;
+        }
+    }
+    return @dir_array;
+}
+
+
+
+# Returns an array of the file names in the given path.
+sub list_all {
+    my $curr_path = shift;
+    opendir my($dh), $curr_path or die "Couldn't open dir '$curr_path': $!";
+    my @temp_array = grep { !/^\./ } readdir $dh;
+    #my @temp_array = readdir $dh;
+    closedir $dh;
+    my @dir_array = ();
+    foreach $curr_dir (@temp_array) {
+        push @dir_array, $curr_dir;
+    }
+    return @dir_array;
+}
+
+
+
+# Reinitializes directories for testing
+sub init_tests_parallel {
+    my $curr_path = shift;
+    my $output_stream = shift;
+    my @sub_dirs = list_all($curr_path);
+    my $top_abs_path = abs_path($curr_path);
+    foreach $curr_sub_dir (@sub_dirs) {
+        my $abs_path = abs_path($curr_path . '/' . $curr_sub_dir);
+        if (-d $abs_path) {
+            init_tests_parallel($abs_path, $output_stream);
+        }
+        elsif ($curr_sub_dir =~ /.*\.summary$/ || $curr_sub_dir =~ /.*\.log$/ || $curr_sub_dir =~ /.*\.out$/ ) {
+            unlink($abs_path);
+        }
+        elsif ($curr_sub_dir =~ /.*\.config$/) {
+            $scenario_list{$abs_path} = 1;
+        }
+        chdir($top_abs_path);
+    }
+}
+
+
+
+# Counts the in-progress and completed tests for parallel runs.
+sub count_running_tests {
+    my $output_stream = shift;
+    my $count_running_tests = 0;
+    foreach $curr_scenario (keys %scenario_list_running) {
+        my $curr_scenario_out = $curr_scenario . '.out';
+        my $curr_scenario_summary = $curr_scenario . '.summary';
+        if (-e $curr_scenario_summary) {
+            delete $scenario_list_running{$curr_scenario};
+            $scenario_list_completed{$curr_scenario} = 1;
+            print_completed_test($curr_scenario, $output_stream);
+        }
+        else {
+            $count_running_tests++;
+        }
+    }
+    return $count_running_tests;
+}
+
+
+
+# Counts the in-progress test result for parallel.
+sub print_completed_test {
+    my $curr_scenario = shift;
+    my $output_stream = shift;
+    delete $scenario_list_completed{$curr_scenario};
+    echo_file($curr_scenario . '.log', $output_stream);
+    my $curr_summary_file = read_file($curr_scenario . '.summary');
+    my @summary_lines = split(/\n/, $curr_summary_file);
+    my $lib_name = '';
+    my $lineNum = 0;
+    foreach $line (@summary_lines) {            
+        if ($lineNum == 0) {
+            $lib_name = $line;
+        }
+        else {
+            if (! $outcome_summary{$lib_name}) {
+                $outcome_summary{$lib_name}{'stat_success'} = 0;
+                $outcome_summary{$lib_name}{'stat_failure'} = 0;
+                $outcome_summary{$lib_name}{'trace_success'} = 0;
+                $outcome_summary{$lib_name}{'trace_failure'} = 0;
+                $outcome_summary{$lib_name}{'db_success'} = 0;
+                $outcome_summary{$lib_name}{'db_failure'} = 0;
+            }
+            my @summary_keyval = split(/=/, $line);
+            $outcome_summary{$lib_name}{ $summary_keyval[0] } += $summary_keyval[1];
+        }
+        $lineNum++;
+    }
+}
+
+
+# Counts the in-progress test results for parallel tests.
+sub print_completed_tests {
+    my $output_stream = shift;
+    foreach $curr_scenario (keys %scenario_list_completed) {
+        print_completed_test($curr_scenario, $output_stream);
+    }
+}
+
+
+
+# Prints the command line usage.
+sub print_usage {
+    print "\nUsage:  runtestcase  [options]  config_file \n";
+    print "Options:  \n";
+    print "   -h                    Prints command line usage                  \n";
+    print "   -mpi hostfile         Tests using MPI with the supplied host file\n";
+    print "   -r                    Recursively traverses directories under the\n";
+    print "                         current working directory and scenarios    \n";
+    print "                         matching the given config_file are tested  \n";
+    print "                         in sequence                                \n";
+    print "   -p num_simultaneous   Executes tests the given number of times   \n";
+    print "                         simultaneously in parallel.                \n";
+    print "   -np num_processors    Number of processors used to execute the   \n";
+    print "                         scenario. Defaults to 1.                   \n";
+    print "   -inline               Prints the generated output files to the   \n";
+    print "                         standard output log.                       \n";
+    print "   config_file           The scenario file name or wild card pattern\n";
+    print "\n";
+    print "$product_home_key = $product_home\n";
+    print "\n";
+}
+
+
+
+# Records the outcome of a test case under a top level directory path for the overall summary.
+# $curr_scenario_abs_path is the absolute path of the current scenario.
+# $outcome is the outcome that denotes the type of outcode and the success or failure thereof.
+# $outcome may be one of: stat_success, stat_success, trace_success, trace_failure, 
+# db_success, or db_failure.
+sub record_outcome {
+    my ($curr_scenario_abs_path, $outcome) = @_;
+    $rel_path = to_relative_path($curr_scenario_abs_path);
+    @dir_ary = split(/[\\\/]+/, $rel_path);
+    $curr_scenario_root_dir = '';
+    for ($loop_index = 0; $loop_index <= $#dir_ary && $curr_scenario_root_dir eq ''; $loop_index++) {
+        $curr_scenario_root_dir = $dir_ary[$loop_index];
+    }
+    if (! $outcome_summary{$curr_scenario_root_dir}) {
+        $outcome_summary{$curr_scenario_root_dir}{'stat_success'} = 0;
+        $outcome_summary{$curr_scenario_root_dir}{'stat_failure'} = 0;
+        $outcome_summary{$curr_scenario_root_dir}{'trace_success'} = 0;
+        $outcome_summary{$curr_scenario_root_dir}{'trace_failure'} = 0;
+        $outcome_summary{$curr_scenario_root_dir}{'db_success'} = 0;
+        $outcome_summary{$curr_scenario_root_dir}{'db_failure'} = 0;
+    }
+    $outcome_summary{$curr_scenario_root_dir}{$outcome} ++;
+}
+
+
+
+# Takes as input the absolute path of the working scenario and returns the relative path, 
+# from where the script was executed.
+sub to_relative_path {
+    my ($curr_scenario_abs_path) = @_;
+    $rel_path = substr($curr_scenario_abs_path, length($root_test_path));
+    if ($rel_path =~ m/^[\\\/]/) {
+        $rel_path = substr($rel_path, 1);
+    }
+    return $rel_path;
+}
+
+
+
+# Runs test_sim on all files in the argument directory that match with the file name: $config_file.
+# Returns the number of tests that were run on files that matched the config file glob. 
+sub apply_test {
+    my $config_dir = shift;
+    my $output_stream = shift;
+    my $num_completed = 0;
+    chdir($config_dir);
+    my @config_ary = glob($config_file);
+    foreach $curr_file (@config_ary) {
+        my ($curr_name, $curr_dir, $curr_suffix) = fileparse($curr_file);
+        $abs_path = abs_path($curr_dir) . "/" . $curr_name;
+        if (! $visited{$abs_path} ) {
+            $visited{$abs_path} = 1;
+            test_sim($curr_name, $curr_dir, $output_stream);
+            $num_completed++;
+        }
+    }
+    return $num_completed;
+}
+
+
+
+# Runs a comparison of expected stats and traces with current generated values and prints results to stdout.
+# Takes as arguments the config-file-name and config-file-path.
+sub test_sim {
+    my ($file_name, $file_dir, $output_stream) = @_;
+
+    my $abs_path = abs_path($file_dir);
+    my $rel_path = to_relative_path($abs_path);
+    
+    chdir($file_dir);
+    my ($file_name_no_ext, $file_name_no_ext_dir, $file_ext) = fileparse($file_name, qr/\.[^.]*/);
+
+    # Skip hidden files
+    if ($file_name_no_ext =~ m/^\.+/) {
+        return;
+    }
+
+    my $testfed_exe = "$product_home/bin/testfed.exe";
+    my $testfed = "$product_home/bin/testfed";
+    if (-e $testfed_exe) {
+        $testfed = $testfed_exe;
+    }
+
+    opendir(DIRHANDLE, $abs_path) || die "Couldn't open directory $dir: $!\n";
+    my @testfedfiles = grep {  /\.testfed$/ && -f "$abs_path/$_" } readdir DIRHANDLE;
+    closedir DIRHANDLE;
+
+    $file_name_no_ext_no_protocols = $file_name_no_ext;
+    if (@testfedfiles)
+    {
+	$file_name_no_ext_no_protocols =~ s/-dis//;
+	$file_name_no_ext_no_protocols =~ s/-hla1516//;
+	$file_name_no_ext_no_protocols =~ s/-hla//;
+	if ( $testfed_exists == 1 ) {
+	    launch_testfed($file_name_no_ext, $abs_path, $testfed);
+        }
+    }
+
+
+    my $outfile = $file_name . '.out';
+    my $curr_cmd = '';
+	my $mtsfile = $file_name_no_ext_no_protocols . '.mtsfile';
+	my $mts_log = $file_name_no_ext . '.mtslog';
+	my $mts_socket = "$product_home/bin/mts-socket";
+	my $mts_socket_exe = "$product_home/bin/mts-socket.exe";
+	if (-e $mts_socket_exe) {
+		$mts_socket = $mts_socket_exe;
+	}
+    
+    if ($is_mpi) {
+        $curr_cmd = "mpirun -np $num_processors -hostfile $hostfile $product_home/bin/${product_exec}.mpi $file_name  -simulation";
+    }
+    else {
+        $curr_cmd = "$product_home/bin/$product_exec $file_name -np $num_processors -simulation";
+    }
+    
+    my $is_mts_started = 0;
+    my $stat_file = $file_name_no_ext . '.stat';
+    my $expected_stat_file = $file_name_no_ext . '.expected.stat';
+    my $expected_stat_file_linux = $file_name_no_ext . '.expected.linux.stat';
+    my $dif_file = $file_name_no_ext . '.dif';
+
+    my $trace_file = $file_name_no_ext . '.trace';
+    my $expected_trace_file = $file_name_no_ext . '.expected.trace';
+    my $trace_dif_file = $file_name_no_ext . '.trace.dif';
+
+    my $db_file = $file_name_no_ext . '.db';
+    my $expected_db_file_gz = $file_name_no_ext . '.expected.db.gz';
+    my $expected_db_file = $file_name_no_ext . '.expected.db';
+    my $db_dif_file = $file_name_no_ext . '.db.dif';
+
+    # Need to delete previous results so that the logic of detecting success/fail works.
+    if (-e $stat_file) {
+        unlink($stat_file);
+    }
+    if (-e $trace_file) {
+        unlink($trace_file);
+    }
+    if (-e $db_file) {
+        unlink($db_file);
+    }
+    
+    open(OUT, ">$outfile") || print $output_stream "Error: $outfile, $!\n";
+    $sim_pid = open(SIM, "$curr_cmd 2>&1 |") || print $output_stream "Error: $curr_cmd, $!\n";
+    while ( <SIM> ) {
+        print OUT $_;
+        if ($_ =~ m/^Could not bind listening socket/) {
+            print $output_stream "Error occurred with ${rel_path}/${file_name},\n    see ${rel_path}/${outfile}\n";
+            kill 9, $sim_pid;
+        }
+        elsif (! $is_mts_started && -e $mtsfile && -e $mts_socket && $_ =~ m/^Initialization completed/) {
+            system("$mts_socket $mtsfile > $mts_log &");
+            $is_mts_started = 1;
+        }
+    }
+    close SIM;
+    close OUT;
+    
+    if (@testfedfiles && $testfed_exists == 1)
+    {
+        @processes = `ps -ef | grep "testfed"`;
+        if (@processes)
+        {
+            #If testfed runtime is longer than qualnet, qualnet quick unexpectedly or mts_socket connection timed out,
+            #testfed may still be running and we need to kill it before proceeding to the next scenario, otherwise 
+            #federation conflicts (duplicates) #will occur.  Since we are prematurely killing testfed, testfed output
+            #will not have been flushed to testfed-<scenario-name>.out and will be incomplete.
+
+            foreach $line (@processes) {
+                if (($line !~ m/grep \"testfed\"/) && ($line !~ m/grep testfed/)){
+                    print "$product_exec has finished, killing existing testfed to prevent federation conflict.\n";  
+                    $line =~ /^\s*(\w+)\s+(\d+)/;
+                    kill 9, $2;
+                }
+            }
+        }
+    }
+
+
+    if (! -e $expected_stat_file && -e $expected_stat_file_linux) {
+        $expected_stat_file = $expected_stat_file_linux;
+    }
+    if (-e $expected_stat_file) {
+        if (-e $stat_file) {
+            $output_matches = diff_stat($expected_stat_file, $stat_file, $dif_file);
+            if ($output_matches) {
+                print $output_stream "Output matches for ${rel_path}/${file_name}\n";
+                unlink($dif_file);
+                record_outcome("${abs_path}/${file_name}", "stat_success");
+            }
+            else {
+                print $output_stream "Output differs for ${rel_path}/${file_name},\n    see ${rel_path}/${dif_file}\n";
+                if ($inline_diff) {
+                    print $output_stream "----BEGIN----${rel_path}/${dif_file}---------------------\n";
+                    echo_file($dif_file, $output_stream);
+                    print $output_stream "----END------${rel_path}/${dif_file}---------------------\n";
+                }
+                record_outcome("${abs_path}/${file_name}", "stat_failure");
+            }
+        }
+        else {
+            print $output_stream "No stat file generated for ${rel_path}/${file_name},\n    see ${rel_path}/${outfile}\n";
+            if ($inline_diff) {
+                print $output_stream "----BEGIN----${rel_path}/${outfile}-----------------------\n";
+                echo_file($outfile, $output_stream);
+                print $output_stream "----END------${rel_path}/${outfile}-----------------------\n";
+            }
+            record_outcome("${abs_path}/${file_name}", "stat_failure");
+        }
+    }
+    else {
+        print $output_stream "No expected stat file exists for ${rel_path}/${file_name},\n    see ${rel_path}/${outfile}\n";
+        if ($inline_diff) {
+            print $output_stream "----BEGIN----${rel_path}/${outfile}-----------------------\n";
+            echo_file($outfile, $output_stream);
+            print $output_stream "----END------${rel_path}/${outfile}-----------------------\n";
+        }
+    }
+
+    if (-e $expected_trace_file) {
+        if (-e $trace_file) {
+            $trace_matches = diff_trace($expected_trace_file, $trace_file, $trace_dif_file, $output_stream);
+            if ($trace_matches) {
+                print $output_stream "Packet trace output matches for ${rel_path}/${file_name}\n";
+                unlink($trace_dif_file);
+                record_outcome("${abs_path}/${file_name}", "trace_success");
+           }
+            else {
+                print $output_stream "Packet trace output differs for ${rel_path}/${file_name},\n    see ${rel_path}/${trace_dif_file}\n";
+                if ($inline_diff) {
+                    print $output_stream "----BEGIN----${rel_path}/${trace_dif_file}-----------------------\n";
+                    echo_file($trace_dif_file, $output_stream);
+                    print $output_stream "----END------${rel_path}/${trace_dif_file}-----------------------\n";
+                }
+                record_outcome("${abs_path}/${file_name}", "trace_failure");
+            }
+        }
+        else {
+            print $output_stream "No trace file generated for ${rel_path}/${file_name},\n    see ${rel_path}/${outfile}\n";
+            record_outcome("${abs_path}/${file_name}", "trace_failure");
+        }
+    }
+    
+    $db_matches = 1;
+    if (-e $expected_db_file_gz) {
+        if (-e $db_file) {
+            system("gunzip -c $expected_db_file_gz > $expected_db_file");
+            $diff_db_cmd = '';
+            if ($is_mpi) {
+                $diff_db_cmd = "mpirun -np $num_processors -hostfile $hostfile $product_home/bin/${product_exec}.mpi -db_regression $file_name &> $db_dif_file";
+            }
+            else {
+                $diff_db_cmd = "$product_home/bin/$product_exec -db_regression $file_name &> $db_dif_file";
+            }
+            $status = system($diff_db_cmd);
+            $db_matches = $status eq '0';
+            if ($db_matches) {
+                print $output_stream "Database output matches for ${rel_path}/${file_name}\n";
+                unlink($db_dif_file);
+                unlink($expected_db_file);
+                record_outcome("${abs_path}/${file_name}", "db_success");
+            }
+            else {
+                print $output_stream "Database output differs for ${rel_path}/${file_name},\n    see ${rel_path}/${db_dif_file}\n";
+                if ($inline_diff) {
+                    print $output_stream "----BEGIN----${rel_path}/${db_dif_file}-----------------------\n";
+                    echo_file($db_dif_file, $output_stream);
+                    print $output_stream "----END------${rel_path}/${db_dif_file}-----------------------\n";
+                }
+                record_outcome("${abs_path}/${file_name}", "db_failure");
+           }
+        }
+        else {
+            print $output_stream "No db file generated for ${rel_path}/${file_name},\n    see ${rel_path}/${outfile}\n";
+            record_outcome("${abs_path}/${file_name}", "db_failure");
+        }
+    }
+
+    if ($output_matches && $trace_matches && $db_matches) {
+        unlink($outfile);
+    }
+    if ($use_summary_log) {
+        open(SUMMARY_OUT, ">$summary_file") || print $output_stream "Error: $summary_file, $!\n";
+        foreach $lib_name (keys %outcome_summary) {
+            $summary_text = $lib_name . "\n"
+                . 'stat_success=' . $outcome_summary{$lib_name}{'stat_success'} . "\n"
+                . 'stat_failure=' . $outcome_summary{$lib_name}{'stat_failure'} . "\n"
+                . 'trace_success=' . $outcome_summary{$lib_name}{'trace_success'} . "\n"
+                . 'trace_failure=' . $outcome_summary{$lib_name}{'trace_failure'} . "\n"
+                . 'db_success=' . $outcome_summary{$lib_name}{'db_success'} . "\n"
+                . 'db_failure=' . $outcome_summary{$lib_name}{'db_failure'} . "\n";
+            print SUMMARY_OUT $summary_text;
+        }
+        close(SUMMARY_OUT);
+    }
+}
+
+
+
+# Sorts text file line by line, w/o relying on external sort command.  
+sub sort_file {
+    my ($orig_file, $sort_file) = @_;
+    open (ORIGFILE, $orig_file);
+    open (SORTFILE, ">$sort_file");
+    print SORTFILE sort(<ORIGFILE>);
+    close (SORTFILE);
+    close (ORIGFILE);
+}
+
+
+
+# Prints the contents of file: $orig_file, to the output stream: $output_stream.
+sub echo_file {
+    my ($orig_file, $output_stream) = @_;
+    open (ORIGFILE, $orig_file);
+    while ( <ORIGFILE> ) {
+        print $output_stream $_;
+    }
+    close (ORIGFILE);
+}
+
+
+
+# Returns contents of file: $orig_file, as a string.
+sub read_file {
+    my ($orig_file) = @_;
+    open(FILE, $orig_file);
+    $retval = '';
+    while ( <FILE> ) {
+        $retval .= $_;
+    }
+    close (FILE); 
+    return $retval;
+}
+
+
+
+# Compares expected trace to current generated trace and prints differences if found.  
+sub diff_trace {
+    my ($file_a, $file_b, $dif_file, $output_stream) = @_;
+    my $trace_matches = 1;
+    open(OUT, ">$dif_file") || print $output_stream "Error: $dif_file, $!\n";
+    open(DIFF, "diff -w $file_a $file_b 2>&1 |") || print $output_stream "Error: diff $file_a $file_b, $!\n";
+    while ( <DIFF> ) {
+        print OUT $_;
+        $trace_matches = 0;
+    }
+    close DIFF;
+    close OUT;
+    return $trace_matches;
+}
+
+
+
+# Compares expected stats to current generated stats and prints differences if found.  
+# If the number values are floats, comparison is based on the % difference from the
+# expected value.
+sub diff_stat {
+    my ($file_a, $file_b, $dif_file) = @_;
+    my %vals_a = ();
+    my %vals_b = ();
+    my $output_matches = 1;
+
+    my $line_num = 0;
+    open (FILE_A, "$file_a");
+    while ( <FILE_A> ) {
+        my $line = $_;
+        my $i = rindex($line, "=");
+        my $line_key = trim( substr($line, 0, $i) );
+        my $line_val = trim( substr($line, $i+1) );
+        $vals_a{ $line_key } = [$line_val, $line_num];
+        $line_num++;
+    }
+    close FILE_A;
+
+    $line_num = 0;
+    open (FILE_B, "$file_b");
+    while ( <FILE_B> ) {
+        my $line = $_;
+        my $i = rindex($line, "=");
+        my $line_key = trim( substr($line, 0, $i) );
+        my $line_val = trim( substr($line, $i+1) );
+        $vals_b{ $line_key } = [$line_val, $line_num];
+        $line_num++;
+    }
+    close FILE_B;
+
+    $index = 0;
+    %diff_map = ();    
+    foreach $key_a ( keys %vals_a ) {
+        $index++;
+        my $stat_a = $vals_a{ $key_a }[0];
+        my $stat_b = $vals_b{ $key_a }[0];
+        if (is_diff_stat_val($stat_a, $stat_b)) {
+            if ($stat_a eq '') {
+                $diff_lines = "c" . $vals_b{ $key_a }[1] . "\n"
+                    . "> " . $key_a . " = " . $stat_b . "\n";
+                $diff_map{$index}{'diff'} = $diff_lines;
+                $diff_map{$index}{'line'} = $vals_b{ $key_a }[1];
+            }
+            elsif ($stat_b eq '') {
+                $diff_lines = $vals_a{ $key_a }[1] . "c\n"
+                    . "< " . $key_a . " = " . $stat_a . "\n";
+                $diff_map{$index}{'diff'} = $diff_lines;
+                $diff_map{$index}{'line'} = $vals_a{ $key_a }[1];
+            }
+            else {
+                $diff_lines = $vals_a{ $key_a }[1] . "c" . $vals_b{ $key_a }[1] . "\n"
+                    . "< " . $key_a . " = " . $stat_a . "\n"
+                    . "---\n"
+                    . "> " . $key_a . " = " . $stat_b . "\n";
+                $diff_map{$index}{'diff'} = $diff_lines;
+                $diff_map{$index}{'line'} = $vals_a{ $key_a }[1];
+            }
+            $output_matches = 0;
+        }
+        delete $vals_b{ $key_a };
+    }
+    foreach $key_b ( keys %vals_b ) {
+        $diff_lines = "c" . $vals_b{ $key_b }[1] . "\n"
+            . "> " . $key_b . " = " . $vals_b{ $key_b }[0] . "\n";
+        $diff_map{$index}{'diff'} = $diff_lines;
+        $diff_map{$index}{'line'} = $vals_b{ $key_b }[1];
+        $output_matches = 0;
+    }
+    
+    open (DIF_FILE, ">$dif_file");
+    # Sort differences based on line number
+    foreach $diff_key (sort { $diff_map{$a}{'line'} <=> $diff_map{$b}{'line'} } keys %diff_map) {
+        print DIF_FILE $diff_map{$diff_key}{'diff'};
+    }
+    close (DIF_FILE);
+
+    return $output_matches;
+}
+
+
+
+# Returns 1 if the passed in string can be treated as a floating point number.
+# Returns 0 otherwise.
+sub is_decimal {
+    my $val = shift;
+    return $val =~ m/^[\+\-]?\d+\.\d+/;
+    # [\+\-]?     sign parts
+    # \d+         digits before '.'
+    # \.\d+       '.' and digits after
+}
+
+
+
+# Returns 1 if the values from a stat are different, 0 otherwise.
+sub is_diff_stat_val {
+    my ($stat_a, $stat_b) = @_;
+    if (is_decimal($stat_a) && is_decimal($stat_b)) {
+        $is_diff = !is_decimal_equal($stat_a, $stat_b);
+    }
+    else {
+        $is_diff = ($stat_a ne $stat_b);
+    }
+    return $is_diff;
+}
+
+
+
+# Counts the number of decimal places in a decimal number.
+sub count_digits_after_decimal {
+    my $val = shift;
+    @val_ary = split(/\.+/, $val);
+    my $retval = length($val_ary[1]);
+    if ($retval < 0) {
+        $retval = 0;
+    }
+    return $retval;
+}
+
+
+
+# Returns the maximum value of the passed arguments.
+sub max {
+    my ($max, @vars) = @_;
+    for (@vars) {
+        $max = $_ if $_ > $max;
+    }
+    return $max;
+}
+
+
+
+# Returns 1 if $stat_a, $stat_b are equivalent, barring rounding error.
+sub is_decimal_equal {
+    my ($stat_a, $stat_b) = @_;
+    $max_decimal_places = max(
+        count_digits_after_decimal($stat_a), 
+        count_digits_after_decimal($stat_b)
+    );
+    $stat_diff = abs($stat_a - $stat_b);
+    $allowed_diff = 1.1 * (0.1 ** $max_decimal_places);
+    return ($stat_diff < $allowed_diff);
+}
+
+
+
+# Returns the argument string with surrounding whitespace removed.
+sub trim($) {
+    my $string = shift;
+    $string =~ s/^\s+//;
+    $string =~ s/\s+$//;
+    return $string;
+}
+
+
+
+# Automatically sets product_home directory if script is run in a CWD under it.
+# Returns the empty string otherwise
+sub auto_set_product_home {
+    my $retval = '';
+    my $full_path = abs_path('.');
+    # Check for root path for each platform as possible end case. 
+    if ((
+        $full_path eq '/'                                # Unix
+        || $full_path =~ m/^[a-zA-Z]\:[\\\/]$/           # Windows
+        || $full_path =~ m/^\/cygdrive\/[a-zA-Z][\/]?$/  # Cygwin
+    ) && !(-e "./license_dir") ) {
+        return $retval;
+    }
+    if (-e "./license_dir") {
+        $curr_path = abs_path('.');
+        # Change Cygwin path back to windows path, if applicable.
+        if ( $curr_path =~ m/^\/cygdrive\/([a-zA-Z])\// ) {
+            $drive_letter = $1;
+            $curr_path =~ s/^\/cygdrive\/[a-zA-Z]\//:\//;
+            $curr_path = $drive_letter . $curr_path;
+        }
+        $ENV{$product_home_key} = $curr_path;
+        return $ENV{$product_home_key};
+    }
+    else {
+        chdir('..');
+        $retval = auto_set_product_home();
+    }
+    return $retval;
+}
+
+sub launch_testfed {
+    my ($scenario_name_no_ext, $abs_scenario_path, $testfed_exec_path) = @_;
+    my $testfedoutfile = $abs_scenario_path . '/testfed-' . $scenario_name_no_ext . '.out';
+    my $testfed_cmd = '';
+
+    open(my $FILE, $scenario_name_no_ext . '.config') || die "could not open $scenario_name_no_ext . '.config'";
+    
+    my $protocol = '';
+    my $disIpAddress = '';
+    my $disDeviceAddress = '';
+    my $disPort = '';
+    my $federationName = '';
+    my $rprVersion = '';
+    my $fedfileName = '';
+    my $vrlinkOn = 0;
+    
+    while(my $line = <$FILE>){
+        if($line =~ /^VRLINK\s+/i ){
+            $vrlinkOn = 1;
+        }
+        if($line =~ /^VRLINK-PROTOCOL/i ){
+            $line =~ s/^VRLINK-PROTOCOL\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $protocol = $line;
+        }
+        elsif($line =~ /^VRLINK-DIS-IP-ADDRESS/i ){
+            $line =~ s/^VRLINK-DIS-IP-ADDRESS\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $disIpAddress = $line;
+        }
+        elsif($line =~ /^VRLINK-DIS-IP-ADDRESS/i ){
+            $line =~ s/^VRLINK-DIS-IP-ADDRESS\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $disIpAddress = $line;
+        }
+        elsif($line =~ /^VRLINK-DIS-NETWORK-INTERFACE/i ){
+            $line =~ s/^VRLINK-DIS-NETWORK-INTERFACE\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $disDeviceAddress = $line;
+        }
+        elsif($line =~ /^VRLINK-DIS-PORT/i ){
+            $line =~ s/^VRLINK-DIS-PORT\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $disPort = $line;
+        }
+        elsif($line =~ /^VRLINK-FEDERATION-NAME/i ){
+            $line =~ s/^VRLINK-FEDERATION-NAME\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $federationName = $line;
+        }
+        elsif($line =~ /^VRLINK-FED-FILE-PATH/i ){
+            $line =~ s/^VRLINK-FED-FILE-PATH\s+//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $fedfileName = $line;
+        }
+        elsif($line =~ /^VRLINK-RPR-FOM-VERSION/i ){
+            $line =~ s/^VRLINK-RPR-FOM-VERSION\s+\.*//i;    #remove parameter name
+            $line =~ s/\s+$//i;  #remove trailing white space
+            $rprVersion = $line;
+        }
+    }
+  
+    close $FILE;
+    
+    if ($vrlinkOn == 1)
+    {
+        if ($is_mpi)
+        {
+            print "MPI cannot be used with the vrlink interface\n";
+            return;
+        }
+        $testfed_cmd = "$testfed_exec_path ";
+        my $testfedproject = $scenario_name_no_ext;
+        if ($protocol eq 'DIS')
+        {
+            $testfedproject =~ s/-dis//;
+            $testfed_cmd = $testfed_cmd . $testfedproject . " -P DIS";
+            if (! $disIpAddress eq '' ){
+                $testfed_cmd = $testfed_cmd . ' -A ' . $disIpAddress;
+            }        
+            if (! $disDeviceAddress eq '' ){
+                $testfed_cmd = $testfed_cmd . ' -I ' . $disDeviceAddress;
+            }
+            if (! $disPort eq '' ){
+                $testfed_cmd = $testfed_cmd . ' -o ' . $disPort;
+            }
+        }
+        else
+        {   
+            if ( $protocol eq 'HLA13')
+            {
+                $testfedproject =~ s/-hla//;
+                $testfed_cmd = $testfed_cmd . $testfedproject . " -P HLA13";
+            }
+            elsif ( $protocol eq 'HLA1516')
+            {
+                $testfedproject =~ s/-hla1516//; 
+                $testfed_cmd = $testfed_cmd . $testfedproject . " -P HLA1516";
+            }
+            
+            if (! $rprVersion eq '' )
+            {
+                $testfed_cmd = $testfed_cmd . " -r $rprVersion";
+            }
+            else
+            {
+                $rprVersion = '1.0';
+            }
+            if ( $protocol eq 'HLA13' && $rprVersion eq '1.0' && $fedfileName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -F ${product_home}/scenarios/vrf/data/VR-Link.fed";
+            }
+            elsif ( $protocol eq 'HLA1516' && $rprVersion eq '1.0' && $fedfileName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -F ${product_home}/scenarios/vrf/data/VR-Link.xml";
+            }
+            elsif ( $protocol eq 'HLA1516' && $rprVersion eq '2.0017' && $fedfileName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -F ${product_home}/scenarios/vrf/data/VR-Link20017-1.xml";
+            }
+            elsif ( $protocol eq 'HLA1516' && $rprVersion eq '2.0017' && $fedfileName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -F ${product_home}/scenarios/vrf/data/VR-Link20017-1.fed";
+            }
+            if (! $fedfileName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -F $fedfileName";
+            }
+            if (! $federationName eq '')
+            {
+                $testfed_cmd = $testfed_cmd . " -f $federationName";
+            }
+        }
+
+        open(TESTFEDOUT, ">$testfedoutfile") || print $output_stream "Error: $testfedoutfile, $!\n";
+        #launch testfed in the background
+        system("$testfed_cmd > $testfedoutfile &");
+    }
+}
+

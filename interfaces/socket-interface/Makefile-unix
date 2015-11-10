@@ -1,0 +1,9 @@
+include ../interfaces/socket-interface/Makefile-common
+
+MTS2_EXEC = ../bin/mts-socket
+MTS2_OBJ = ../interfaces/socket-interface/src/mts2.o
+
+ADDON_OPTIONS   += $(SOCKET_INTERFACE_OPTIONS)
+ADDON_SRCS      += $(SOCKET_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(SOCKET_INTERFACE_INCLUDES)
+ADDON_DEPS      += $(MTS2_EXEC)

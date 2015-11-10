@@ -1,0 +1,17 @@
+
+include ../interfaces/ocula/Makefile-common
+
+ADDON_OPTIONS   += $(OCULA_INTERFACE_OPTIONS)
+ADDON_SRCS      += $(OCULA_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(OCULA_INTERFACE_INCLUDES)
+
+ocula_tester:
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/CommonFunctions.cpp $(OCULA_INTERFACE_OPTIONS) -I$(OCULA_INTERFACE_INCLUDES) -I../include/ -o $(OCULA_INTERFACE_DIR)/CommonFunctions.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/ExecSettings.cpp $(OCULA_INTERFACE_OPTIONS) -I$(OCULA_INTERFACE_INCLUDES) -I../include/ -o $(OCULA_INTERFACE_DIR)/ExecSettings.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/VopsProperty.cpp $(OCULA_INTERFACE_OPTIONS) -I$(OCULA_INTERFACE_INCLUDES) -I../include/ -o $(OCULA_INTERFACE_DIR)/VopsProperty.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/VopsRpcInterface.cpp $(OCULA_INTERFACE_OPTIONS) -I$(OCULA_INTERFACE_INCLUDES) -I../include/ -o $(OCULA_INTERFACE_DIR)/VopsRpcInterface.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/vops.cpp $(OCULA_INTERFACE_OPTIONS) -DOCULA_TESTER -I../include/ -I$(OCULA_INTERFACE_INCLUDES) -o $(OCULA_INTERFACE_DIR)/vops.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/ops_util.cpp -I../include/ -I$(OCULA_INTERFACE_INCLUDES) -o $(OCULA_INTERFACE_DIR)/ops_util.o
+	$(CXX) $(CXXFLAGS) -g  -c $(OCULA_INTERFACE_DIR)/ocula_tester.cpp -I$(OCULA_INTERFACE_INCLUDES) -I../include/ -o $(OCULA_INTERFACE_DIR)/ocula_tester.o
+	$(CXX) -o ../bin/ocula_tester -lpthread -lrt $(OCULA_INTERFACE_DIR)/ocula_tester.o $(OCULA_INTERFACE_DIR)/vops.o $(OCULA_INTERFACE_DIR)/ops_util.o $(OCULA_INTERFACE_DIR)/VopsRpcInterface.o $(OCULA_INTERFACE_DIR)/VopsProperty.o $(OCULA_INTERFACE_DIR)/ExecSettings.o $(OCULA_INTERFACE_DIR)/CommonFunctions.o -L/usr/lib/x86_64-linux-gnu -L/usr/local/lib -lstdc++ -lpthread -lrt
+

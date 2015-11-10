@@ -1,0 +1,29 @@
+ifdef DIS_INTERFACE_OBJS
+$(error You can not build with both the DIS and VR-Link Interfaces.)
+endif
+
+ifdef HLA_INTERFACE_OBJS
+$(error You can not build with both the HLA and VR-Link Interfaces.)
+endif
+
+include ../interfaces/vrlink/Makefile-common
+
+#Use this if a vrlink dev environment is installed and you want to build vrlink dlls
+#include ../interfaces/vrlink/Makefile-unix-so 
+#Use this if no vrlink environment is installed and you need prebuilt lib version
+#include ../interfaces/vrlink/Makefile-unix-lib-so 
+
+VRLINK_INTERFACE_OBJS_PRE = $(VRLINK_INTERFACE_SRCS:.cpp=.o)
+VRLINK_INTERFACE_OBJS = $(VRLINK_INTERFACE_OBJS_PRE:.c=.o)
+
+VRLINK_INTERFACE_INCLUDES = -I$(VRLINK_INTERFACE_SRC_DIR)
+
+ADDON_OPTIONS   += $(VRLINK_INTERFACE_OPTIONS)
+ADDON_HDRS      += $(VRLINK_INTERFACE_HDRS)
+ADDON_SRCS      += $(VRLINK_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(VRLINK_INTERFACE_INCLUDES)
+
+clean-vrlink:
+	-rm -f $(VRLINK_INTERFACE_OBJS)
+
+ADDONS_CLEAN += clean-vrlink

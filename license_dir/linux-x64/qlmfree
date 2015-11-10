@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ ! -f qlmfree ]
+then
+    echo qlmfree must be in current directory
+    exit 1
+fi
+
+if [ $# != 3 ]
+then
+    echo "To free an active license, run qlmlist to list active licenses.  Then run:"
+    echo
+    echo "    qlmfree user host display"
+    echo
+    echo The user, host, and display parameters are listed in order for you
+    echo in the qlmlist output.
+    exit
+fi
+
+if [ ! -x lmutil ]; then
+    chmod a+x lmutil
+fi
+
+echo Attempting to free active license ...
+
+./lmutil lmremove -c .. qualnet $1 $2 $3

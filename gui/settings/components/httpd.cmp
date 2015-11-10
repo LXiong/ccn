@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<category name="HTTPD Properties" singlehost="true" loopback="disabled" propertytype="HTTPD-SINGLEHOST" displayname="HTTPD">
+    <variable name="Server-ID" key="SOURCE" type="SelectionDynamic" keyvisible="false" optional="false"/>
+</category>

@@ -1,0 +1,16 @@
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,247,0,7410,0,0,0,0,0,0,0,0,0,0,0,0,0,247,0,7410,0,247,0,0,0,0,0,0,0,0
+2,0,64,0,1920,0,0,0,0,64,0,1920,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,0,0
+3,64,247,1920,7410,0,0,0,0,247,0,7410,0,0,0,0,0,64,0,1920,0,64,0,247,0,0,0,0,0,0
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+total ,311,311,9330,9330,0,0,0,0,311,0,9330,0,0,0,0,0,311,0,9330,0,311,0,311,0,0,0,0,0
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,247,0,7410,0,0,0,0,0,0,0,0,0,0,0,0,0,247,0,7410,0,247,0,0,0,0,0,0,0,0
+2,0,64,0,1920,0,0,0,0,64,0,1920,0,0,0,0,0,0,0,0,0,0,0,64,0,0,0,0,0,0
+3,64,247,1920,7410,0,0,0,0,247,0,7410,0,0,0,0,0,64,0,1920,0,64,0,247,0,0,0,0,0,0
+4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+total ,311,311,9330,9330,0,0,0,0,311,0,9330,0,0,0,0,0,311,0,9330,0,311,0,311,0,0,0,0,0

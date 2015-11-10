@@ -1,0 +1,26 @@
+
+LIBS = -lpthread -ldl
+
+include ../interfaces/vrlink/testfed/Makefile-common
+include ../interfaces/vrlink/testfed/Makefile-unix-common
+
+
+$(TESTFED_TARGET): $(TESTFED_OBJS) $(TESTFED_TARGET_DEPENDENCIES)
+	$(CXX) -o $@ $(LDFLAGS) $(TESTFED_OBJS) -lpthread -ldl
+
+
+TESTFED_VRLINK_INTERFACE_OBJS_PRE = $(TESTFED_VRLINK_INTERFACE_SRCS:.cpp=.o)
+TESTFED_VRLINK_INTERFACE_OBJS = $(TESTFED_VRLINK_INTERFACE_OBJS_PRE:.c=.o)
+
+TESTFED_VRLINK_INTERFACE_INCLUDES = -I$(TESTFED_VRLINK_INTERFACE_SRC_DIR)
+
+ADDON_DEPS       += $(TESTFED_TARGET)
+
+
+clean-vrlink-testfed:
+	-rm -f ../bin/$(TESTFED_VRLINK_INTERFACE_DIS_DSO_NAME)
+	-rm -f ../bin/$(TESTFED_VRLINK_INTERFACE_HLA13_DSO_NAME)
+	-rm -f ../bin/$(TESTFED_VRLINK_INTERFACE_HLA1516_DSO_NAME)
+	-rm -rf $(TESTFED_OBJS) $(TESTFED_TARGET) makRti.log
+	
+ADDONS_CLEAN += clean-vrlink-testfed

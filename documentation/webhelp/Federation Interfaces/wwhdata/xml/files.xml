@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebWorksHelpBook version="5.0" name="Federation Interfaces" context="Federation_Interfaces" locale="en" xmlns="urn:WebWorks-Help-Book-Files-Schema">
+  <CommonWordsToSkip minlen="3">
+    a about after all also am an and another any are as at
+    be because been before being between both but by
+    came can come copyright corp corporation could
+    did do does
+    each etc
+    for from
+    get goes got
+    had has have he her here him himself his how
+    if in inc into is it its
+    let like
+    make many me might more most much must my
+    never nor not now
+    of off on one only or other our out over own
+    reserved rights
+    said same see set shall she should since so some still such
+    take than that the their them then there these they this those though through to too
+    under us use
+    very
+    was way we well were what when where which while who why will with would
+    yes yet you your
+   </CommonWordsToSkip>
+  <ScoringPrefs>
+    <meta name="keywords" weight="100" />
+    <meta name="description" weight="50" />
+    <meta name="summary" weight="50" />
+    <title weight="20" />
+    <h1 weight="15" />
+    <h2 weight="10" />
+    <caption weight="10" />
+    <h3 weight="7" />
+    <th weight="5" />
+    <h4 weight="5" />
+    <h5 weight="4" />
+    <h6 weight="3" />
+    <h7 weight="2" />
+  </ScoringPrefs>
+  <DocumentInfo>
+    <Document title="Introduction" href="Ch%201.%20Introduction.1.1.html" />
+    <Document title="Conventions Used" href="Ch%201.%20Introduction.1.2.html" />
+    <Document title="VR-Link Interface" href="Ch%202.%20VR-Link.2.1.html" />
+    <Document title="System Requirements, Installation, and Compilation" href="Ch%202.%20VR-Link.2.2.html" />
+    <Document title="High Level Architecture (HLA) Protocol" href="Ch%202.%20VR-Link.2.3.html" />
+    <Document title="Distributed Interaction Simulation (DIS) Protocol" href="Ch%202.%20VR-Link.2.4.html" />
+    <Document title="Socket Interface" href="Ch%203.%20Socket%20Interface.3.1.html" />
+    <Document title="Socket Interface Messages" href="Ch%203.%20Socket%20Interface.3.2.html" />
+    <Document title="Features of Socket Interface" href="Ch%203.%20Socket%20Interface.3.3.html" />
+    <Document title="Socket Interface Configuration" href="Ch%203.%20Socket%20Interface.3.4.html" />
+    <Document title="Output Files" href="Ch%203.%20Socket%20Interface.3.5.html" />
+    <Document title="Extractor and Synchronizer" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.1.html" />
+    <Document title="System Requirements" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.2.html" />
+    <Document title="Environment Variables for Running Extractor and Synchronizer" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.3.html" />
+    <Document title="Compiling Extractor and Synchronizer" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.4.html" />
+    <Document title="Settings Files" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.5.html" />
+    <Document title="Extraction Rules" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.6.html" />
+    <Document title="Using Extractor" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.7.html" />
+    <Document title="Using Synchronizer" href="Appendix%20A.%20Extractor%20and%20Synchronizer.4.8.html" />
+    <Document title="testfed" href="Appendix%20B.%20testfed.5.1.html" />
+    <Document title="System Requirements" href="Appendix%20B.%20testfed.5.2.html" />
+    <Document title="Environment Variables for Running testfed with HLA and DIS" href="Appendix%20B.%20testfed.5.3.html" />
+    <Document title="Compiling testfed" href="Appendix%20B.%20testfed.5.4.html" />
+    <Document title="Creating Scenarios for testfed" href="Appendix%20B.%20testfed.5.5.html" />
+    <Document title="Creating testfed Command File" href="Appendix%20B.%20testfed.5.6.html" />
+    <Document title="Running testfed" href="Appendix%20B.%20testfed.5.7.html" />
+    <Document title="Upgrading Scenarios" href="Appendix%20C.%20Upgrading%20Scenarios.6.1.html" />
+    <Document title="Upgrading HLA Scenarios" href="Appendix%20C.%20Upgrading%20Scenarios.6.2.html" />
+    <Document title="Upgrading DIS Scenarios" href="Appendix%20C.%20Upgrading%20Scenarios.6.3.html" />
+    <Document title="Inter-Simulation Communication Protocols" href="Appendix%20D.%20Protocols.7.1.html" />
+    <Document title="Real-time Platform Reference Federation Object Model (RPR FOM) 1.0" href="Appendix%20D.%20Protocols.7.2.html" />
+    <Document title="HLA Protocol RPR-FOM 1.0 Extensions Interface Communications Document (ICD)" href="Appendix%20D.%20Protocols.7.3.html" />
+    <Document title="HLA Protocol Dynamic Statistics Interface Communications Document (ICD)" href="Appendix%20D.%20Protocols.7.4.html" />
+    <Document title="DIS PDUs" href="Appendix%20D.%20Protocols.7.5.html" />
+    <Document title="DIS Extensions ICD" href="Appendix%20D.%20Protocols.7.6.html" />
+    <Document title="MTS Emulator" href="Appendix%20E.%20MTS%20Emulator.8.1.html" />
+    <Document title="MTS Configuration File" href="Appendix%20E.%20MTS%20Emulator.8.2.html" />
+    <Document title="Running QualNet and MTS" href="Appendix%20E.%20MTS%20Emulator.8.3.html" />
+    <Document title="Sample Scenario for Running QualNet and MTS" href="Appendix%20E.%20MTS%20Emulator.8.4.html" />
+  </DocumentInfo>
+  <TopicMap />
+</WebWorksHelpBook>

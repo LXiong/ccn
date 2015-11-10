@@ -1,0 +1,15 @@
+#
+# Define Developer Library models.
+#
+
+include ../addons/db/Makefile-common
+
+ADDON_OPTIONS   += $(DATABASE_OPTIONS)
+ADDON_SRCS      += $(DATABASE_SRCS)
+ADDON_INCLUDES  += $(DATABASE_INCLUDES)
+
+ADDON_LIBRARIES += -ldl
+
+ADDONS_CLEAN += dbclean
+dbclean:
+	cd $(DATABASE_SRCDIR) & rm -f *.o

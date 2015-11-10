@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<category name="TELNET Properties" singlehost="false" loopback="disabled" propertytype="TELNET-DYNAMICADDRESS" displayname="TELNET">
+   <variable name="Source" key="SOURCE" type="SelectionDynamic" keyvisible="false" optional="false" help_ref="Telecommunications Network (TELNET):Client node&apos;s ID or IP address."/>
+   <variable name="Destination" key="DESTINATION-URL" type="Text" default="[Required]" keyvisible="false" optional="false" help_ref="Telecommunications Network (TELNET):Server node&apos;s ID, IP address, or Fully Qualified Domain Name (FQDN)."/>
+   <variable name="Session Duration" key="SESSION-DURATION" type="Time" default="100S" help="Traffic determined by tcplib traces." keyvisible="false" optional="false" help_ref="Telecommunications Network (TELNET):Length of the entire session."/>
+   <variable name="Start Time" key="START-TIME" type="Time" default="1S" keyvisible="false" optional="false" help_ref="Telecommunications Network (TELNET):Time when the transmission of packets should begin."/>
+</category>

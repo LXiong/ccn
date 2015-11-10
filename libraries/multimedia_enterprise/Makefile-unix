@@ -1,0 +1,9 @@
+#
+# Define Multimedia & Enterprise Library models.
+#
+
+include ../libraries/multimedia_enterprise/Makefile-common
+
+ADDON_OPTIONS   += $(ENTERPRISE_OPTIONS)
+ADDON_SRCS      += $(ENTERPRISE_SRCS)
+ADDON_INCLUDES  += $(ENTERPRISE_INCLUDES)

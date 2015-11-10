@@ -1,0 +1,9 @@
+#
+# Define Advanced Wireless Library models.
+#
+
+include ../libraries/advanced_wireless/Makefile-common
+
+ADDON_OPTIONS   += $(ADVANCED_WIRELESS_OPTIONS)
+ADDON_SRCS      += $(ADVANCED_WIRELESS_SRCS)
+ADDON_INCLUDES  += $(ADVANCED_WIRELESS_INCLUDES)

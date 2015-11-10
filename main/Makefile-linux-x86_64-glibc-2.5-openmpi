@@ -1,0 +1,66 @@
+#
+# This Makefile is for QualNet on Linux, using gcc and g++.
+#
+# Instructions:
+#
+# (1) Copy Makefile-linux to Makefile.
+# (2) Run "make".
+#
+# Or, run "make -f Makefile-linux".
+#
+# For a list of supported platforms and compilers, please visit http://www.scalable-networks.com/content/products/technology-overview
+#
+
+ARCH = linux-x86_64-glibc-2.5
+COMPILER = openmpi-ofed1.5
+
+#
+# Create the first rule in the Makefile, for target "all".  make, when
+# given no target, defaults to the target in the first rule.
+#
+
+SIM_EXEC = ../bin/jne
+ALL_TARGETS = $(SIM_EXEC)
+
+all: qualnet
+
+#
+# Addons & Libraries
+#
+include Makefile-addons-unix
+
+#
+# Load rules for UNIX platforms.
+#
+
+include Makefile-unix-common
+
+#
+# Add Linux-specific libraries.
+#
+
+LIBS += -lpthread -ldl
+
+#
+# Define active optimization, debugging flags.
+#
+# Debugging works best when optimizations are off (uncomment the DEBUG
+# macro, comment out the OPT macro, then make clean and make).
+#
+
+FLAGS = -DPARALLEL -DUSE_MPI
+#DEBUG = -g 
+OPT = -O3
+CC = mpicc
+CXX = mpicxx
+LDFLAGS = 
+
+# OPT += -DVMWARE_OPTIMIZATION
+
+#
+# Uncomment the lines below if modifying kernel source code.  These add
+# additional targets for recompilation.  Customers will not have this option.
+#
+
+#include ../kernel/src/Makefile-unix
+#include ../addons/kernel/Makefile-unix

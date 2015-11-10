@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root version="1.0">
+<category name="CBR Properties" singlehost="false" loopback="disabled" propertytype="CBR-DYNAMICADDRESS" displayname="CBR">
+   <variable name="Source" key="SOURCE" type="SelectionDynamic" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Client node&apos;s ID or IP address." />
+   <variable name="Destination" key="DESTINATION-URL" type="Text" default="[Required]" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Server node&apos;s ID, IP address, or Fully Qualified Domain Name (FQDN)." />
+   <variable name="Items to Send" key="ITEM-TO-SEND" type="Integer" default="100" min="0" keyvisible="false" help="Number of items to send" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Number of packets to send." />
+   <variable key="ITEM-SIZE" type="Integer" name="Item Size (bytes)" default="512" min="24" max="65023" keyvisible="false" help="Item size in bytes" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Size of each item." />
+   <variable name="Interval" key="INTERVAL" type="Time" default="1S" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:(inter-departure time)" />
+   <variable name="Start Time" key="START-TIME" type="Time" default="1S" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Time when the transmission of packets should begin." />
+   <variable name="End Time" key="END-TIME" type="Time" default="25S" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Time when the transmission of packets should end." />
+   <variable name="Priority" key="PRIORITY" type="Selection" default="PRECEDENCE" keyvisible="false" optional="true" help_ref="Constant Bit Rate (CBR) Traffic Generator:Value of the 3-bit Precedence field of the IP header for the packets generated." >
+      <option value="TOS" name="TOS" help="value (0-255) of the TOS bits in the IP header">
+         <variable name="TOS Value" key="TOS-BITS" type="Integer" default="0" min="0" max="255" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Value of the 8-bit TOS field of the IP header for the packets generated." />
+      </option>
+      <option value="DSCP" name="DSCP" help="value (0-63) of the DSCP bits in the IP header">
+         <variable name="DSCP Value" key="DSCP-BITS" type="Integer" default="0" min="0" max="63" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Value of the 6-bit DSCP field of the IP header for the packets generated." />
+      </option>
+      <option value="PRECEDENCE" name="Precedence" help="value (0-7) of the Precedence bits in the IP header">
+         <variable name="Precedence Value" key="PRECEDENCE-BITS" type="Integer" default="0" min="0" max="7" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Value of the 3-bit Precedence field of the IP header for the packets generated." />
+      </option>
+   </variable>
+   <variable name="Enable RSVP-TE" key="ENABLE-RSVP-TE" type="Selection" default="N/A" keyvisible="false" optional="true" help_ref="Constant Bit Rate (CBR) Traffic Generator:Specifies that RSVP-TE is used to transmit packets over an MPLS network." >
+      <option value="N/A" name="No" />
+      <option value="RSVP-TE" name="Yes" />
+   </variable>
+<variable name="Enable MDP" key="MDP-ENABLED" type="Selection" default="N/A" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Keyword which specifies that MDP is enabled for the application." >
+    <option value="N/A" name="No" />
+    <option value="MDP-ENABLED" name="Yes">
+      <variable name="Specify MDP Profile" key="MDP-PROFILE" type="Selection" default="N/A" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Name of the MDP profile to be used with the application." >
+          <option value="N/A" name="No" />
+          <option value="MDP-PROFILE" name="Yes">
+              <variable name="MDP Profile Name" key="MDP-PROFILE-NAME" type="Text" default="[Required]" keyvisible="false" optional="false" help_ref="Constant Bit Rate (CBR) Traffic Generator:Name of the MDP profile to be used with the application." />
+          </option>
+      </variable>
+    </option>
+  </variable>
+  <variable name="Session Name" key="APPLICATION-NAME" type="Text" default="[Optional]" spacesAllowed="false" optional="true" keyvisible="true" />
+</category>
+
+</root>

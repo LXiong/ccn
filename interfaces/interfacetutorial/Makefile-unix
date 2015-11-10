@@ -1,0 +1,6 @@
+
+include ../interfaces/interfacetutorial/Makefile-common
+
+ADDON_OPTIONS   += $(TUTORIAL_INTERFACE_OPTIONS)
+ADDON_SRCS      += $(TUTORIAL_INTERFACE_SRCS)
+ADDON_INCLUDES  += $(TUTORIAL_INTERFACE_INCLUDES)

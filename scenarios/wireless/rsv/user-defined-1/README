@@ -1,0 +1,36 @@
+PURPOSE:-
+--------
+To test operation of the RSV PHY
+
+
+
+SCENARIO:-
+---------
+A single subnet with three nodes is created in the simulation.  
+
+GROUND STATION (2)   GROUND STATION (3)
+        \                /
+         \              /
+          \            /
+           SATELLITE (1)
+
+A single flow between teh ground stations is created using the 
+LOOKUP application:
+
+LOOKUP 2 3 0 512 100 1.00S 0S 10S 295S
+
+RUN:-
+----
+Run '<QUALNET_HOME>/bin/qualnet satellite.config'.
+
+
+DESCRIPTION OF THE FILES:-
+-------------------------
+1. lookup.app -  QualNet configuration file for application input.
+2. satellite.config - QualNet configuration input file.
+3. satellite.scn - QualNet graphical scenario file
+4. default.router-models - QualNet router model input file
+5. satellite.expected.stat - QualNet statistics collection.
+6. satellite.nodes - QualNet position input file
+7. satellite.routes-static - QualNet static route input file
+8. README - This file.
