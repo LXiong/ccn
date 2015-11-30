@@ -9,5 +9,4 @@
 <body>
 
 <protocol_map>3 IPv4</protocol_map>
-<protocol_map>30 ICMP</protocol_map>
 <protocol_map>7 BELLMANFORD</protocol_map>

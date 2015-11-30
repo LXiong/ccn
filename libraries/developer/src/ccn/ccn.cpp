@@ -44,9 +44,6 @@ void AppCCNNodeInit(Node* node, NodeRole role, const NodeInput *nodeInput)
   }
   nodeData->node_role = role;
 
-  //fujiwara
-  		  printf("before FIB_INPUT\n");
-
   //FIB input
   nodeData->fibMapInput(node, "fib.conf");
 
@@ -343,8 +340,8 @@ void AppLayerCCNClient(Node* node, Message* msg) {
       openResult = (TransportToAppDataSent*) MESSAGE_ReturnInfo(msg);
 
       APP_TcpCloseConnection(node, openResult->connectionId);
-
       break;
+
     case MSG_APP_FromTransCloseResult:
       break;
     default:
@@ -360,6 +357,40 @@ void AppLayerCCNHost(Node* node, Message* msg) {
 
   switch(msg->eventType) 
   {
+  /*//fujiwara//
+   * 1. 移動を検知したらMR(interest)を作成してPoAとHOMEにおくる
+   * 2. MR（data）を受け取ったら
+   * 		さらに分岐
+  case hand_over_kenchi //やることを書く
+  {
+      clocktype send_delayTime;
+          uint32_t chunk_num;
+          map<uint32_t, clocktype>::iterator it;
+          uint32_t next_msgName = global_node_data->return_MsgName();
+          uint32_t end_chunk_num = next_msgName % 40 + 10;
+
+          CcnMsg* ccnMsg;
+            ccnMsg = new CcnMsg();
+            ccnMsg->resent_times = 0;
+            ccnMsg->ccn_method = DEFAULT;
+            ccnMsg->msg_type = Interest;
+            ccnMsg->msg_name = next_msgName; //msg_nameはよくわからない　多分解析のときにわかりやすくする狙いか?
+            ccnMsg->msg_chunk_num = nodeData->return_lastChunkNum(ccnMsg) + 1;
+            ccnMsg->EncodeFullNameMsg();
+            ccnMsg->sender_node_id = node->nodeId;    //　node->nodeid = このメッセージを送るノードのID
+            ccnMsg->source_node_id = source_node_id;  //ここを変更　source_node_id = 送信先ノード(現状サーバが一個しかとれない仕様……)
+            ccnMsg->payload_length = 30; //ペイロードはヘッダを除いたデータ部分の大きさ
+            ccnMsg->hops_limit = 20;
+            ccnMsg->content_type = CommonData;
+            ccnMsg->end_chunk_num = end_chunk_num;
+            ccnMsg->interest_genTime = node->getNodeTime();
+            ccnMsg->data_genTime     = node->getNodeTime();
+
+            nodeData->set_lastChunkNum(ccnMsg); //chunkの最後の値を記録 よくわからない　必要?
+            nodeData->reqMapInput(node, ccnMsg); //msg_full_nameとノードのシミュレーション時間のペアを記録する
+            nodeData->fibSend_DEFAULT(node, ccnMsg);//送信
+            nodeData->make_reTransMsg(node, ccnMsg);//再送の話　よくわからない　必要か?
+  }*/
     case MSG_APP_FromTransDataReceived: // データ受け取り時
     {
       TransportToAppDataReceived *openResult;

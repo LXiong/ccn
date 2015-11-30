@@ -244,8 +244,7 @@ Node* NODE_CreateNode(PartitionData* partitionData,
  *     node:         node for which message is to be delivered
  *     msg:          message for which instructions are to be executed
  */
-void
-NODE_ProcessEvent(Node *node, Message *msg)
+void NODE_ProcessEvent(Node *node, Message *msg)
 {
     SimContext::setCurrentNode(node);
 

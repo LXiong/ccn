@@ -43,3 +43,12 @@ node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_
 6,112,129,83440,83950,0,0,0,0,129,0,83950,0,0,0,0,0,112,0,83440,0,56,56,73,56,0,0,0,0,81760
 7,56,56,81760,1680,0,0,0,0,56,0,1680,0,0,0,0,0,56,0,81760,0,0,56,56,0,0,0,0,0,0
 total ,712,712,421760,421760,0,0,0,0,712,0,421760,0,112,0,163520,0,712,0,421760,0,432,280,432,280,0,0,0,0
+node->nodeId,packet_send,packet_recv,packetSize_send,packetSize_recv,sendToRecv_delay,generateToRecv_delay,cache_hitTimes,packet_lostTimes,commonPacket_recv,videoPacket_recv,commonPacketSize_recv,videoPacketSize_recv,request_commonPacket_recv,request_videoPacket_recv,request_commonPacketSize_recv,request_videoPacketSize_recv,_commonPacket_send,_videoPacket_send,_commonPacketSize_send,_videoPacketSize_send,Packet_send,et_send,Packet_recv,et_recv,fakeInterest_send,fakeData_send,fakeInterest_recv,fakeData_recv,cs_size
+1,115,56,3450,81760,0,0,0,0,56,0,81760,0,56,0,81760,0,115,0,3450,0,115,0,0,56,0,0,0,0,0
+2,115,56,3450,81760,0,0,0,0,56,0,81760,0,56,0,81760,0,115,0,3450,0,115,0,0,56,0,0,0,0,0
+3,129,171,83950,85210,0,0,0,0,171,0,85210,0,0,0,0,0,129,0,83950,0,73,56,115,56,0,0,0,0,81760
+4,185,244,165710,87400,0,0,0,0,244,0,87400,0,0,0,0,0,185,0,165710,0,73,112,188,56,0,0,0,0,81760
+5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+6,112,129,83440,83950,0,0,0,0,129,0,83950,0,0,0,0,0,112,0,83440,0,56,56,73,56,0,0,0,0,81760
+7,56,56,81760,1680,0,0,0,0,56,0,1680,0,0,0,0,0,56,0,81760,0,0,56,56,0,0,0,0,0,0
+total ,712,712,421760,421760,0,0,0,0,712,0,421760,0,112,0,163520,0,712,0,421760,0,432,280,432,280,0,0,0,0

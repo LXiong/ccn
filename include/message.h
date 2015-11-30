@@ -303,7 +303,7 @@ enum MessageInfoType
 
 // /**
 // STRUCT      :: Message
-// DESCRIPTION :: This is the main data strucure that represents a discrete
+// DESCRIPTION :: This is the main data structure that represents a discrete
 //                event in qualnet. This is used to represent timer as well
 //                as to simulate actual sending of packets across the network.
 // **/

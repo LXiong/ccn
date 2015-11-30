@@ -30,6 +30,13 @@ enum messageType
   // 再送 
   //trueInterest,
   //trueData,
+
+  //---------------------
+  //fujiwara PROPOSAL
+  //---------------------
+  MRIntereset,
+  MRData,
+
 };
 
 enum contentType
