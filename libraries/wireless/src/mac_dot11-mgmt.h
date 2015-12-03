@@ -92,7 +92,7 @@ void MacDot11ManagementRetransmitFrame(
     Node* node,
     MacDataDot11* dot11);
 
-void MacDot11ManagementProcessFrame(
+void MacDot11ManagementProcessFrame( //受信の話らしい
     Node* node,
     MacDataDot11* dot11,
     Message* msg);

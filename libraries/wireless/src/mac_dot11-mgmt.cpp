@@ -3977,6 +3977,11 @@ void MacDot11ManagementProcessFrame(
     DOT11_ManagementVars * mngmtVars =
         (DOT11_ManagementVars*) dot11->mngmtVars;
 
+//ASSOC = association
+//REASSOC = reassociation
+//REQ = request
+//RESP = responce
+
     switch (hdr->frameType) {
 
         case DOT11_ASSOC_REQ:
@@ -3994,6 +3999,9 @@ void MacDot11ManagementProcessFrame(
                 mngmtVars->assocRespReceived++;
                 MacDot11StationTransmitAck(node,dot11,hdr->sourceAddr);
                 MacDot11ManagementProcessAssociateResponse(node, dot11, rxFrame);
+// node　にnowをPoAにしてとnowを追加することで
+//変化をここで保持するのはどうか
+//ASSOC_REQを送信したAPのノード番号はどこに保持されてるんだ……
             }
             break;
         }
@@ -4014,6 +4022,8 @@ void MacDot11ManagementProcessFrame(
             }
             break;
         }
+//PROBE_REQUEST
+//= 端末のほうから自発的にAPいませんか?って喋る方式
         case DOT11_PROBE_REQ:
         {
             dot11->mgmtSendResponse = TRUE;

@@ -131,6 +131,8 @@ void AppLayerCCNClient(Node* node, Message* msg) {
       {
         case APP_TIMER_SEND_PKT:
         {
+            printf("この表示がなければ、APP_TIMER_SEND_PKTはビデオストリーミング確定 ");
+
           clocktype send_delayTime;
           uint32_t chunk_num;
           map<uint32_t, clocktype>::iterator it;
@@ -195,6 +197,8 @@ void AppLayerCCNClient(Node* node, Message* msg) {
         
         case APP_TIMER_DATA_SEND_PKT:
         {
+            printf("この表示がなければ、APP_TIMER_DATA_SEND_PKTはいらない子。てかどうやってここはいるんだ… ");
+
           CcnMsg* ccnMsg;
           for(int i = 0; i < 3; i++) {
             ccnMsg = new CcnMsg();
@@ -230,6 +234,8 @@ void AppLayerCCNClient(Node* node, Message* msg) {
 
         case APP_TIMER_fakeINTEREST_SEND_PKT:
         {
+            printf("この表示がなければ、APP_TIMER_fakeINTEREST_SEND_PKTはいらない子。てかここどうやって入るんだ… ");
+
           // 動画の配信分をすべて出す
           CcnMsg* ccnMsg;
           for(int i = 0; i < 3; i++) {
@@ -266,6 +272,7 @@ void AppLayerCCNClient(Node* node, Message* msg) {
 
         case APP_TIMER_REGULAR_SEND_PKT:
         {
+            printf("この表示は 予想ではたくさんでる。APP_TIMER_REGULAR_SEND_PKT\n");
           clocktype send_delayTime;
           uint32_t chunk_num;
           map<uint32_t, clocktype>::iterator it;
@@ -299,6 +306,7 @@ void AppLayerCCNClient(Node* node, Message* msg) {
           } while(nodeData->set_windowSize(node, ccnMsg));
 
           APP_SetTimer(node, APP_CCN_CLIENT, 0, APP_CCN_LISTEN_PORT, APP_TIMER_REGULAR_SEND_PKT, nodeData->commonPacketGenerateTime);
+
           break;
         } // APP_TIMER_REGULAR_SEND_PKT
 
