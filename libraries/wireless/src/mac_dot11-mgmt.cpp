@@ -3942,6 +3942,7 @@ int MacDot11ManagementProcessADDTSResponse(
  * \return          int             : Error code
  */
 //--------------------------------------------------------------------------
+
 void MacDot11ManagementProcessFrame(
     Node* node,
     MacDataDot11* dot11,
@@ -3977,6 +3978,7 @@ void MacDot11ManagementProcessFrame(
     DOT11_ManagementVars * mngmtVars =
         (DOT11_ManagementVars*) dot11->mngmtVars;
 
+//fujiwara
 //ASSOC = association
 //REASSOC = reassociation
 //REQ = request
@@ -3999,9 +4001,13 @@ void MacDot11ManagementProcessFrame(
                 mngmtVars->assocRespReceived++;
                 MacDot11StationTransmitAck(node,dot11,hdr->sourceAddr);
                 MacDot11ManagementProcessAssociateResponse(node, dot11, rxFrame);
-// node　にnowをPoAにしてとnowを追加することで
+// node　にnowをPoAにして,nowを追加することで
 //変化をここで保持するのはどうか
 //ASSOC_REQを送信したAPのノード番号はどこに保持されてるんだ……
+                  //これあってるか要検証
+                Mac802Address NowAPAddress =
+                        ((DOT11_FrameHdr*)MESSAGE_ReturnPacket(frame))
+                        ->sourceAddr;
             }
             break;
         }

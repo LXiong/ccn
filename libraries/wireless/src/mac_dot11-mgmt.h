@@ -752,11 +752,14 @@ BOOL MacDot11ManagementCheckFrame(
         }
         dot11->mgmtSendResponse = FALSE;
 
+         //modified by fujiwara
+          //多分このソースノードアドレスが新しいAPだと思うんだけど違うのかな……
         // Process the frame
         MacDot11ManagementProcessFrame(
             node,
             dot11,
-            frame);
+            frame/*,
+            sourceNodeAddress*/);
 
         // Update stats
         DOT11_ManagementVars * mngmtVars =
