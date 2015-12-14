@@ -272,7 +272,7 @@ void AppLayerCCNClient(Node* node, Message* msg) {
 
         case APP_TIMER_REGULAR_SEND_PKT:
         {
-            printf("この表示は 予想ではたくさんでる。APP_TIMER_REGULAR_SEND_PKT\n");
+            //printf("この表示は 予想ではたくさんでる。APP_TIMER_REGULAR_SEND_PKT\n");
           clocktype send_delayTime;
           uint32_t chunk_num;
           map<uint32_t, clocktype>::iterator it;

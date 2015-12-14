@@ -4003,11 +4003,7 @@ void MacDot11ManagementProcessFrame(
                 MacDot11ManagementProcessAssociateResponse(node, dot11, rxFrame);
 // node　にnowをPoAにして,nowを追加することで
 //変化をここで保持するのはどうか
-//ASSOC_REQを送信したAPのノード番号はどこに保持されてるんだ……
-                  //これあってるか要検証
-                Mac802Address NowAPAddress =
-                        ((DOT11_FrameHdr*)MESSAGE_ReturnPacket(frame))
-                        ->sourceAddr;
+
             }
             break;
         }

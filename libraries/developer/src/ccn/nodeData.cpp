@@ -909,6 +909,7 @@ void NodeData::fibMapInput(Node* node, const char* filename) {
   }
   ifs.close();
 
+  //fujiwara fibの書き方とか確かめるためのデバッガ
 printf("sorceNodeID  ");
   cout<< sourceNodeId <<endl;
   FibMap_t::iterator itr;
@@ -919,6 +920,7 @@ printf("キー  ");
 printf("値  ");
       cout<< itr->second << endl;
     }
+
 }
 
 void NodeData::release_windowSize(Node* node, CcnMsg* ccnMsg) {
